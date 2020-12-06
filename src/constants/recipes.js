@@ -1,4 +1,4 @@
-export default [
+const RECIPES = [
   {
     id: 0,
     name: 'Rolled Cheese snack',
@@ -55,3 +55,5 @@ export default [
     ]
   }
 ]
+
+export default RECIPES

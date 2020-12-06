@@ -25,12 +25,20 @@
       id="main-sheet"
       class="overflow-y-auto"
     >
-      <div class="container">
-        <h2>What's in your fridge?</h2>
-        <IngredientSearchBar />
-        <h2>You should cook one of these tonight:</h2>
-        <RecipeList />
-      </div>
+      <v-container>
+        <v-row no-gutters class="pt-5">
+          <h2>What's in your fridge?</h2>
+        </v-row>
+        <v-row no-gutters>
+          <IngredientSearchBar />
+        </v-row>
+        <v-row no-gutters>
+          <h2>You should cook one of these tonight:</h2>
+        </v-row>
+        <v-row no-gutters>
+          <RecipeList />
+        </v-row>
+      </v-container>
     </v-main>
   </div>
 </template>

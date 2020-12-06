@@ -1,4 +1,4 @@
-export default [
+const INGREDIENTS = [
   'pastry dough',
   'grated cheese',
   'asparagus',
@@ -17,3 +17,5 @@ export default [
   'oranges',
   'eggs'
 ]
+
+export default INGREDIENTS
