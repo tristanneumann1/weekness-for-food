@@ -12,10 +12,8 @@
       v-else
       class="recipe-card ma-3"
       v-for="recipe in sortedRecipes"
+      v-bind="recipe"
       :key="recipe.id"
-      :name="recipe.name"
-      :storedIngredients="recipe.storedIngredients"
-      :missingIngredients="recipe.missingIngredients"
     />
   </div>
 </template>

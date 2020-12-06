@@ -10,6 +10,7 @@ const RECIPES = [
   {
     id: 1,
     name: 'Asparagus and ham',
+    img: 'https://picsum.photos/200/300?random',
     ingredients: [
       'asparagus',
       'smoked ham'
