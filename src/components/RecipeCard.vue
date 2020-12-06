@@ -1,8 +1,17 @@
 <template>
   <v-card>
-    <v-card-title primary-title>
-      {{name}}
-    </v-card-title>
+    <v-img
+      dark
+      height="250"
+      class="align-end"
+      :src="`https://picsum.photos/200/3${Math.floor(Math.random() * 100)}?random`"
+    >
+      <v-card-title
+        primary-title
+        class="recipe-title"
+        v-text="name"
+      />
+    </v-img>
     <v-card-text>
       <ul v-if="storedIngredients.length">
         Ingredients in your fridge:
@@ -28,3 +37,8 @@ export default {
   props: ['name', 'storedIngredients', 'missingIngredients']
 };
 </script>
+<style scoped>
+.recipe-title {
+  word-break: break-word;
+}
+</style>

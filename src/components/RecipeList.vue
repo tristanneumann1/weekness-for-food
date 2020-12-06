@@ -5,7 +5,7 @@
         v-for="idx in 6"
         :key="idx"
         type="card"
-        class="recipe-card ma-3"
+        class="recipe-card-skeleton ma-3"
       />
     </template>
     <RecipeCard
@@ -56,6 +56,10 @@ export default {
 
 <style scoped>
 .recipe-card {
-  min-width: 300px;
+  flex: 1;
+  min-width: 200px;
+}
+.recipe-card-skeleton {
+  width: 30%;
 }
 </style>
