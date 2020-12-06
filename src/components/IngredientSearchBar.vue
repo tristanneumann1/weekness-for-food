@@ -16,7 +16,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: "IngredientSearchBar",
+  name: 'IngredientSearchBar',
   props: {
     loading: Boolean
   },

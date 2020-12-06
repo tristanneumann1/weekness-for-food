@@ -49,7 +49,7 @@ import RecipeList from '@/components/RecipeList'
 import { mapActions } from 'vuex'
 
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   components: {
     IngredientSearchBar,
     RecipeList
