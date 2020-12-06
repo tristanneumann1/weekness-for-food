@@ -1,19 +1,17 @@
 <template>
   <v-app>
-    <v-main>    
-      <IngredientForm />
-    </v-main>
+    <HomePage />
   </v-app>
 </template>
 
 <script>
-import IngredientForm from './components/IngredientForm';
+import HomePage from './pages/HomePage';
 
 export default {
   name: 'App',
 
   components: {
-    IngredientForm,
+    HomePage,
   }
 };
 </script>
