@@ -22,10 +22,10 @@
 
 <script>
 import RecipeCard from '@/components/RecipeCard'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
-  name: "RecipeList",
+  name: 'RecipeList',
   components: {
     RecipeCard
   },
@@ -33,14 +33,21 @@ export default {
     loading: Boolean
   },
   computed: {
+    ...mapState(['selectedIngredients']),
     ...mapGetters({
       recipes: 'recipesList'
     }),
     sortedRecipes () {
       return this.recipes.map(recipe => {
-        recipe.storedIngredients = []
-        recipe.missingIngredients = []
+        recipe.storedIngredients = recipe.ingredients.filter(ingredient => {
+          return this.selectedIngredients.includes(ingredient)
+        })
+        recipe.missingIngredients = recipe.ingredients.filter(ingredient => {
+          return !this.selectedIngredients.includes(ingredient)
+        })
         return recipe
+      }).sort((recipe1, recipe2) => {
+        return recipe1.missingIngredients.length - recipe2.missingIngredients.length
       })
     }
   }
