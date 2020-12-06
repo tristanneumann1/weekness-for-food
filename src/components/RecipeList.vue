@@ -1,11 +1,21 @@
 <template>
-  <div class="d-flex">
+  <div class="d-flex flex-wrap">
+    <template v-if="loading">
+      <v-skeleton-loader
+        v-for="idx in 6"
+        :key="idx"
+        type="card"
+        class="recipe-card ma-3"
+      />
+    </template>
     <RecipeCard
-        v-for="recipe in sortedRecipes"
-        :key="recipe.id"
-        :name="recipe.name"
-        :storedIngredients="recipe.storedIngredients"
-        :missingIngredients="recipe.missingIngredients"
+      v-else
+      class="recipe-card ma-3"
+      v-for="recipe in sortedRecipes"
+      :key="recipe.id"
+      :name="recipe.name"
+      :storedIngredients="recipe.storedIngredients"
+      :missingIngredients="recipe.missingIngredients"
     />
   </div>
 </template>
@@ -18,6 +28,9 @@ export default {
   name: "RecipeList",
   components: {
     RecipeCard
+  },
+  props: {
+    loading: Boolean
   },
   computed: {
     ...mapGetters({
@@ -35,5 +48,7 @@ export default {
 </script>
 
 <style scoped>
-
+.recipe-card {
+  min-width: 300px;
+}
 </style>

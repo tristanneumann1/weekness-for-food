@@ -30,13 +30,13 @@
           <h2>What's in your fridge?</h2>
         </v-row>
         <v-row no-gutters>
-          <IngredientSearchBar />
+          <IngredientSearchBar :loading="loadingData" />
         </v-row>
         <v-row no-gutters>
           <h2>You should cook one of these tonight:</h2>
         </v-row>
         <v-row no-gutters>
-          <RecipeList />
+          <RecipeList :loading="loadingData" />
         </v-row>
       </v-container>
     </v-main>
@@ -54,6 +54,11 @@ export default {
     IngredientSearchBar,
     RecipeList
   },
+  data () {
+    return {
+      loadingData: false
+    }
+  },
   methods: {
     ...mapActions([
       'fetchIngredients',
@@ -61,8 +66,13 @@ export default {
     ])
   },
   created() {
-    this.fetchIngredients()
-    this.fetchRecipes()
+    this.loadingData = true
+    Promise.all([
+      this.fetchIngredients(),
+      this.fetchRecipes()
+    ]).finally(() => {
+      this.loadingData = false
+    })
   }
 }
 </script>

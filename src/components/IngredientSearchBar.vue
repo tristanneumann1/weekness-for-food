@@ -2,6 +2,7 @@
   <v-combobox
       v-model="selectedIngredients"
       :items="ingredients"
+      :loading="loading"
       label="What is in your fridge?"
       clearable
       small-chips
@@ -16,6 +17,9 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: "IngredientSearchBar",
+  props: {
+    loading: Boolean
+  },
   data: () => ({
     selectedIngredients: []
   }),
