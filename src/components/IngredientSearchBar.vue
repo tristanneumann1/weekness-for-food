@@ -8,17 +8,25 @@
       filled
       deletable-chips
       multiple
+      @change="updateSelectedIngredients"
   ></v-combobox>
 </template>
 
 <script>
-import INGREDIENTS from '@/constants/ingredients'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: "IngredientSearchBar",
   data: () => ({
-    ingredients: INGREDIENTS,
     selectedIngredients: []
-  })
+  }),
+  computed: {
+    ...mapGetters({
+      ingredients: 'ingredientsList'
+    })
+  },
+  methods: {
+    ...mapActions(['updateSelectedIngredients'])
+  }
 }
 </script>
 

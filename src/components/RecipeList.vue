@@ -12,7 +12,7 @@
 
 <script>
 import RecipeCard from '@/components/RecipeCard'
-import RECIPES from '@/constants/recipes'
+import { mapGetters } from 'vuex'
 
 export default {
   name: "RecipeList",
@@ -20,8 +20,11 @@ export default {
     RecipeCard
   },
   computed: {
+    ...mapGetters({
+      recipes: 'recipesList'
+    }),
     sortedRecipes () {
-      return RECIPES.map(recipe => {
+      return this.recipes.map(recipe => {
         recipe.storedIngredients = []
         recipe.missingIngredients = []
         return recipe

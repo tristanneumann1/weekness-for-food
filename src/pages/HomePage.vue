@@ -46,12 +46,23 @@
 <script>
 import IngredientSearchBar from '@/components/IngredientSearchBar'
 import RecipeList from '@/components/RecipeList'
+import { mapActions } from 'vuex'
 
 export default {
   name: "HomePage",
   components: {
     IngredientSearchBar,
     RecipeList
+  },
+  methods: {
+    ...mapActions([
+      'fetchIngredients',
+      'fetchRecipes'
+    ])
+  },
+  created() {
+    this.fetchIngredients()
+    this.fetchRecipes()
   }
 }
 </script>
