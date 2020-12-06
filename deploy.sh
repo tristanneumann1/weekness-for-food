@@ -17,6 +17,6 @@ git add -A
 git commit -m 'deploy'
 
 git remote add origin https://github.com/tristanneumann1/weekness-for-food.git
-git push --set-upstream origin master:gh-pages
+git push -f --set-upstream origin master:gh-pages
 
 cd -
