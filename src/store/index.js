@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import RECIPES from '@/constants/recipes'
-import INGREDIENTS from '@/constants/ingredients'
+import RECIPES from '@/constants/recipes-auto'
+import INGREDIENTS from '@/constants/ingredients-auto'
 
 Vue.use(Vuex)
 

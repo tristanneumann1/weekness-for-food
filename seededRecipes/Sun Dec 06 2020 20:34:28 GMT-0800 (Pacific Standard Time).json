@@ -1,0 +1,146 @@
+[
+  {
+    "id": "be1520dc-fd69-44a3-85ee-8d981d78937c",
+    "name": {
+      "name": "Chicken with artichoke hearts and mushrooms"
+    },
+    "ingredients": [
+      "chicken",
+      "flour",
+      "bread crumbs",
+      "olive oil",
+      "butter",
+      "onion",
+      "artichoke hearts",
+      "mushroom",
+      "chicken stock",
+      "vermouth"
+    ]
+  },
+  {
+    "id": "89bee305-dfd6-46ce-bd31-7595d87b62ab",
+    "name": {
+      "name": "Chicken and cashews asian style"
+    },
+    "ingredients": [
+      "chicken",
+      "oneon",
+      "cashews",
+      "honey",
+      "soy sauce",
+      "coriander"
+    ]
+  },
+  {
+    "id": "a3724651-5533-4337-9b0e-b148c98992cd",
+    "name": {
+      "name": "roasted chicken with paprika and curry"
+    },
+    "ingredients": [
+      "chicken",
+      "paprika",
+      "curry",
+      "lemon",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "f5019b68-eff1-4dee-a4fe-26dea828b26c",
+    "name": {
+      "name": "Chicken with parmesan"
+    },
+    "ingredients": [
+      "chicken",
+      "olive oil",
+      "parsley",
+      "lemon",
+      "parmesan"
+    ]
+  },
+  {
+    "id": "5dc796d9-8c5f-4c37-aef2-92b48e29fc1c",
+    "name": {
+      "name": "Chicken something"
+    },
+    "ingredients": [
+      "garlic",
+      "onion",
+      "tomatoes",
+      "celery",
+      "olive oil",
+      "flour",
+      "tomato paste",
+      "thyme",
+      "laurel",
+      "white wine",
+      "chicken stock",
+      "chicken"
+    ]
+  },
+  {
+    "id": "77c20442-7438-4fd7-9efb-8dc8235f1290",
+    "name": {
+      "name": "Chicken paprika"
+    },
+    "ingredients": [
+      "chicken",
+      "paprika",
+      "zuchini",
+      "olive oil",
+      "cherry tomatoes"
+    ]
+  },
+  {
+    "id": "0f4c9f6e-5139-4fd9-878d-fa3c40a98b64",
+    "name": {
+      "name": "ginger chicken"
+    },
+    "ingredients": [
+      "garlic",
+      "onion",
+      "lemon",
+      "ginger",
+      "chicken",
+      "flour",
+      "paprika",
+      "olive oil",
+      "white wine"
+    ]
+  },
+  {
+    "id": "21222aa4-99dd-43e4-afc1-c6ba8ed6afa4",
+    "name": {
+      "name": "chicken with apricots and spices"
+    },
+    "ingredients": [
+      "onion",
+      "olive oil",
+      "chicken",
+      "white wine",
+      "apricot jam",
+      "cinamon",
+      "curcuma",
+      "lemon juice"
+    ]
+  },
+  {
+    "id": "aef519ae-f4cc-430d-992d-e4ad86d825b6",
+    "name": {
+      "name": "Grilled moroccan chicken"
+    },
+    "ingredients": [
+      "carrots",
+      "onion",
+      "olive oil",
+      "ras el hanout",
+      "chicken stock",
+      "couscous",
+      "chicken",
+      "zucchini",
+      "chickpeas",
+      "coriander",
+      "lemon juice",
+      "pistachios"
+    ]
+  }
+]

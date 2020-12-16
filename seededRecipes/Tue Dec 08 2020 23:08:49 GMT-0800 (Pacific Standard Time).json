@@ -1,0 +1,66 @@
+[
+  {
+    "id": "b9d3800b-102b-44e1-96d7-830a162896ac",
+    "name": {
+      "name": "Truffles"
+    },
+    "ingredients": [
+      "dark chocolate",
+      "ginger",
+      "cream",
+      "butter",
+      "sugar",
+      "cocoa powder"
+    ]
+  },
+  {
+    "id": "fff76ec1-0d2b-4328-8c88-f2d2a0d099a9",
+    "name": {
+      "name": "Rose de sables"
+    },
+    "ingredients": [
+      "corn flakes",
+      "dark chocolate"
+    ]
+  },
+  {
+    "id": "c1721423-ceb7-4dbe-9bbe-9f6b83f0a72b",
+    "name": {
+      "name": "Egg nog"
+    },
+    "ingredients": [
+      "eggs",
+      "condensed milk",
+      "vanilla",
+      "nutmeg"
+    ]
+  },
+  {
+    "id": "fcda5e24-c289-4cd2-8bc6-e1f8e87e61c7",
+    "name": {
+      "name": "Tira Misu"
+    },
+    "ingredients": [
+      "egg",
+      "mascarponne",
+      "sugar",
+      "sponge fingers",
+      "coffee",
+      "cocoa powder",
+      "chocolate"
+    ]
+  },
+  {
+    "id": "8ca98535-71e0-4aca-a865-133179ac238a",
+    "name": {
+      "name": "Papa's mystery chocolate dessert"
+    },
+    "ingredients": [
+      "sugar",
+      "cocoa powder",
+      "milk",
+      "butter",
+      "vanilla"
+    ]
+  }
+]

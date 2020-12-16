@@ -1,0 +1,46 @@
+[
+  {
+    "id": "36387008-77e4-47e2-9a64-65d8a16f533a",
+    "name": {
+      "name": "brandade de morue"
+    },
+    "ingredients": [
+      "morue",
+      "potatoes",
+      "cream",
+      "olive oil",
+      "parsley",
+      "biscottes",
+      "butter"
+    ]
+  },
+  {
+    "id": "091a20a1-bdd4-4070-804a-2052f381aaf6",
+    "name": {
+      "name": "shrimp chorizo and pineapple skewers"
+    },
+    "ingredients": [
+      "chorizo",
+      "shrimp",
+      "pineapple",
+      "olive oil",
+      "whisky",
+      "lemon",
+      "paprika"
+    ]
+  },
+  {
+    "id": "8d24e0de-02c0-497a-8011-36f807cad313",
+    "name": {
+      "name": "simple fish"
+    },
+    "ingredients": [
+      "fish",
+      "lemon",
+      "thyme",
+      "chives",
+      "parsley",
+      "olive oil"
+    ]
+  }
+]

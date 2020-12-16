@@ -1,0 +1,258 @@
+[
+  {
+    "id": "96849a37-b7e3-4f85-8ceb-0ebe37d22116",
+    "name": {
+      "name": "Best steak"
+    },
+    "ingredients": [
+      "maonnaise",
+      "mustard",
+      "vinegar",
+      "tarragon",
+      "steak"
+    ]
+  },
+  {
+    "id": "bb54d2eb-2121-4130-99c9-b7b9e0c5020c",
+    "name": {
+      "name": "Beef with roquette"
+    },
+    "ingredients": [
+      "steak sirloin",
+      "olive oil",
+      "vinegar",
+      "roquette",
+      "trévise",
+      "anchovies",
+      "sesame seeds"
+    ]
+  },
+  {
+    "id": "8a9cd133-8240-4fff-a6af-5d960ab9dab5",
+    "name": {
+      "name": "Yorkshire Pudding"
+    },
+    "ingredients": [
+      "roast beef",
+      "flour",
+      "egg",
+      "milk",
+      "chives",
+      "thyme"
+    ]
+  },
+  {
+    "id": "e88b4032-3a0e-46f2-923e-e9f3e1f58179",
+    "name": {
+      "name": "meat loaf"
+    },
+    "ingredients": [
+      "ground beef",
+      "egg",
+      "pasta sauce",
+      "bread crumbs"
+    ]
+  },
+  {
+    "id": "a48304d0-c2b8-4d88-9428-6ad8f72504ee",
+    "name": {
+      "name": "Beef curry"
+    },
+    "ingredients": [
+      "garlic",
+      "onion",
+      "lemon",
+      "peanut oil",
+      "curry powder",
+      "sugar",
+      "coconut milk",
+      "",
+      "ground beef",
+      "coriander"
+    ]
+  },
+  {
+    "id": "8c46898b-3707-4b7a-a3bd-15793bc8a84a",
+    "name": {
+      "name": "Steak strips with carrots and exotic spices"
+    },
+    "ingredients": [
+      "rump steak",
+      "red onion",
+      "carrots",
+      "olive oil",
+      "cinamon",
+      "cumin",
+      "sesame seeds"
+    ]
+  },
+  {
+    "id": "3de2e8a3-81e6-4840-ba75-db816b3ec300",
+    "name": {
+      "name": "Beef and carrots"
+    },
+    "ingredients": [
+      "carrots",
+      "onion",
+      "olive oil",
+      "thyme",
+      "chuck steak",
+      "laurel"
+    ]
+  },
+  {
+    "id": "fe3582e2-0a40-4a65-b3e9-bde91062978d",
+    "name": {
+      "name": "Crunchy steaks with mustard"
+    },
+    "ingredients": [
+      "steak",
+      "pancetta",
+      "peanut oil",
+      "mustard",
+      "sugar",
+      "white wine",
+      "butter"
+    ]
+  },
+  {
+    "id": "f713704c-240f-4650-bb7f-e411dc0c3f82",
+    "name": {
+      "name": "Meatballs in gazpacho"
+    },
+    "ingredients": [
+      "basil",
+      "onion",
+      "ground beef",
+      "ketchup",
+      "olive oil",
+      "gaspacho"
+    ]
+  },
+  {
+    "id": "08c7cf28-25ff-4ef6-b115-12896d7a7a6e",
+    "name": {
+      "name": "Hachis Parmentier"
+    },
+    "ingredients": [
+      "potato",
+      "onion",
+      "scallops",
+      "butter",
+      "beef stock",
+      "ground beef",
+      "milk",
+      "heavy cream",
+      "bread crumbs"
+    ]
+  },
+  {
+    "id": "c78761f0-eb56-4b73-b3a4-5dd115b85b85",
+    "name": {
+      "name": "Marinated beef strips with sesame"
+    },
+    "ingredients": [
+      "steak sirloin",
+      "scallops",
+      "coriander",
+      "soy sauce",
+      "sesame oil",
+      "sesame seeds"
+    ]
+  },
+  {
+    "id": "f2aea09e-4797-4dad-bc0e-32fab92eaacb",
+    "name": {
+      "name": "Steak with fried onions"
+    },
+    "ingredients": [
+      "scallops",
+      "milk",
+      "flour",
+      "steak",
+      "parsley"
+    ]
+  },
+  {
+    "id": "2356a517-ec69-4159-adf2-a2165f210627",
+    "name": {
+      "name": "beef wraps"
+    },
+    "ingredients": [
+      "steak flank",
+      "yellow pepper",
+      "coriander",
+      "olive oil",
+      "soy sauce",
+      "garlic",
+      "lettuce",
+      "tortillas"
+    ]
+  },
+  {
+    "id": "9e8c85b1-5ec5-44a2-80e6-b70517778d6f",
+    "name": {
+      "name": "beef carpaccio salad"
+    },
+    "ingredients": [
+      "coriander",
+      "beef carpaccio",
+      "sesame seeds",
+      "lime",
+      "soy sauce",
+      "hot pepper"
+    ]
+  },
+  {
+    "id": "725a3d97-a6b3-4b55-883d-3d21599e11a3",
+    "name": {
+      "name": "Vietnamese style beef"
+    },
+    "ingredients": [
+      "satay powder",
+      "lime",
+      "soy sauce",
+      "ground beef",
+      "onion",
+      "ginger",
+      "garlic",
+      "hot pepper",
+      "coriander",
+      "carrots",
+      "beef stock",
+      "vegetable oil",
+      "chive",
+      "brown sugar"
+    ]
+  },
+  {
+    "id": "20fee579-4601-46b9-916a-d155f7b05513",
+    "name": {
+      "name": "Lamb with mango"
+    },
+    "ingredients": [
+      "mint",
+      "mango",
+      "lamb",
+      "olive oil",
+      "balsamic vinegar"
+    ]
+  },
+  {
+    "id": "4e2f79cc-184b-4246-a19f-b2fedc76d83b",
+    "name": {
+      "name": "Marinated lamb brochettes"
+    },
+    "ingredients": [
+      "lamb",
+      "garlic",
+      "lemon",
+      "cumin",
+      "cinamon",
+      "olive oil",
+      "mint",
+      "yoghurt",
+      "sumac"
+    ]
+  }
+]

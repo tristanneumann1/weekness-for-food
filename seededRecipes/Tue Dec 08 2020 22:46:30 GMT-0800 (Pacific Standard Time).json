@@ -1,0 +1,32 @@
+[
+  {
+    "id": "e0056fd8-6ec1-4a64-b053-5e3cc04ffcc1",
+    "name": {
+      "name": "Clafoutis de cerises"
+    },
+    "ingredients": [
+      "cherry",
+      "butter",
+      "egg",
+      "milk",
+      "flour",
+      "sugar",
+      "vanilla"
+    ]
+  },
+  {
+    "id": "46f7c525-d2d8-46e2-a58a-5e158f1391ac",
+    "name": {
+      "name": "Sugar cookies"
+    },
+    "ingredients": [
+      "butter",
+      "sugar",
+      "egg",
+      "baking powder",
+      "lemon",
+      "vanilla",
+      "flour"
+    ]
+  }
+]

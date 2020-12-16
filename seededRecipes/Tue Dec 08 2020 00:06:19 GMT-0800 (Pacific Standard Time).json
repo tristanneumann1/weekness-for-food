@@ -1,0 +1,196 @@
+[
+  {
+    "id": "98e3bfc8-4eb6-4f8c-850a-c671740d0fac",
+    "name": {
+      "name": "Quiche with cheese and spinach sprouts"
+    },
+    "ingredients": [
+      "cottage cheese",
+      "feta",
+      "spinach",
+      "dough",
+      "egg",
+      "pine nuts",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "a2dc236d-cd40-4a48-96f9-e1a54a783f47",
+    "name": {
+      "name": "omelette with goat cheese and mint"
+    },
+    "ingredients": [
+      "egg",
+      "crème fraiche",
+      "mint",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "b92a88ff-b03a-4605-845a-57bde4395715",
+    "name": {
+      "name": "Lentils with sausage and sauce"
+    },
+    "ingredients": [
+      "sausage",
+      "olive oil",
+      "broccoli",
+      "lemon",
+      "olive oil",
+      "thyme",
+      "onion",
+      "garlic",
+      "cinnamon",
+      "red chili",
+      "red wine vinegar",
+      "plum tomatoes",
+      "lentils",
+      "bay leaf",
+      "parsley"
+    ]
+  },
+  {
+    "id": "13601167-d788-4864-93f9-b6e5b4741fe2",
+    "name": {
+      "name": "Chili con carne"
+    },
+    "ingredients": [
+      "olive oil",
+      "chili powder",
+      "beans",
+      "tomatoes",
+      "mushrooms",
+      "carrots",
+      "red pepper",
+      "onion",
+      "ground beef",
+      "garlic"
+    ]
+  },
+  {
+    "id": "a30a169c-8634-458a-a006-03ecc90ad953",
+    "name": {
+      "name": "Tacos"
+    },
+    "ingredients": [
+      "mexican spice mix",
+      "garlic powder",
+      "cinnamon",
+      "cumin",
+      "paprika",
+      "cloves",
+      "ground beef",
+      "ketchup"
+    ]
+  },
+  {
+    "id": "a799c7dd-3f7e-4354-b3d3-ab562af8e869",
+    "name": {
+      "name": "Artichoke salmon delight"
+    },
+    "ingredients": [
+      "spinach",
+      "artichoke heart",
+      "salmon",
+      "egg",
+      "heavy cream",
+      "lemon"
+    ]
+  },
+  {
+    "id": "205f7c47-78b9-4328-8616-f67babe10194",
+    "name": {
+      "name": "Potatoes with prunes and cinnamon"
+    },
+    "ingredients": [
+      "potatoes",
+      "bacon",
+      "onion",
+      "olive oil",
+      "prunes",
+      "cinnamon"
+    ]
+  },
+  {
+    "id": "227f2ff8-3fa0-4140-9c6b-2dcb63a05678",
+    "name": {
+      "name": "Crusty bread with ham and cheese"
+    },
+    "ingredients": [
+      "tomatoes",
+      "thyme",
+      "mozzarella",
+      "garlic",
+      "bread",
+      "smoked ham",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "0fdbbca2-a05d-4ddc-9a4f-48790b4e8a35",
+    "name": {
+      "name": "tortillas with melted cheese"
+    },
+    "ingredients": [
+      "tortilla",
+      "cheese",
+      "guacamole"
+    ]
+  },
+  {
+    "id": "09306919-6f57-46e4-a417-c99a741c48a7",
+    "name": {
+      "name": "Satay sauce"
+    },
+    "ingredients": [
+      "cream",
+      "peanut butter",
+      "cumin"
+    ]
+  },
+  {
+    "id": "b2200842-1081-44ea-829d-a1945527a5e9",
+    "name": {
+      "name": "BLT"
+    },
+    "ingredients": [
+      "Bacon",
+      "lettuce",
+      "tomatoes"
+    ]
+  },
+  {
+    "id": "19c128ba-4eca-42c3-9df3-0a2273f90d24",
+    "name": {
+      "name": "french toast"
+    },
+    "ingredients": [
+      "bread",
+      "egg",
+      "milk",
+      "maple syrup",
+      "sugar",
+      "cinnamon",
+      "lemon"
+    ]
+  },
+  {
+    "id": "210aadb2-c59e-4473-8fa0-0642bfae770d",
+    "name": {
+      "name": "Fried potato spinach balls"
+    },
+    "ingredients": [
+      "potatoes",
+      "spinach",
+      "shallots",
+      "basil",
+      "parsley",
+      "tofu",
+      "egg",
+      "mozzarella",
+      "bread crumbs",
+      "flour",
+      "olive oil"
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "91e81a63-bf7f-432f-936d-cc67de703790",
+    "name": {
+      "name": "Lamb with lemon and stuff"
+    },
+    "ingredients": [
+      "rosemary",
+      "lemon",
+      "honey",
+      "sesame seeds",
+      "lamb",
+      "garlic",
+      "artichoke"
+    ]
+  },
+  {
+    "id": "e5000b95-86de-45fd-8295-014319c14ad8",
+    "name": {
+      "name": "Roasted lamb and potatoes"
+    },
+    "ingredients": [
+      "parsley",
+      "garlic",
+      "potato",
+      "egg",
+      "lamb",
+      "olive oil",
+      "bread crumbs"
+    ]
+  },
+  {
+    "id": "870af47f-d4e4-4655-8047-da2ee7fc8203",
+    "name": {
+      "name": "Italian lamb and mushroom kebabs"
+    },
+    "ingredients": [
+      "olive oil",
+      "lamb",
+      "oregano",
+      "garlic",
+      "anchovies",
+      "lemon",
+      "rosemary",
+      "cèpes",
+      "mushrooms"
+    ]
+  },
+  {
+    "id": "10ea8038-bad0-471d-a9ed-9364905c50dc",
+    "name": {
+      "name": "Nordic lamb"
+    },
+    "ingredients": [
+      "celery",
+      "apricots",
+      "garlic",
+      "mint",
+      "lamb",
+      "spinach",
+      "butter",
+      "nutmeg",
+      "potatoes",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "404959f3-1831-43cc-bd1f-244d839bbc53",
+    "name": {
+      "name": "Lamb and white beans"
+    },
+    "ingredients": [
+      "lamb",
+      "olive oil",
+      "butter",
+      "lamb stock",
+      "broccoli",
+      "green beans",
+      "anshovies",
+      "shallot",
+      "garlic",
+      "rosemary",
+      "heavy cream"
+    ]
+  },
+  {
+    "id": "b3def1a3-7494-475d-bdbc-55c3b431cb3c",
+    "name": {
+      "name": "Lamb tajine"
+    },
+    "ingredients": [
+      "lamb",
+      "prunes",
+      "almonds",
+      "onion",
+      "white wine",
+      "ginger",
+      "nutmeg",
+      "olive oil",
+      "ras el hanout"
+    ]
+  },
+  {
+    "id": "926da416-24f2-4e2d-9d80-efc1b40f604f",
+    "name": {
+      "name": "Gigot d'agneau"
+    },
+    "ingredients": [
+      "lamb",
+      "garlic",
+      "white wine",
+      "bouillon",
+      "rosemary",
+      "porto"
+    ]
+  },
+  {
+    "id": "e22ed068-44fa-428b-b5d4-dbf9f6a20fc3",
+    "name": {
+      "name": "Kidneys with mustard"
+    },
+    "ingredients": [
+      "veal kidneys",
+      "moutarde a l'ancienne",
+      "mustard",
+      "cream",
+      "bouquet garni"
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "af9e8e78-5b41-4c57-a0f1-c72a8f1241e4",
+    "name": {
+      "name": "Smoked duck and foie gras salad"
+    },
+    "ingredients": [
+      "duck gesier",
+      "vinegar of xeres",
+      "walnut kernels",
+      "mesclun",
+      "foie gras",
+      "magret de canard",
+      "wine vinegar",
+      "mustard",
+      "nut oil"
+    ]
+  },
+  {
+    "id": "a6da7e94-66ab-437a-a4fe-997a784aff3b",
+    "name": {
+      "name": "Chicken lulu"
+    },
+    "ingredients": [
+      "chicken",
+      "potatoes",
+      "chicken stock",
+      "onion",
+      "olive oil",
+      "parsley",
+      "chorizo"
+    ]
+  }
+]

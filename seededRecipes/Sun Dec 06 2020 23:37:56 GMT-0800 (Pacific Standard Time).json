@@ -1,0 +1,271 @@
+[
+  {
+    "id": "b0edf082-45c2-4a41-95ff-967a88db503c",
+    "name": {
+      "name": "Cod with ginger"
+    },
+    "ingredients": [
+      "cod",
+      "peanut oil",
+      "onion",
+      "ginger",
+      "garlic",
+      "coconut milk",
+      "coriander"
+    ]
+  },
+  {
+    "id": "ed19702d-15a7-4894-9559-d6527d63f8d1",
+    "name": {
+      "name": "Cod with crispy coppa ham"
+    },
+    "ingredients": [
+      "cod",
+      "coppa",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "1d32d9df-0b03-4f85-97bb-fa87695ab799",
+    "name": {
+      "name": "Salmon"
+    },
+    "ingredients": [
+      "salmon",
+      "lemon",
+      "parsley",
+      "chive",
+      "garlic",
+      "bread crumbs"
+    ]
+  },
+  {
+    "id": "d053e3c4-d6c7-4f8a-8341-317c067372d8",
+    "name": {
+      "name": "Cod with prosciutto"
+    },
+    "ingredients": [
+      "prosciutto",
+      "capers",
+      "olive oil",
+      "cod",
+      "garlic"
+    ]
+  },
+  {
+    "id": "d2508140-ad4b-4c9e-ab5c-9d56b2c153e8",
+    "name": {
+      "name": "Tuna steaks and figs"
+    },
+    "ingredients": [
+      "fig",
+      "orange",
+      "butter",
+      "wine",
+      "almonds",
+      "olive oil",
+      "tuna"
+    ]
+  },
+  {
+    "id": "73a5f0a4-add1-4bba-8b13-22c7d75fb57e",
+    "name": {
+      "name": "Salmon and shrimp"
+    },
+    "ingredients": [
+      "salmon",
+      "asparagus",
+      "prawns",
+      "butter",
+      "onion",
+      "mustard",
+      "créme fraiche",
+      "chervil"
+    ]
+  },
+  {
+    "id": "99580138-2cc8-40f1-b5d9-875c8a28a335",
+    "name": {
+      "name": "Italian shrimp omelette"
+    },
+    "ingredients": [
+      "eggs",
+      "parsley",
+      "lemon",
+      "parmesan",
+      "shrimp",
+      "butter",
+      "olive oil",
+      "red chili"
+    ]
+  },
+  {
+    "id": "7ad8884b-f3dc-4f9f-b18e-d96769c260fa",
+    "name": {
+      "name": "Italian breaded squid and lemon"
+    },
+    "ingredients": [
+      "olive oil",
+      "red chili",
+      "garlic",
+      "bread crumbs",
+      "squid",
+      "lemon",
+      "parsley"
+    ]
+  },
+  {
+    "id": "5fd85368-892f-4af1-8812-6330139a4f50",
+    "name": {
+      "name": "Tajine of lotte"
+    },
+    "ingredients": [
+      "lotte",
+      "shrimp",
+      "fennel",
+      "onion",
+      "potato",
+      "fish sock",
+      "olive oil",
+      "lemon",
+      "coriander",
+      "garlic",
+      "cumin",
+      "niora pepper",
+      "cayenne pepper"
+    ]
+  },
+  {
+    "id": "ddc50d66-99d2-42b9-8b11-d9161dcc1754",
+    "name": {
+      "name": "Sardine thing"
+    },
+    "ingredients": [
+      "sardines",
+      "eggplant",
+      "tomato paste",
+      "crème fraiche",
+      "goat cheese",
+      "olives",
+      "herbes"
+    ]
+  },
+  {
+    "id": "48c781ca-40a5-40fb-af7f-764bd7cb88c0",
+    "name": {
+      "name": "Lotte with ginger"
+    },
+    "ingredients": [
+      "lotte",
+      "onion",
+      "ginger",
+      "curcuma",
+      "olive oil",
+      "tomato paste",
+      "milk",
+      "coriander",
+      "pastis"
+    ]
+  },
+  {
+    "id": "a6a7c338-c86d-403f-927c-be1d2cb5e74a",
+    "name": {
+      "name": "Lotte with chorizo and wine sauce"
+    },
+    "ingredients": [
+      "potatoes",
+      "lotte",
+      "onion",
+      "olive oil",
+      "white wine",
+      "safran",
+      "chives"
+    ]
+  },
+  {
+    "id": "9aa8ac23-39d2-4b7c-a1e0-794c2cdd7cd9",
+    "name": {
+      "name": "Bar with pesto"
+    },
+    "ingredients": [
+      "cherry tomatoes",
+      "bar",
+      "olive oil",
+      "garlic",
+      "basil",
+      "pine nuts",
+      "parmesan",
+      "lemon"
+    ]
+  },
+  {
+    "id": "8d2a2169-4974-4cf1-9f9a-2c4c2059c1a5",
+    "name": {
+      "name": "Parmesan crusted lotte"
+    },
+    "ingredients": [
+      "parmesan",
+      "flour",
+      "thyme",
+      "milk",
+      "lotte",
+      "butter",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "57a5176b-f419-4994-8518-077c213c0839",
+    "name": {
+      "name": "Baby squid with lardons and garlic"
+    },
+    "ingredients": [
+      "calamars",
+      "garlic",
+      "olive oil",
+      "lardons",
+      "vinegar of xeres",
+      "thyme"
+    ]
+  },
+  {
+    "id": "6f633122-17c0-4e2b-95a1-3ebadcbc7b0a",
+    "name": {
+      "name": "Potato and fish salad with good sauce"
+    },
+    "ingredients": [
+      "potatoes",
+      "cod",
+      "garlic",
+      "egg",
+      "safran",
+      "olive oil",
+      "mustard"
+    ]
+  },
+  {
+    "id": "ceb45f5d-a750-4bc1-8d91-147250b7c1d0",
+    "name": {
+      "name": "Fish with basil"
+    },
+    "ingredients": [
+      "rougets",
+      "tapenade",
+      "basil",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "49a7685c-a84d-4402-a26d-7afad25c884f",
+    "name": {
+      "name": "sole meuniere"
+    },
+    "ingredients": [
+      "sole",
+      "lemon",
+      "parsley",
+      "butter",
+      "flour",
+      "sunflower oil"
+    ]
+  }
+]

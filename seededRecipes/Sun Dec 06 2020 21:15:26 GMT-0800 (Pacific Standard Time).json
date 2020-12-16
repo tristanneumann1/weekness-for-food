@@ -1,0 +1,237 @@
+[
+  {
+    "id": "0442d086-c4e7-49e3-8e04-ed06d6440af3",
+    "name": {
+      "name": "chicken thighs with red pepper sauce"
+    },
+    "ingredients": [
+      "chicken",
+      "olive oil",
+      "padròn pepper",
+      "cabbage cavolo nero"
+    ]
+  },
+  {
+    "id": "56432385-524c-4bb6-80df-7386f1b06f07",
+    "name": {
+      "name": "Chicken with almonds"
+    },
+    "ingredients": [
+      "black mushrooms",
+      "carrots",
+      "bamboo shoots",
+      "onion",
+      "garlic",
+      "ginger",
+      "spring onion",
+      "almonds",
+      "chicken",
+      "soy sauce",
+      "nutmeg",
+      "coriander",
+      "chicken stock",
+      "vegetable oil"
+    ]
+  },
+  {
+    "id": "99654f43-b3d2-4461-a02a-36258b376181",
+    "name": {
+      "name": "Chicken with lemon"
+    },
+    "ingredients": [
+      "olive oil",
+      "chicken",
+      "garlic",
+      "thyme",
+      "lemon",
+      "vinegar of xeres",
+      "soy sauce",
+      "honey",
+      "parsley"
+    ]
+  },
+  {
+    "id": "128733fd-318a-4c14-a000-91834bfa2e00",
+    "name": {
+      "name": "Duck salad"
+    },
+    "ingredients": [
+      "duck gesiers",
+      "vineger of xeres",
+      "walnut kernels",
+      "mesclun",
+      "foie gras",
+      "magret de canard",
+      "wine vinegar",
+      "mustard",
+      "nut oil"
+    ]
+  },
+  {
+    "id": "d8071d1a-5fcc-4a7f-a0a7-4af4fd5da6e6",
+    "name": {
+      "name": "Chicken with red wine and prunes"
+    },
+    "ingredients": [
+      "chicken",
+      "lardon",
+      "flour",
+      "red wine",
+      "prunes"
+    ]
+  },
+  {
+    "id": "8b5318ef-ca1d-4183-9805-4067a240b234",
+    "name": {
+      "name": "Different turkey filets"
+    },
+    "ingredients": [
+      "turkey",
+      "sunflower oil",
+      "lemon",
+      "armagnac",
+      "thyme",
+      "rosemary",
+      "crème fraiche"
+    ]
+  },
+  {
+    "id": "9bc9950f-d466-4283-83ce-bb96b1c822ce",
+    "name": {
+      "name": "Turkey leg with spring onions"
+    },
+    "ingredients": [
+      "turkey",
+      "spring onions",
+      "maple syrup",
+      "soy sauce"
+    ]
+  },
+  {
+    "id": "c1886642-27df-44f1-956b-da1a2613d812",
+    "name": {
+      "name": "Duck laqué with turnips"
+    },
+    "ingredients": [
+      "soy sauce",
+      "honey",
+      "vinegar",
+      "magret de canard",
+      "baby onions",
+      "turnips"
+    ]
+  },
+  {
+    "id": "ebceb6a5-dd11-449f-a9a6-a8a1db75e945",
+    "name": {
+      "name": "Magret with peaches"
+    },
+    "ingredients": [
+      "magret de canard",
+      "peaches",
+      "butter",
+      "orange juice",
+      "lemon juice",
+      "sugar"
+    ]
+  },
+  {
+    "id": "3feaa203-f2b4-40b6-942f-4aaf4c5a56eb",
+    "name": {
+      "name": "Duck with mango"
+    },
+    "ingredients": [
+      "cardamom",
+      "magret de canard",
+      "sechuan pepper",
+      "balsamic vinegar",
+      "honey",
+      "mango",
+      "sugar",
+      "butter"
+    ]
+  },
+  {
+    "id": "618eb0fb-914b-40ca-8df7-c024d8cb03b9",
+    "name": {
+      "name": "Asian duck salad"
+    },
+    "ingredients": [
+      "magret de canard",
+      "chinese spices",
+      "radish",
+      "cucumber",
+      "cress",
+      "bean sprouts",
+      "mesclun",
+      "coriander",
+      "sesame seeds",
+      "hot pepper",
+      "spring onions",
+      "hoisin sauce",
+      "ginger",
+      "sesame oil",
+      "rice wine vinegar",
+      "lime"
+    ]
+  },
+  {
+    "id": "5a4c2782-015e-495a-8cf0-911a6a29fbd3",
+    "name": {
+      "name": "Duck filets with ginger"
+    },
+    "ingredients": [
+      "ginger",
+      "vinegar of xeres",
+      "sunflower oil",
+      "duck gesiers",
+      "sugar",
+      "white wine",
+      "chicken stock"
+    ]
+  },
+  {
+    "id": "e3482a7e-92b8-483a-b512-5b865f1d135a",
+    "name": {
+      "name": "Rabbit with sage spinach and maple syrup"
+    },
+    "ingredients": [
+      "olive oil",
+      "rabbit",
+      "lemon",
+      "sage",
+      "white wine",
+      "orange",
+      "butter",
+      "maple syrup",
+      "spinach",
+      "pine nuts"
+    ]
+  },
+  {
+    "id": "51a054f6-ffc1-417c-860d-9e293a1fa7cd",
+    "name": {
+      "name": "Rabbit with mustard"
+    },
+    "ingredients": [
+      "rabbit",
+      "cream",
+      "thyme",
+      "mustard",
+      "garlic",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "aa5d425e-eea9-4893-a596-6ac988bb67d7",
+    "name": {
+      "name": "Rabbit with mustard bis"
+    },
+    "ingredients": [
+      "white wine",
+      "olive oil",
+      "rabbit",
+      "mustard"
+    ]
+  }
+]

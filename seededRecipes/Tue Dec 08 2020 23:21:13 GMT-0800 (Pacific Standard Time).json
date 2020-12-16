@@ -1,0 +1,69 @@
+[
+  {
+    "id": "8f2a072a-ad75-4ec4-b7dd-e543a92597d7",
+    "name": {
+      "name": "Thin crispy nordic crackers"
+    },
+    "ingredients": [
+      "bread flour",
+      "dark rye flour",
+      "sea salt",
+      "butter",
+      "milk"
+    ]
+  },
+  {
+    "id": "fc193136-cabb-4950-acaa-c9189c915362",
+    "name": {
+      "name": "simple bread"
+    },
+    "ingredients": [
+      "flour",
+      "yeast"
+    ]
+  },
+  {
+    "id": "b6b18375-411b-4da2-bbc9-71d2b6f1c3de",
+    "name": {
+      "name": "Crèpes"
+    },
+    "ingredients": [
+      "flour",
+      "milk",
+      "egg"
+    ]
+  },
+  {
+    "id": "9c337ec9-863e-4240-b24a-689bd100d3c8",
+    "name": {
+      "name": "Mango lassi"
+    },
+    "ingredients": [
+      "mango",
+      "yoghurt",
+      "cream",
+      "cardamom powder",
+      "sugar",
+      "honey",
+      "mint"
+    ]
+  },
+  {
+    "id": "dda37e0e-6aa3-48de-b6bb-f6b5718693c6",
+    "name": {
+      "name": "Nordic oven pancakes"
+    },
+    "ingredients": [
+      "sugar",
+      "flour",
+      "baking powder",
+      "egg",
+      "milk",
+      "vanilla",
+      "butter",
+      "berries",
+      "whipped cream",
+      "ice cream"
+    ]
+  }
+]

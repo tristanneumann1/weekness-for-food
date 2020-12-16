@@ -1,0 +1,101 @@
+[
+  {
+    "id": "2e0b6331-b2c2-4c7b-8aa7-ee3a3bc399b9",
+    "name": {
+      "name": "Brownies de ma grand-mère"
+    },
+    "ingredients": [
+      "chocolate",
+      "butter",
+      "sugar",
+      "egg",
+      "flour",
+      "vanilla"
+    ]
+  },
+  {
+    "id": "4ec8543f-5202-4355-816f-4d4101a2ec25",
+    "name": {
+      "name": "Chocolate marquise torte"
+    },
+    "ingredients": [
+      "cream",
+      "white chocolate",
+      "dark chocolate",
+      "coffee",
+      "egg",
+      "sugar",
+      "cocoa powder"
+    ]
+  },
+  {
+    "id": "f2f0ffe9-e664-4c1a-a335-9f7694380668",
+    "name": {
+      "name": "Nordic Blueberry tart"
+    },
+    "ingredients": [
+      "flour",
+      "sugar",
+      "butter",
+      "egg",
+      "blueberries",
+      "sugar",
+      "crème fraiche"
+    ]
+  },
+  {
+    "id": "71077fc2-ae9a-45e9-888b-95083d2475ff",
+    "name": {
+      "name": "Juliette's grandma's brownies"
+    },
+    "ingredients": [
+      "dark chocolate",
+      "butter",
+      "sugar",
+      "egg",
+      "flour",
+      "vanilla"
+    ]
+  },
+  {
+    "id": "ba2d4dd1-b5bc-4599-adf3-67f6c617a67c",
+    "name": {
+      "name": "Chocolate fondant and raspberries"
+    },
+    "ingredients": [
+      "dark chocolate",
+      "egg",
+      "sugar",
+      "vanilla",
+      "powdered almonds",
+      "cocoa powder",
+      "raspberries",
+      "crème de cacao"
+    ]
+  },
+  {
+    "id": "d238dd5f-b0ca-4be8-b399-4550cd294034",
+    "name": {
+      "name": "Belgian boys frozen christmas roll"
+    },
+    "ingredients": [
+      "dark chocolate",
+      "butter",
+      "egg",
+      "meringues"
+    ]
+  },
+  {
+    "id": "10c3267d-79b9-4c81-a658-9e96fc8a5f3f",
+    "name": {
+      "name": "Bûche de noël"
+    },
+    "ingredients": [
+      "vanilla sponge",
+      "sugar",
+      "buttercream",
+      "marzipan",
+      "dark chocolate"
+    ]
+  }
+]

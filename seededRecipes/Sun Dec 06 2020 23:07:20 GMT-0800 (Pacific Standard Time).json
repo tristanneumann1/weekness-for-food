@@ -1,0 +1,26 @@
+[
+  {
+    "id": "f685b3de-98c4-43df-9061-01572de4357b",
+    "name": {
+      "name": "Stuffed squid"
+    },
+    "ingredients": [
+      "squid",
+      "sausage filling",
+      "egg",
+      "thyme",
+      "tomato paste",
+      "white wine"
+    ]
+  },
+  {
+    "id": "0386a3e8-d093-4312-87c9-3359af9cf66a",
+    "name": {
+      "name": "Fish filets and pesto"
+    },
+    "ingredients": [
+      "sole",
+      "pesto"
+    ]
+  }
+]

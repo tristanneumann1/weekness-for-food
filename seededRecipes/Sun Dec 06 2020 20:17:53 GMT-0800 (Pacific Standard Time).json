@@ -1,0 +1,181 @@
+[
+  {
+    "id": "2f71cb15-2ea9-4b08-bddb-aa69aa988ce6",
+    "name": {
+      "name": "Stuffed veal rolls"
+    },
+    "ingredients": [
+      "shallots",
+      "mushrooms",
+      "tarragon",
+      "parsley",
+      "comté",
+      "ham",
+      "butter",
+      "veal",
+      "tomato paste",
+      "thyme",
+      "white wine"
+    ]
+  },
+  {
+    "id": "e0aad722-3100-415d-b344-75378fb4806f",
+    "name": {
+      "name": "veal with dried ham and cheese"
+    },
+    "ingredients": [
+      "veal",
+      "taleggio cheese",
+      "sage",
+      "speck",
+      "green beans",
+      "flour",
+      "butter",
+      "oil",
+      "marsala",
+      "veal stock"
+    ]
+  },
+  {
+    "id": "21811635-6fbe-4766-90a0-66372376ea6e",
+    "name": {
+      "name": "Veal with cream and mushrooms"
+    },
+    "ingredients": [
+      "lemon",
+      "mushrooms",
+      "butter",
+      "veal",
+      "sunflower oil",
+      "white wine",
+      "spices",
+      "heavy cream",
+      "parsley"
+    ]
+  },
+  {
+    "id": "c4253b94-30cc-4d88-98c6-5dde4a6a64f2",
+    "name": {
+      "name": "Veal with olives"
+    },
+    "ingredients": [
+      "veal",
+      "olive oil",
+      "white wine",
+      "bouquet garni",
+      "tomato paste",
+      "olive"
+    ]
+  },
+  {
+    "id": "f34772a3-cb28-49a8-8416-5d68c702f5c4",
+    "name": {
+      "name": "Roast veal with olives"
+    },
+    "ingredients": [
+      "veal",
+      "olive oil",
+      "green olives",
+      "cress",
+      "parsley",
+      "thyme",
+      "laurel"
+    ]
+  },
+  {
+    "id": "0ad6e6c0-9aba-4817-a4da-6bce0fade042",
+    "name": {
+      "name": "veal with mushrooms and spinach"
+    },
+    "ingredients": [
+      "veal",
+      "mushrooms",
+      "parmesan",
+      "spinach",
+      "hazelnut oil"
+    ]
+  },
+  {
+    "id": "3947fa42-c32b-412a-8b1c-1fbb7bc4d2a1",
+    "name": {
+      "name": "Veal roast with asparagus"
+    },
+    "ingredients": [
+      "roast veal",
+      "asparagus",
+      "tarragon",
+      "olive oil",
+      "garlic"
+    ]
+  },
+  {
+    "id": "831f878f-5ced-46c5-a21a-445305f5b1dc",
+    "name": {
+      "name": "Veal with mushrooms"
+    },
+    "ingredients": [
+      "veal",
+      "chicken stock",
+      "asparagus",
+      "mushroom",
+      "cream",
+      "flour"
+    ]
+  },
+  {
+    "id": "665f8e39-1ef9-438b-95e6-857967863e22",
+    "name": {
+      "name": "veal rolls with asparagus"
+    },
+    "ingredients": [
+      "asparagus",
+      "veal",
+      "pesto",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "b0406d73-6b9d-4138-bfbf-a7a142585c7b",
+    "name": {
+      "name": "Veal scallops with chorizo"
+    },
+    "ingredients": [
+      "veal",
+      "chorizo",
+      "thyme",
+      "sage",
+      "olive oil"
+    ]
+  },
+  {
+    "id": "3dd19986-5131-4d40-8738-ee7bfec37483",
+    "name": {
+      "name": "Veal with tasty crust"
+    },
+    "ingredients": [
+      "cloves",
+      "laurel",
+      "veal",
+      "mayonnaise"
+    ]
+  },
+  {
+    "id": "84114871-ca0d-4ee5-95ea-883e9203e80f",
+    "name": {
+      "name": "Veal scallops with cheese and veggies"
+    },
+    "ingredients": [
+      "tarragon",
+      "spinach",
+      "butter",
+      "egg",
+      "white wine",
+      "crème fraiche",
+      "lemon",
+      "olive oil",
+      "veal",
+      "swiss cheese",
+      "cress"
+    ]
+  }
+]

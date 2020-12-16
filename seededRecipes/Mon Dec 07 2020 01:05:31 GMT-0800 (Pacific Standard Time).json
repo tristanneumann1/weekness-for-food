@@ -1,0 +1,125 @@
+[
+  {
+    "id": "4f35f7e3-ae89-44d0-a553-d0030ee7f739",
+    "name": {
+      "name": "fast mixed veggies in a pan"
+    },
+    "ingredients": [
+      "potatoes",
+      "carrots",
+      "zucchini",
+      "onion",
+      "turnip"
+    ]
+  },
+  {
+    "id": "d3525cac-d7c4-456b-a811-1d3448014a19",
+    "name": {
+      "name": "Creamed spinach"
+    },
+    "ingredients": [
+      "spinach",
+      "butter",
+      "nutmeg",
+      "crème fraiche"
+    ]
+  },
+  {
+    "id": "025989df-f159-4482-8a3f-4ec9f941df9b",
+    "name": {
+      "name": "Spinach or blet pie with ricotta cheese"
+    },
+    "ingredients": [
+      "onion",
+      "olive oil",
+      "anchovies",
+      "blettes",
+      "capers",
+      "egg",
+      "ricotta",
+      "dough"
+    ]
+  },
+  {
+    "id": "85498131-56c9-46ca-b4ef-70de5b1f091f",
+    "name": {
+      "name": "broccoli tart with ricotta"
+    },
+    "ingredients": [
+      "broccoli",
+      "ricotta",
+      "dough",
+      "egg",
+      "parmesan",
+      "nutmeg",
+      "cheese"
+    ]
+  },
+  {
+    "id": "699b3766-5377-494f-98e7-46485d9ca7e7",
+    "name": {
+      "name": "Sweet and sour zucchini"
+    },
+    "ingredients": [
+      "zucchini",
+      "garlic",
+      "mint",
+      "olive oil",
+      "ginger powder",
+      "sugar",
+      "capers",
+      "raisins",
+      "balsamic vinegar",
+      "nuts"
+    ]
+  },
+  {
+    "id": "35726e7f-c9a2-42ea-af25-45708486c986",
+    "name": {
+      "name": "Spinach pie provençale"
+    },
+    "ingredients": [
+      "tomatoes",
+      "spinach",
+      "egg",
+      "crème fraiche",
+      "swiss cheese",
+      "dough",
+      "olive oil",
+      "garlic",
+      "onion",
+      "herbes",
+      "basil",
+      "sugar"
+    ]
+  },
+  {
+    "id": "c5994b6d-008d-4e22-9943-20df04eb8fb1",
+    "name": {
+      "name": "Asparagus delight"
+    },
+    "ingredients": [
+      "asparagus",
+      "balsamic vinegar",
+      "parmesan"
+    ]
+  },
+  {
+    "id": "751dec10-33f5-43a1-a472-e8ad119b0413",
+    "name": {
+      "name": "Tarin of zucchini"
+    },
+    "ingredients": [
+      "zucchini",
+      "goat cheese",
+      "olive oil",
+      "brown sugar",
+      "dough",
+      "basil",
+      "garlic",
+      "parmesan",
+      "pine nuts",
+      "olive oil"
+    ]
+  }
+]

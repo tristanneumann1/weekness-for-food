@@ -1,0 +1,30 @@
+[
+  {
+    "id": "a0311332-df0c-40d1-9c35-23e8fa1990c7",
+    "name": {
+      "name": "potato and bean stew"
+    },
+    "ingredients": [
+      "garlic",
+      "parsley",
+      "olive oil",
+      "onion",
+      "tomato",
+      "basil",
+      "potatoes",
+      "green beans"
+    ]
+  },
+  {
+    "id": "efc2d616-b933-4702-aa9f-e58d8fb3a50f",
+    "name": {
+      "name": "Cream of sweet potato soup"
+    },
+    "ingredients": [
+      "yam",
+      "milk",
+      "cream",
+      "maple syrup"
+    ]
+  }
+]

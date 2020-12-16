@@ -1,0 +1,84 @@
+[
+  {
+    "id": "daab75fa-91a6-4683-b46a-da59f16f8c6f",
+    "name": {
+      "name": "Feuilletés au fromage"
+    },
+    "ingredients": [
+      "dough",
+      "cheese"
+    ]
+  },
+  {
+    "id": "c56e2ed5-4f4a-4722-8104-328af083bb19",
+    "name": {
+      "name": "Asparagus and ham rolls"
+    },
+    "ingredients": [
+      "asparagus",
+      "ham"
+    ]
+  },
+  {
+    "id": "ccfffd05-6ece-4fb3-b51f-11220c37b6bc",
+    "name": {
+      "name": "Croque foie gras et figues"
+    },
+    "ingredients": [
+      "brioche",
+      "roquette",
+      "foie gras",
+      "fig jam"
+    ]
+  },
+  {
+    "id": "b3a69ce6-4e88-420f-bf50-b220f212eebd",
+    "name": {
+      "name": "Crispy parmesan and sesame"
+    },
+    "ingredients": [
+      "parmesan",
+      "sesame seeds"
+    ]
+  },
+  {
+    "id": "9178dea5-beb9-479e-8c45-e66be823e512",
+    "name": {
+      "name": "Duck and apple nems"
+    },
+    "ingredients": [
+      "apple",
+      "soy sauce",
+      "smoked duck",
+      "duck gesiers",
+      "feuilletés"
+    ]
+  },
+  {
+    "id": "eb53d350-3f1f-4bce-86b3-44061f092906",
+    "name": {
+      "name": "Asparagus, cheese and egg"
+    },
+    "ingredients": [
+      "asparagus",
+      "olive oil",
+      "oranges",
+      "egg",
+      "parmesan"
+    ]
+  },
+  {
+    "id": "5becd823-6577-410f-871b-6cca7c0ba846",
+    "name": {
+      "name": "scones"
+    },
+    "ingredients": [
+      "flour",
+      "butter",
+      "sugar",
+      "cream of tartar",
+      "milk",
+      "baking soda"
+    ]
+  }
+]
