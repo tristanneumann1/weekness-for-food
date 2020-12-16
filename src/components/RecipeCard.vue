@@ -3,6 +3,20 @@
     <v-card>
       <v-container class="py-0">
         <v-row class="title-container">
+          <v-card-actions class="card-actions">
+            <v-btn
+              v-if="url"
+              icon
+              small
+              :href="url"
+              color="primary"
+              target="_blank"
+            >
+              <v-icon dark>
+                mdi-open-in-new
+              </v-icon>
+            </v-btn>
+          </v-card-actions>
           <v-img
             dark
             v-if="img"
@@ -13,14 +27,14 @@
             <v-card-title
               primary-title
               class="recipe-title"
-              v-text="name"
+              v-text="nameCapitalized"
             />
           </v-img>
           <v-card-title
             v-else
             primary-title
             class="recipe-title"
-            v-text="name"
+            v-text="nameCapitalized"
           />
         </v-row>
         <v-row>
@@ -54,14 +68,24 @@ export default {
   props: {
     name: String,
     img: String,
+    url: String,
     missingIngredients: Array,
     storedIngredients: Array
+  },
+  computed: {
+    nameCapitalized () {
+      return this.name[0].toUpperCase() + this.name.slice(1)
+    }
   }
 };
 </script>
 <style scoped>
 .title-container {
   background-color: lightblue;
+}
+.card-actions {
+  position: absolute;
+  right: 0;
 }
 .missing-ingredients {
   border-left: lightgray 1px solid;
