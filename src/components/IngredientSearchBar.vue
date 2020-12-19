@@ -1,15 +1,15 @@
 <template>
   <v-combobox
-      v-model="selectedIngredients"
-      :items="ingredients"
-      :loading="loading"
-      label="What is in your fridge?"
-      clearable
-      small-chips
-      filled
-      deletable-chips
-      multiple
-      @change="updateSelectedIngredients"
+    v-model="selectedIngredients"
+    :items="ingredients"
+    :loading="loading"
+    label="What is in your fridge?"
+    clearable
+    small-chips
+    filled
+    deletable-chips
+    multiple
+    @change="updateSelectedIngredients"
   ></v-combobox>
 </template>
 

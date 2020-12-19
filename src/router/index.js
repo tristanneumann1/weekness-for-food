@@ -5,9 +5,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/recipe-form',
+    name: 'RecipeFormView',
+    component: () => import(/* webpackChunkName: "recipe-form" */ '@/views/RecipeFormView')
+  },
+  {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/HomePage')
+    component: () => import(/* webpackChunkName: "home" */ '@/views/HomePage')
   }
 ]
 

@@ -14,11 +14,10 @@ export default class FirebaseClient {
       }))
     })
   }
-  set (ref, name, value) {
+  set (ref, value) {
     const locationRef = this.db.ref(ref)
-    const pushRef = locationRef.child(name)
     return new Promise((resolve, reject) => {
-      pushRef.set(value).then(err => {
+      locationRef.set(value).then(err => {
         if (err) {
           reject(err)
           return
