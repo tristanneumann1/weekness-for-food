@@ -37,7 +37,10 @@
           <h2>You should cook one of these tonight:</h2>
         </v-row>
         <v-row no-gutters>
-          <RecipeList :loading="loadingData" />
+          <RecipeList
+            class="loading-list"
+            :loading="loadingData"
+          />
         </v-row>
       </v-container>
     </v-main>
@@ -62,16 +65,12 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchIngredients',
       'fetchRecipes'
     ])
   },
   created() {
     this.loadingData = true
-    Promise.all([
-      this.fetchIngredients(),
-      this.fetchRecipes()
-    ]).finally(() => {
+    this.fetchRecipes().finally(() => {
       this.loadingData = false
     })
   }
@@ -92,5 +91,8 @@ h1 {
 .app-bar--content {
   display: flex;
   height: 100%;
+}
+.loading-list {
+  width: 100%
 }
 </style>

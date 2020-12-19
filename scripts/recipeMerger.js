@@ -24,7 +24,7 @@ function readFiles(dirname, onError) {
         return recipesAcc
       }, []).map(recipe => {
         recipe.name = recipe.name.name
-        ingredients.add(...recipe.ingredients)
+        recipe.ingredients.forEach(ingredients.add, ingredients)
         return recipe
       })
       fs.writeFile('./src/constants/recipes-auto.json', JSON.stringify(recipes), 'utf8', (err) =>  {

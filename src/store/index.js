@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import FirebaseClient from '@/store/firebaseClient'
 import RECIPES from '@/constants/recipes'
 import INGREDIENTS from '@/constants/ingredients-auto'
 
@@ -28,6 +29,22 @@ const mutations = {
 
 const actions = {
   fetchRecipes ({ commit }) {
+    const ingredientsSet = new Set()
+    const client = new FirebaseClient()
+    return client.read('recipes').then(recipes => {
+      commit(SET_RECIPES, Object.keys(recipes).map(recipeId => {
+        const ingredients = Object.values(recipes[recipeId].ingredients)
+        ingredients.forEach(ingredientsSet.add, ingredientsSet);
+        return {
+          ...recipes[recipeId],
+          id: recipeId,
+          ingredients
+        }
+      }))
+      commit(SET_INGREDIENTS, [...ingredientsSet])
+    })
+  },
+  fetchRecipesLegacy ({ commit }) {
     commit(SET_RECIPES, RECIPES)
   },
   fetchIngredients ({ commit }) {
