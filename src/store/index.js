@@ -60,7 +60,6 @@ const actions = {
       formattedRecipe.img = recipe.img
     }
     const uuid = v4()
-    console.log('uuid', uuid)
     return client.set('recipes/' + uuid, recipe).then(() => {
       router.push('/')
     })
