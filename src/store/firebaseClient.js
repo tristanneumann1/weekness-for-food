@@ -26,4 +26,16 @@ export default class FirebaseClient {
       })
     })
   }
+  delete (ref) {
+    const locationRef = this.db.ref(ref)
+    return new Promise((resolve, reject) => {
+      locationRef.remove().then(err => {
+        if (err) {
+          reject(err)
+          return
+        }
+        resolve('OK')
+      })
+    })
+  }
 }

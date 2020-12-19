@@ -20,6 +20,16 @@
                 </v-icon>
               </v-btn>
             </router-link>
+            <v-btn
+              icon
+              x-small
+              color="primary"
+              @click="onDelete"
+            >
+              <v-icon dark>
+                mdi-trash-can
+              </v-icon>
+            </v-btn>
           </v-card-actions>
           <v-img
             dark
@@ -95,6 +105,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: 'RecipeCard',
@@ -109,6 +120,12 @@ export default {
   computed: {
     nameCapitalized () {
       return this.name[0].toUpperCase() + this.name.slice(1)
+    }
+  },
+  methods: {
+    ...mapActions(['deleteRecipe']),
+    onDelete () {
+      this.deleteRecipe(this.id)
     }
   }
 };

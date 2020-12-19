@@ -13,12 +13,20 @@ const state = {
   ingredients: {}
 }
 
+const ADD_RECIPE = 'ADD_RECIPE'
+const REMOVE_RECIPE = 'REMOVE_RECIPE'
 const SET_RECIPES = 'SET_RECIPES'
 const SET_INGREDIENTS = 'SET_INGREDIENTS'
 const SET_SELECTED_INGREDIENTS = 'SET_SELECTED_INGREDIENTS'
 const mutations = {
   [SET_RECIPES] (state, recipes) {
     state.recipes = recipes
+  },
+  [ADD_RECIPE] (state, recipe) {
+    state.recipes.push(recipe)
+  },
+  [REMOVE_RECIPE] (state, recipeId) {
+    state.recipes.splice(state.recipes.findIndex(recipe => recipe.id === recipeId), 1)
   },
   [SET_INGREDIENTS] (state, ingredients) {
     state.ingredients = ingredients
@@ -45,7 +53,7 @@ const actions = {
       commit(SET_INGREDIENTS, [...ingredientsSet])
     })
   },
-  createRecipe (_, { recipe, id }) {
+  createRecipe ({ commit }, { recipe, id }) {
     const client = new FirebaseClient()
     const formattedRecipe = {
       name: recipe.name,
@@ -59,8 +67,15 @@ const actions = {
       formattedRecipe.img = recipe.img
     }
     return client.set('recipes/' + id, recipe).then(() => {
+      commit(ADD_RECIPE, { ...recipe, id })
       router.push('/')
     })
+  },
+  deleteRecipe ({ commit }, recipeId) {
+    const client = new FirebaseClient()
+    return client.delete('recipes/' + recipeId).then(
+      commit(REMOVE_RECIPE, recipeId)
+    )
   },
   fetchRecipesLegacy ({ commit }) {
     commit(SET_RECIPES, RECIPES)
