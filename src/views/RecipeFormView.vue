@@ -20,7 +20,7 @@
           </v-icon>
         </v-btn>
       </router-link>
-      <h2>Create a new recipe here</h2>
+      <h2>{{ titleText }}</h2>
     </v-row>
     <v-row>
       <RecipeForm
@@ -33,7 +33,7 @@
         color="primary"
         @click="submitForm"
       >
-        Submit
+        {{ buttonText }}
       </v-btn>
     </v-row>
   </v-container>
@@ -41,23 +41,52 @@
 
 <script>
 import RecipeForm from '@/components/RecipeForm'
-import { mapActions } from 'vuex'
+import { v4 } from 'uuid'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'RecipeFormView',
   components: {
     RecipeForm
   },
-  props: ['loadingData'],
+  props: {
+    loadingData: Boolean,
+    recipeId: String,
+    buttonText: {
+      type: String,
+      default: 'submit'
+    },
+    titleText: {
+      type: String,
+      default: 'Create a new recipe here'
+    }
+  },
   data () {
     return  {
-      recipe: {}
+      recipe: {},
+      id: this.recipeId ? this.recipeId : v4()
     }
+  },
+  computed: {
+    ...mapState(['recipes'])
   },
   methods: {
     ...mapActions(['createRecipe']),
     submitForm () {
-      this.createRecipe(this.recipe)
+      this.createRecipe({
+        recipe: this.recipe,
+        id: this.id
+      })
+    }
+  },
+  watch: {
+    recipes: {
+      immediate: true,
+      handler () {
+        if (this.recipeId) {
+          this.recipe = this.recipes.find(recipe => recipe.id === this.recipeId)
+        }
+      }
     }
   }
 }

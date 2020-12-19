@@ -4,7 +4,6 @@ import FirebaseClient from '@/store/firebaseClient'
 import RECIPES from '@/constants/recipes'
 import INGREDIENTS from '@/constants/ingredients-auto'
 import router from '@/router'
-import { v4 } from 'uuid'
 
 Vue.use(Vuex)
 
@@ -46,7 +45,7 @@ const actions = {
       commit(SET_INGREDIENTS, [...ingredientsSet])
     })
   },
-  createRecipe (_, recipe) {
+  createRecipe (_, { recipe, id }) {
     const client = new FirebaseClient()
     const formattedRecipe = {
       name: recipe.name,
@@ -59,9 +58,7 @@ const actions = {
     if (recipe.img) {
       formattedRecipe.img = recipe.img
     }
-    const uuid = v4()
-    console.log('uuid', uuid)
-    return client.set('recipes/' + uuid, recipe).then(() => {
+    return client.set('recipes/' + id, recipe).then(() => {
       router.push('/')
     })
   },

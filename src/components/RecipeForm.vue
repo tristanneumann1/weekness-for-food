@@ -69,11 +69,6 @@ export default {
     nameRules () {
       return [ required('Name') ]
     }
-  },
-  methods: {
-    ingredientsChange () {
-
-    }
   }
 }
 </script>

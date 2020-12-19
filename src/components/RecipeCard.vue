@@ -4,18 +4,22 @@
       <v-container class="py-0">
         <v-row class="title-container">
           <v-card-actions class="card-actions">
-            <v-btn
-              v-if="url"
-              icon
-              x-small
-              :href="url"
-              color="primary"
-              target="_blank"
+            <router-link
+              :to="`/recipe-form/${id}`"
+              v-slot="{ href, route, navigate }"
             >
-              <v-icon dark>
-                mdi-open-in-new
-              </v-icon>
-            </v-btn>
+              <v-btn
+                icon
+                x-small
+                color="primary"
+                :href="href"
+                @click="navigate"
+              >
+                <v-icon dark>
+                  mdi-pencil
+                </v-icon>
+              </v-btn>
+            </router-link>
           </v-card-actions>
           <v-img
             dark
@@ -27,15 +31,44 @@
             <v-card-title
               primary-title
               class="recipe-title"
-              v-text="nameCapitalized"
-            />
+            >
+              <v-btn
+                v-if="url"
+                icon
+                x-small
+                class="mr-2"
+                color="primary"
+                target="_blank"
+                :href="url"
+              >
+                <v-icon dark>
+                  mdi-open-in-new
+                </v-icon>
+              </v-btn>
+              {{ nameCapitalized }}
+            </v-card-title>
           </v-img>
-          <v-card-title
-            v-else
-            primary-title
-            class="recipe-title"
-            v-text="nameCapitalized"
-          />
+          <template v-else>
+            <v-card-title
+              primary-title
+              class="recipe-title"
+            >
+              <v-btn
+                v-if="url"
+                icon
+                x-small
+                class="mr-2"
+                color="primary"
+                target="_blank"
+                :href="url"
+              >
+                <v-icon dark>
+                  mdi-open-in-new
+                </v-icon>
+              </v-btn>
+              {{ nameCapitalized }}
+            </v-card-title>
+          </template>
         </v-row>
         <v-row>
           <v-col class="col-6">
@@ -66,6 +99,7 @@
 export default {
   name: 'RecipeCard',
   props: {
+    id: String,
     name: String,
     img: String,
     url: String,

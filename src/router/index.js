@@ -10,6 +10,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "recipe-form" */ '@/views/RecipeFormView')
   },
   {
+    path: '/recipe-form/:id',
+    name: 'RecipeEditView',
+    component: () => import(/* webpackChunkName: "recipe-edit" */ '@/views/RecipeEditVue')
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '@/views/HomePage')
