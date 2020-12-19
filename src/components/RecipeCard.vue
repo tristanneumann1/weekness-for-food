@@ -7,7 +7,7 @@
             <v-btn
               v-if="url"
               icon
-              small
+              x-small
               :href="url"
               color="primary"
               target="_blank"

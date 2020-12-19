@@ -24,7 +24,7 @@
             class="title-link"
             to="/"
           >
-            <h1>Test Test Test</h1>
+            <h1>Weakness  for food</h1>
           </router-link>
           <v-app-bar-nav-icon
             class="app-bar-actions"

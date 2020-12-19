@@ -55,7 +55,7 @@ export default {
 <style scoped>
 .recipe-card {
   flex: 1;
-  min-width: 200px;
+  min-width: 300px;
 }
 .recipe-card-skeleton {
   width: 30%;

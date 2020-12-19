@@ -33,6 +33,8 @@
           :items="ingredients"
           label="Ingredients"
           :loading="loadingData"
+          :search-input.sync="searchInput"
+          @change="searchInput=''"
           clearable
           small-chips
           filled
@@ -56,7 +58,8 @@ export default {
   props: ['value', 'loadingData'],
   data () {
     return {
-      valid: false
+      valid: false,
+      searchInput: ''
     }
   },
   computed: {
@@ -65,6 +68,11 @@ export default {
     }),
     nameRules () {
       return [ required('Name') ]
+    }
+  },
+  methods: {
+    ingredientsChange () {
+
     }
   }
 }
