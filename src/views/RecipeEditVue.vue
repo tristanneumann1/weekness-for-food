@@ -1,7 +1,7 @@
 <template>
   <RecipeFormVue
     :recipe-id="$route.params.id"
-    button-text="edit"
+    button-text="save"
     title-text="Update the recipe here"
   />
 </template>
