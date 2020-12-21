@@ -3,13 +3,14 @@
     v-model="selectedIngredients"
     :items="ingredients"
     :loading="loading"
+    :search-input.sync="searchInput"
     label="What is in your fridge?"
     clearable
     small-chips
     filled
     deletable-chips
     multiple
-    @change="updateSelectedIngredients"
+    @change="selectIngredients"
   ></v-combobox>
 </template>
 
@@ -21,7 +22,8 @@ export default {
     loading: Boolean
   },
   data: () => ({
-    selectedIngredients: []
+    selectedIngredients: [],
+    searchInput: ''
   }),
   computed: {
     ...mapGetters({
@@ -29,7 +31,11 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['updateSelectedIngredients'])
+    ...mapActions(['updateSelectedIngredients']),
+    selectIngredients (ingredients) {
+      this.searchInput = ''
+      this.updateSelectedIngredients(ingredients)
+    }
   }
 }
 </script>

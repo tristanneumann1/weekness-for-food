@@ -45,7 +45,8 @@ export default {
         })
         return recipe
       }).sort((recipe1, recipe2) => {
-        return recipe1.missingIngredients.length - recipe2.missingIngredients.length
+        return recipe2.storedIngredients.length - recipe1.storedIngredients.length ||
+          recipe1.missingIngredients.length - recipe2.missingIngredients.length
       })
     }
   }
