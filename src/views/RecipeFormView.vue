@@ -30,10 +30,19 @@
     </v-row>
     <v-row class="d-flex justify-center">
       <v-btn
+        class="ma-2"
         color="primary"
         @click="submitForm"
       >
         {{ buttonText }}
+      </v-btn>
+      <v-btn
+        color="error"
+        class="ma-2"
+        v-if="deleteButton"
+        @click="onDelete"
+      >
+        Delete
       </v-btn>
     </v-row>
   </v-container>
@@ -42,7 +51,7 @@
 <script>
 import RecipeForm from '@/components/RecipeForm'
 import { v4 } from 'uuid'
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'RecipeFormView',
@@ -52,6 +61,10 @@ export default {
   props: {
     loadingData: Boolean,
     recipeId: String,
+    deleteButton: {
+      type: Boolean,
+      default: false
+    },
     buttonText: {
       type: String,
       default: 'submit'
@@ -68,15 +81,18 @@ export default {
     }
   },
   computed: {
-    ...mapState(['recipes'])
+    ...mapGetters(['recipesList'])
   },
   methods: {
-    ...mapActions(['createRecipe']),
+    ...mapActions(['createRecipe', 'deleteRecipe']),
     submitForm () {
       this.createRecipe({
         recipe: this.recipe,
         id: this.id
       })
+    },
+    onDelete () {
+      this.deleteRecipe(this.id)
     }
   },
   watch: {

@@ -87,19 +87,6 @@
                   </v-icon>
                 </v-btn>
               </router-link>
-              <v-btn
-                icon
-                x-small
-                fab
-                elevation="3"
-                class="grey lighten-3"
-                color="primary"
-                @click="onDelete"
-              >
-                <v-icon dark>
-                  mdi-trash-can
-                </v-icon>
-              </v-btn>
             </v-card-actions>
           </v-col>
         </v-row>
@@ -128,7 +115,6 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
 import * as categories from '@/constants/categories'
 
 export default {
@@ -165,12 +151,6 @@ export default {
         default:
           return 'black white--text'
       }
-    }
-  },
-  methods: {
-    ...mapActions(['deleteRecipe']),
-    onDelete () {
-      this.deleteRecipe(this.id)
     }
   }
 };

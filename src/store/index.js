@@ -82,9 +82,11 @@ const actions = {
   },
   deleteRecipe ({ commit }, recipeId) {
     const client = new FirebaseClient()
-    return client.delete('recipes/' + recipeId).then(
+    const deletePromise = client.delete('recipes/' + recipeId).then(
       commit(REMOVE_RECIPE, recipeId)
     )
+    router.push('/')
+    return deletePromise
   },
   fetchRecipesLegacy ({ commit }) {
     commit(SET_RECIPES, RECIPES)

@@ -7,7 +7,7 @@
         fade-img-on-scroll
         shrink-on-scroll
         color="rgba(25,32,72,.7)"
-        height="400"
+        height="200"
         min-height="80"
         src="https://picsum.photos/1920/1080?random"
         scroll-target="#main"
@@ -124,7 +124,7 @@ export default {
 <style scoped lang="scss">
 #main {
   max-height: 100vh;
-  padding-top: 400px;
+  padding-top: 200px;
   padding-bottom: 10px;
 }
 .title-link {
