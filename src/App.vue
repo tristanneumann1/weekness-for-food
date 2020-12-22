@@ -7,10 +7,10 @@
         fade-img-on-scroll
         shrink-on-scroll
         color="rgba(25,32,72,.7)"
-        height="200"
         min-height="80"
         src="https://picsum.photos/1920/1080?random"
         scroll-target="#main"
+        :height="$vuetify.breakpoint.smAndDown ? 200 : 400"
       >
         <template v-slot:img="{ props }">
           <v-img
@@ -63,6 +63,7 @@
           id="main"
           ref="main"
           class="overflow-y-auto"
+          :class="$vuetify.breakpoint.smAndDown ? 'sm' : ''"
         >
           <router-view :loadingData="loadingData" />
         </div>
@@ -122,11 +123,16 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+@import '~vuetify/src/styles/settings/_variables';
 #main {
   max-height: 100vh;
-  padding-top: 200px;
   padding-bottom: 10px;
+  padding-top: 400px;
+  &.sm {
+    padding-top: 200px;
+  }
 }
+
 .title-link {
   color: white;
   text-decoration: none;
