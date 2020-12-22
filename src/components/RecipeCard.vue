@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-container class="py-0">
-        <v-row class="title-container">
+        <v-row :class="titleColor">
           <v-card-actions class="card-actions">
             <router-link
               :to="`/recipe-form/${id}`"
@@ -106,6 +106,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+import * as categories from '@/constants/categories'
 
 export default {
   name: 'RecipeCard',
@@ -114,12 +115,33 @@ export default {
     name: String,
     img: String,
     url: String,
+    category: String,
     missingIngredients: Array,
     storedIngredients: Array
   },
   computed: {
     nameCapitalized () {
       return this.name[0].toUpperCase() + this.name.slice(1)
+    },
+    titleColor () {
+      switch (this.category) {
+        case categories.MEAT:
+          return 'red lighten-4'
+        case categories.FISH:
+          return 'blue lighten-4'
+        case categories.VEGGIE:
+          return 'green lighten-4'
+        case categories.DESSERTS:
+          return 'pink lighten-4'
+        case categories.SOUPS:
+          return 'teal darken-2 white--text'
+        case categories.PASTA:
+          return 'teal accent-3'
+        case categories.OTHER:
+          return 'grey darken-4 white--text'
+        default:
+          return 'white'
+      }
     }
   },
   methods: {

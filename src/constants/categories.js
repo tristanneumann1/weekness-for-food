@@ -1,0 +1,7 @@
+export const MEAT = 'MEAT'
+export const PASTA = 'PASTA'
+export const FISH = 'FISH'
+export const SOUPS = 'SOUPS'
+export const DESSERTS = 'DESSERTS'
+export const VEGGIE = 'VEGGIE'
+export const OTHER = 'OTHER'

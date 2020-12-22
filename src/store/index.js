@@ -4,6 +4,7 @@ import FirebaseClient from '@/store/firebaseClient'
 import RECIPES from '@/constants/recipes'
 import INGREDIENTS from '@/constants/ingredients-auto'
 import router from '@/router'
+import * as categories from  '@/constants/categories'
 
 Vue.use(Vuex)
 
@@ -58,6 +59,7 @@ const actions = {
     const formattedRecipe = {
       name: recipe.name,
       url: recipe.url,
+      category: recipe.category ? categories[recipe.category] : categories.OTHER,
       ingredients: recipe.ingredients.reduce((ingredients, ingredient, idx) => {
         ingredients[idx] = ingredient
         return ingredients

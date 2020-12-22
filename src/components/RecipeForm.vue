@@ -5,13 +5,24 @@
   >
     <v-container class="px-16">
       <v-row no-gutters>
-        <v-text-field
-          required
-          outlined
-          v-model="value.name"
-          :rules="nameRules"
-          label="Recipe name"
-        ></v-text-field>
+        <v-col class="col-12  col-md-6">
+          <v-text-field
+            required
+            outlined
+            class="mr-md-2"
+            v-model="value.name"
+            label="Recipe name"
+            :rules="nameRules"
+          ></v-text-field>
+        </v-col>
+        <v-col class="col-12  col-md-6">
+          <v-select
+            outlined
+            v-model="value.category"
+            class="ml-md-2"
+            :items="categoryItems"
+          />
+        </v-col>
       </v-row>
       <v-row no-gutters>
         <v-text-field
@@ -49,6 +60,7 @@
 <script>
 
 import { mapGetters } from 'vuex'
+import * as categories from '@/constants/categories'
 
 function required (field) {
   return (v) => !!v || field + ' is required'
@@ -68,6 +80,30 @@ export default {
     }),
     nameRules () {
       return [ required('Name') ]
+    },
+    categoryItems () {
+      return [{
+        value: categories.MEAT,
+        text: 'Meat'
+      },{
+        value: categories.FISH,
+        text: 'Fish'
+      },{
+        value: categories.PASTA,
+        text: 'Pasta & Rice & Pizza'
+      },{
+        value: categories.VEGGIE,
+        text: 'Veggies'
+      },{
+        value: categories.SOUPS,
+        text: 'Soups and Stews'
+      },{
+        value: categories.DESSERTS,
+        text: 'Desserts'
+      },{
+        value: categories.OTHER,
+        text: 'Other'
+      },]
     }
   }
 }
