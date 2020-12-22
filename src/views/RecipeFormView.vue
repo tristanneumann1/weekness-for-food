@@ -51,7 +51,7 @@
 <script>
 import RecipeForm from '@/components/RecipeForm'
 import { v4 } from 'uuid'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'RecipeFormView',
@@ -81,7 +81,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['recipesList'])
+    ...mapState(['recipes'])
   },
   methods: {
     ...mapActions(['createRecipe', 'deleteRecipe']),
@@ -100,7 +100,7 @@ export default {
       immediate: true,
       handler () {
         if (this.recipeId) {
-          this.recipe = this.recipes.find(recipe => recipe.id === this.recipeId)
+          this.recipe = this.recipes[this.recipeId]
         }
       }
     }

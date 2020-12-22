@@ -26,10 +26,13 @@ const mutations = {
     state.recipes = recipes
   },
   [ADD_RECIPE] (state, recipe) {
-    state.recipes.push(recipe)
+    state.recipes = {
+      ...state.recipes,
+      [recipe.id]: recipe
+    }
   },
   [REMOVE_RECIPE] (state, recipeId) {
-    state.recipes.splice(state.recipes.findIndex(recipe => recipe.id === recipeId), 1)
+    Vue.delete(state.recipes, recipeId)
   },
   [SET_INGREDIENTS] (state, ingredients) {
     state.ingredients = ingredients
@@ -50,19 +53,20 @@ const actions = {
     const ingredientsSet = new Set()
     const client = new FirebaseClient()
     return client.read('recipes', Object.values(state.filters)).then(recipes => {
-      commit(SET_RECIPES, Object.keys(recipes).map(recipeId => {
+      commit(SET_RECIPES, Object.keys(recipes).reduce((recipeMap, recipeId) => {
         const ingredients = Object.values(recipes[recipeId].ingredients)
         ingredients.forEach(ingredientsSet.add, ingredientsSet);
-        return {
+        recipeMap[recipeId] = {
           ...recipes[recipeId],
           id: recipeId,
           ingredients
         }
-      }))
+        return recipeMap
+      }, {}))
       commit(SET_INGREDIENTS, [...ingredientsSet])
     })
   },
-  createRecipe (_, { recipe, id }) {
+  createRecipe ({ commit }, { recipe, id }) {
     const client = new FirebaseClient()
     const formattedRecipe = {
       name: recipe.name,
@@ -77,15 +81,16 @@ const actions = {
       formattedRecipe.img = recipe.img
     }
     return client.set('recipes/' + id, recipe).then(() => {
+      commit(ADD_RECIPE, recipe)
       router.push('/')
     })
   },
   deleteRecipe ({ commit }, recipeId) {
     const client = new FirebaseClient()
-    const deletePromise = client.delete('recipes/' + recipeId).then(
+    const deletePromise = client.delete('recipes/' + recipeId).then(() => {
       commit(REMOVE_RECIPE, recipeId)
-    )
-    router.push('/')
+      router.push('/')
+    })
     return deletePromise
   },
   fetchRecipesLegacy ({ commit }) {
