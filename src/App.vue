@@ -8,6 +8,7 @@
         shrink-on-scroll
         color="rgba(25,32,72,.7)"
         height="400"
+        min-height="80"
         src="https://picsum.photos/1920/1080?random"
         scroll-target="#main"
       >
@@ -17,39 +18,45 @@
             gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
           />
         </template>
-        <div
-          class="app-bar--content"
+        <template
+          class="app-bar--content d-flex"
         >
-          <router-link
-            class="title-link"
-            to="/"
-          >
-            <h1>Weakness  for food</h1>
-          </router-link>
-          <v-app-bar-nav-icon
-            class="app-bar-actions"
-          >
-            <router-link
-              to="/recipe-form"
-              v-slot="{ href, route, navigate }"
-            >
-              <v-btn
-                v-if="!isCreateRecipeRoute"
-                icon
-                outlined
-                :href="href"
-                @click="navigate"
-              >
-                <v-icon
-                  dark
-                  large
+          <v-container class="fill-height">
+            <v-row class="d-flex justify-lg-space-between align-self-end">
+              <v-col>
+                <router-link
+                  class="title-link"
+                  to="/"
                 >
-                  mdi-plus-thick
-                </v-icon>
-              </v-btn>
-            </router-link>
-          </v-app-bar-nav-icon>
-        </div>
+                  <h1>Weakness  for food</h1>
+                </router-link>
+              </v-col>
+              <v-col class="col-1 pa-0">
+                <v-app-bar-nav-icon>
+                  <router-link
+                    to="/recipe-form"
+                    v-slot="{ href, route, navigate }"
+                  >
+                    <v-btn
+                      v-if="!isCreateRecipeRoute"
+                      icon
+                      outlined
+                      :href="href"
+                      @click="navigate"
+                    >
+                      <v-icon
+                        dark
+                        large
+                      >
+                        mdi-plus-thick
+                      </v-icon>
+                    </v-btn>
+                  </router-link>
+                </v-app-bar-nav-icon>
+              </v-col>
+            </v-row>
+          </v-container>
+        </template>
       </v-app-bar>
       <v-main>
         <div
@@ -98,7 +105,6 @@ export default {
 }
 .title-link {
   color: white;
-  align-self: flex-end;
   text-decoration: none;
   h1 {
     font-size: 1em;
@@ -106,14 +112,6 @@ export default {
 }
 
 .app-bar--content {
-  display: flex;
   height: 100%;
-}
-
-.app-bar-actions {
-  position: absolute;
-  margin: 1em;
-  right: 0;
-  bottom: 0;
 }
 </style>
