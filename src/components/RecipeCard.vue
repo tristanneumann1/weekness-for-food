@@ -126,11 +126,11 @@ export default {
     titleColor () {
       switch (this.category) {
         case categories.MEAT:
-          return 'red lighten-1'
+          return 'red lighten-2'
         case categories.FISH:
           return 'blue accent-1'
         case categories.VEGGIE:
-          return 'green accent-1'
+          return 'green lighten-2'
         case categories.DESSERTS:
           return 'pink lighten-3'
         case categories.SOUPS:
