@@ -5,10 +5,16 @@ export default class FirebaseClient {
   constructor () {
     this.db = firebase.database()
   }
-  read (ref) {
+  read (ref, filters = []) {
     const locationRef = this.db.ref(ref)
+    const filteredRef = filters.reduce((locationRef, filter) => {
+      if (!filter.value) {
+        return locationRef
+      }
+      return locationRef.orderByChild(filter.key).equalTo(filter.value)
+    }, locationRef)
     return new Promise(resolve => {
-      locationRef.on('value', (snapshot => {
+      filteredRef.on('value', (snapshot => {
         const data = snapshot.val();
         resolve(data)
       }))

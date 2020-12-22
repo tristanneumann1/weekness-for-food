@@ -14,6 +14,7 @@
           label="Filter by category"
           class="ml-md-4"
           :items="categoryItems"
+          @change="categoryFilter"
         />
       </v-col>
     </v-row>
@@ -38,6 +39,7 @@
 import IngredientSearchBar from '@/components/IngredientSearchBar'
 import RecipeList from '@/components/RecipeList'
 import categories from '@/constants/categories'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'HomePage',
@@ -52,6 +54,9 @@ export default {
     categoryItems () {
       return categories
     }
+  },
+  methods: {
+    ...mapActions(['categoryFilter'])
   }
 }
 </script>

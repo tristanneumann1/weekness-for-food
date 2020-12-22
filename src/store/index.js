@@ -10,6 +10,7 @@ Vue.use(Vuex)
 
 const state = {
   selectedIngredients: [],
+  filters: {},
   recipes: {},
   ingredients: {}
 }
@@ -19,6 +20,7 @@ const REMOVE_RECIPE = 'REMOVE_RECIPE'
 const SET_RECIPES = 'SET_RECIPES'
 const SET_INGREDIENTS = 'SET_INGREDIENTS'
 const SET_SELECTED_INGREDIENTS = 'SET_SELECTED_INGREDIENTS'
+const UPDATE_FILTER = 'UPDATE_FILTER'
 const mutations = {
   [SET_RECIPES] (state, recipes) {
     state.recipes = recipes
@@ -34,14 +36,20 @@ const mutations = {
   },
   [SET_SELECTED_INGREDIENTS] (state, ingredients) {
     state.selectedIngredients = ingredients
+  },
+  [UPDATE_FILTER] (state, newFilter) {
+    state.filters = {
+      ...state.filters,
+      ...newFilter
+    }
   }
 }
 
 const actions = {
-  fetchRecipes ({ commit }) {
+  fetchRecipes ({ commit, state }) {
     const ingredientsSet = new Set()
     const client = new FirebaseClient()
-    return client.read('recipes').then(recipes => {
+    return client.read('recipes', Object.values(state.filters)).then(recipes => {
       commit(SET_RECIPES, Object.keys(recipes).map(recipeId => {
         const ingredients = Object.values(recipes[recipeId].ingredients)
         ingredients.forEach(ingredientsSet.add, ingredientsSet);
@@ -86,6 +94,15 @@ const actions = {
   },
   updateSelectedIngredients ({ commit }, selectedIngredients) {
     commit(SET_SELECTED_INGREDIENTS, selectedIngredients)
+  },
+  categoryFilter ({ commit, dispatch }, category) {
+    commit(UPDATE_FILTER, {
+      category: {
+        key: 'category',
+        value: category
+      }
+    })
+    dispatch('fetchRecipes')
   }
 }
 
