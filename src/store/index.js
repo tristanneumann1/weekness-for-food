@@ -54,7 +54,7 @@ const actions = {
       commit(SET_INGREDIENTS, [...ingredientsSet])
     })
   },
-  createRecipe ({ commit }, { recipe, id }) {
+  createRecipe (_, { recipe, id }) {
     const client = new FirebaseClient()
     const formattedRecipe = {
       name: recipe.name,
@@ -69,7 +69,6 @@ const actions = {
       formattedRecipe.img = recipe.img
     }
     return client.set('recipes/' + id, recipe).then(() => {
-      commit(ADD_RECIPE, { ...recipe, id })
       router.push('/')
     })
   },

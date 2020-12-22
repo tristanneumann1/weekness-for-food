@@ -126,21 +126,21 @@ export default {
     titleColor () {
       switch (this.category) {
         case categories.MEAT:
-          return 'red lighten-4'
+          return 'red lighten-1'
         case categories.FISH:
-          return 'blue lighten-4'
+          return 'blue accent-1'
         case categories.VEGGIE:
-          return 'green lighten-4'
+          return 'green accent-1'
         case categories.DESSERTS:
-          return 'pink lighten-4'
+          return 'pink lighten-3'
         case categories.SOUPS:
-          return 'teal darken-2 white--text'
+          return 'brown lighten-3'
         case categories.PASTA:
-          return 'teal accent-3'
+          return 'orange accent-1'
         case categories.OTHER:
-          return 'grey darken-4 white--text'
+          return 'blue-grey lighten-4'
         default:
-          return 'white'
+          return 'black white--text'
       }
     }
   },

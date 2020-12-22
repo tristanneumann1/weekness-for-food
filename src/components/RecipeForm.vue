@@ -20,6 +20,7 @@
             outlined
             v-model="value.category"
             class="ml-md-2"
+            label="Category"
             :items="categoryItems"
           />
         </v-col>
@@ -60,7 +61,7 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import * as categories from '@/constants/categories'
+import categories from '@/constants/categories'
 
 function required (field) {
   return (v) => !!v || field + ' is required'
@@ -82,28 +83,7 @@ export default {
       return [ required('Name') ]
     },
     categoryItems () {
-      return [{
-        value: categories.MEAT,
-        text: 'Meat'
-      },{
-        value: categories.FISH,
-        text: 'Fish'
-      },{
-        value: categories.PASTA,
-        text: 'Pasta & Rice & Pizza'
-      },{
-        value: categories.VEGGIE,
-        text: 'Veggies'
-      },{
-        value: categories.SOUPS,
-        text: 'Soups and Stews'
-      },{
-        value: categories.DESSERTS,
-        text: 'Desserts'
-      },{
-        value: categories.OTHER,
-        text: 'Other'
-      },]
+      return categories
     }
   }
 }
