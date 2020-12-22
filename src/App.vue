@@ -61,11 +61,28 @@
       <v-main>
         <div
           id="main"
+          ref="main"
           class="overflow-y-auto"
         >
           <router-view :loadingData="loadingData" />
         </div>
       </v-main>
+      <v-footer
+        fixed
+        padless
+        class="d-flex justify-end"
+        color="transparent"
+        v-if="isHomeRoute"
+      >
+        <v-btn
+          fab
+          small
+          class="mr-8 mb-8 grey lighten-3"
+          @click="scrollToTop"
+        >
+          <v-icon large>mdi-chevron-up</v-icon>
+        </v-btn>
+      </v-footer>
     </div>
   </v-app>
 </template>
@@ -83,12 +100,18 @@ export default {
   computed: {
     isCreateRecipeRoute() {
       return this.$route.path === '/recipe-form'
+    },
+    isHomeRoute() {
+      return this.$route.path === '/'
     }
   },
   methods: {
     ...mapActions([
       'fetchRecipes'
-    ])
+    ]),
+    scrollToTop () {
+      this.$refs.main.scrollTop = 0
+    }
   },
   created () {
     this.loadingData = true
@@ -102,6 +125,7 @@ export default {
 #main {
   max-height: 100vh;
   padding-top: 400px;
+  padding-bottom: 10px;
 }
 .title-link {
   color: white;
@@ -113,5 +137,9 @@ export default {
 
 .app-bar--content {
   height: 100%;
+}
+.nav-to-top {
+  text-decoration: none;
+  color: inherit;
 }
 </style>

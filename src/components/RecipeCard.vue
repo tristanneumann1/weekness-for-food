@@ -39,26 +39,30 @@
             <template v-else>
               <v-card-title
                 primary-title
-                class="recipe-title"
+                class="recipe-title py-0"
               >
-                <span>
-                  <v-btn
-                    v-if="url"
-                    icon
-                    x-small
-                    fab
-                    elevation="3"
-                    class="mr-2 grey lighten-3"
-                    color="primary"
-                    target="_blank"
-                    :href="url"
-                  >
-                    <v-icon dark>
-                      mdi-open-in-new
-                    </v-icon>
-                  </v-btn>
-                  {{ nameCapitalized }}
-                </span>
+                <v-container>
+                  <v-row>
+                    <v-col class="col-auto pa-0">
+                      <v-btn
+                        v-if="url"
+                        icon
+                        x-small
+                        fab
+                        elevation="3"
+                        class="mr-2 grey lighten-3"
+                        color="primary"
+                        target="_blank"
+                        :href="url"
+                      >
+                        <v-icon dark>
+                          mdi-open-in-new
+                        </v-icon>
+                      </v-btn>
+                    </v-col>
+                    <v-col class="pa-0 text-center">{{ nameCapitalized }}</v-col>
+                  </v-row>
+                </v-container>
               </v-card-title>
             </template>
           </v-col>
