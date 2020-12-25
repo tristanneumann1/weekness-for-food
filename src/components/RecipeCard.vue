@@ -6,89 +6,24 @@
           class="d-flex justify-space-between"
           :class="titleColor"
         >
-          <v-col class="pa-0">
-            <v-img
-              dark
-              v-if="img"
-              height="250"
-              class="align-end"
-              :src="img"
-            >
-              <v-card-title
-                primary-title
-                class="recipe-title"
-              >
-                <v-btn
-                  v-if="url"
-                  icon
-                  x-small
-                  fab
-                  elevation="3"
-                  class="mr-2 grey lighten-3"
-                  color="primary"
-                  target="_blank"
-                  :href="url"
-                >
-                  <v-icon dark>
-                    mdi-open-in-new
-                  </v-icon>
-                </v-btn>
-                {{ nameCapitalized }}
-              </v-card-title>
-            </v-img>
-            <template v-else>
-              <v-card-title
-                primary-title
-                class="recipe-title py-0"
-              >
-                <v-container>
-                  <v-row>
-                    <v-col class="col-auto pa-0">
-                      <v-btn
-                        v-if="url"
-                        icon
-                        x-small
-                        fab
-                        elevation="3"
-                        class="mr-2 grey lighten-3"
-                        color="primary"
-                        target="_blank"
-                        :href="url"
-                      >
-                        <v-icon dark>
-                          mdi-open-in-new
-                        </v-icon>
-                      </v-btn>
-                    </v-col>
-                    <v-col class="pa-0 text-center">{{ nameCapitalized }}</v-col>
-                  </v-row>
-                </v-container>
-              </v-card-title>
-            </template>
-          </v-col>
-          <v-col class="col-auto pa-0">
-            <v-card-actions>
-              <router-link
-                :to="`/recipe-form/${id}`"
-                v-slot="{ href, route, navigate }"
-              >
-                <v-btn
-                  icon
-                  x-small
-                  fab
-                  elevation="3"
-                  class="grey lighten-3"
-                  color="primary"
-                  :href="href"
-                  @click="navigate"
-                >
-                  <v-icon dark>
-                    mdi-pencil
-                  </v-icon>
-                </v-btn>
-              </router-link>
-            </v-card-actions>
-          </v-col>
+          <v-img
+            v-if="img"
+            height="250"
+            class="align-end"
+            :src="img"
+          >
+            <RecipeTitle
+              :name="nameCapitalized"
+              :url="url"
+              :id="id"
+            />
+          </v-img>
+          <RecipeTitle
+            v-else
+            :name="nameCapitalized"
+            :url="url"
+            :id="id"
+          />
         </v-row>
         <v-row>
           <v-col class="col-6">
@@ -116,6 +51,7 @@
 </template>
 <script>
 import * as categories from '@/constants/categories'
+import RecipeTitle from '@/components/RecipeTitle'
 
 export default {
   name: 'RecipeCard',
@@ -127,6 +63,9 @@ export default {
     category: String,
     missingIngredients: Array,
     storedIngredients: Array
+  },
+  components: {
+    RecipeTitle
   },
   computed: {
     nameCapitalized () {
