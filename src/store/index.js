@@ -72,16 +72,14 @@ const actions = {
       name: recipe.name,
       url: recipe.url,
       category: recipe.category ? categories[recipe.category] : categories.OTHER,
+      chefsNotes: recipe.chefsNotes,
       ingredients: recipe.ingredients.reduce((ingredients, ingredient, idx) => {
         ingredients[idx] = ingredient
         return ingredients
       }, {})
     }
-    if (recipe.img) {
-      formattedRecipe.img = recipe.img
-    }
-    return client.set('recipes/' + id, recipe).then(() => {
-      commit(ADD_RECIPE, recipe)
+    return client.set('recipes/' + id, formattedRecipe).then(() => {
+      commit(ADD_RECIPE, formattedRecipe)
       router.push('/')
     })
   },

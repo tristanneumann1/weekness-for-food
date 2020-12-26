@@ -33,11 +33,11 @@
         ></v-text-field>
       </v-row>
       <v-row no-gutters>
-        <v-text-field
+        <v-textarea
           outlined
-          v-model="value.img"
-          label="image url (optional)"
-        ></v-text-field>
+          v-model="value.chefsNotes"
+          label="Add any additional notes here"
+        ></v-textarea>
       </v-row>
       <v-row no-gutters>
         <v-combobox

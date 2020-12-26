@@ -1,32 +1,56 @@
 <template>
   <v-container>
-    <v-row no-gutters class="d-flex align-center">
-      <router-link
-        to="/"
-        v-slot="{ href, route, navigate }"
-      >
-        <v-btn
-          fab
-          color="accent"
-          class="ma-2 mr-4"
-          :href="href"
-          @click="navigate"
+    <v-row no-gutters class="d-flex justify-space-between">
+      <v-col class="d-flex align-center">
+        <router-link
+          to="/"
+          v-slot="{ href, route, navigate }"
         >
-          <v-icon
-            dark
-            large
+          <v-btn
+            fab
+            color="accent"
+            class="ma-2 mr-4"
+            :href="href"
+            @click="navigate"
           >
-            mdi-arrow-left-thick
-          </v-icon>
+            <v-icon
+              dark
+              large
+            >
+              mdi-arrow-left-thick
+            </v-icon>
+          </v-btn>
+        </router-link>
+        <h2>{{ titleText }}</h2>
+      </v-col>
+      <v-col class="col-auto">
+        <v-btn
+          color="primary"
+          class="ma-2"
+          @click="toggleImageForm"
+        >
+          Manage images
+          <span>
+            <v-icon>
+              mdi-arrow-right
+            </v-icon>
+          </span>
         </v-btn>
-      </router-link>
-      <h2>{{ titleText }}</h2>
+      </v-col>
     </v-row>
     <v-row>
-      <RecipeForm
-        v-model="recipe"
-        :loadingData="loadingData"
-      />
+      <v-slide-x-transition>
+        <RecipeForm
+          v-show="!imageForm"
+          v-model="recipe"
+          :loadingData="loadingData"
+        />
+      </v-slide-x-transition>
+      <v-slide-x-reverse-transition>
+        <div
+          v-show="imageForm"
+        > Image form </div>
+      </v-slide-x-reverse-transition>
     </v-row>
     <v-row class="d-flex justify-center">
       <v-btn
@@ -77,7 +101,8 @@ export default {
   data () {
     return  {
       recipe: {},
-      id: this.recipeId ? this.recipeId : v4()
+      id: this.recipeId ? this.recipeId : v4(),
+      imageForm: false
     }
   },
   computed: {
@@ -93,6 +118,9 @@ export default {
     },
     onDelete () {
       this.deleteRecipe(this.id)
+    },
+    toggleImageForm () {
+      this.imageForm = !this.imageForm
     }
   },
   watch: {
