@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import FirebaseClient from '@/store/firebaseClient'
-import RECIPES from '@/constants/recipes'
-import INGREDIENTS from '@/constants/ingredients-auto'
 import router from '@/router'
 import * as categories from  '@/constants/categories'
 
@@ -10,6 +8,7 @@ Vue.use(Vuex)
 
 const state = {
   selectedIngredients: [],
+  files: {},
   filters: {},
   recipes: {},
   ingredients: {}
@@ -21,6 +20,8 @@ const SET_RECIPES = 'SET_RECIPES'
 const SET_INGREDIENTS = 'SET_INGREDIENTS'
 const SET_SELECTED_INGREDIENTS = 'SET_SELECTED_INGREDIENTS'
 const UPDATE_FILTER = 'UPDATE_FILTER'
+const  ADD_FILE  = 'ADD_FILE'
+
 const mutations = {
   [SET_RECIPES] (state, recipes) {
     state.recipes = recipes
@@ -44,6 +45,15 @@ const mutations = {
     state.filters = {
       ...state.filters,
       ...newFilter
+    }
+  },
+  [ADD_FILE] (state, { url, recipeId }) {
+    if (!state.files[recipeId]) {
+      state.files[recipeId] = []
+    }
+    state.files = {
+      ...state.files,
+      [recipeId]: [...state.files[recipeId], url]
     }
   }
 }
@@ -70,13 +80,11 @@ const actions = {
     const client = new FirebaseClient()
     const formattedRecipe = {
       name: recipe.name,
-      url: recipe.url,
+      url: recipe.url || '',
       category: recipe.category ? categories[recipe.category] : categories.OTHER,
-      chefsNotes: recipe.chefsNotes,
-      ingredients: recipe.ingredients.reduce((ingredients, ingredient, idx) => {
-        ingredients[idx] = ingredient
-        return ingredients
-      }, {})
+      chefsNotes: recipe.chefsNotes || '',
+      recipeImages: recipe.recipeImages || [],
+      ingredients: recipe.ingredients
     }
     return client.set('recipes/' + id, formattedRecipe).then(() => {
       commit(ADD_RECIPE, formattedRecipe)
@@ -91,11 +99,11 @@ const actions = {
     })
     return deletePromise
   },
-  fetchRecipesLegacy ({ commit }) {
-    commit(SET_RECIPES, RECIPES)
-  },
-  fetchIngredients ({ commit }) {
-    commit(SET_INGREDIENTS, INGREDIENTS)
+  uploadFile ({ commit }, { file, id: recipeId }) {
+    const client = new FirebaseClient()
+    return client.uploadFile(file).then(({ url }) =>  {
+      commit(ADD_FILE, { url, recipeId })
+    })
   },
   updateSelectedIngredients ({ commit }, selectedIngredients) {
     commit(SET_SELECTED_INGREDIENTS, selectedIngredients)
@@ -117,6 +125,9 @@ const getters = {
   },
   ingredientsList (state) {
     return Object.values(state.ingredients)
+  },
+  imagesByRecipe: (state) => (recipeId) => {
+    return state.files[recipeId] ? state.files[recipeId] : []
   }
 }
 

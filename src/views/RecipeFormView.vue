@@ -8,7 +8,7 @@
         >
           <v-btn
             fab
-            color="accent"
+            color="primary"
             class="ma-2 mr-4"
             :href="href"
             @click="navigate"
@@ -29,8 +29,18 @@
           class="ma-2"
           @click="toggleImageForm"
         >
-          Manage images
-          <span>
+          <span v-if="imageForm">
+            <v-icon>
+              mdi-arrow-left
+            </v-icon>
+            <v-icon>
+              mdi-form-select
+            </v-icon>
+          </span>
+          <span v-else>
+            <v-icon>
+              mdi-file-image
+            </v-icon>
             <v-icon>
               mdi-arrow-right
             </v-icon>
@@ -47,9 +57,11 @@
         />
       </v-slide-x-transition>
       <v-slide-x-reverse-transition>
-        <div
+        <ImageManager
           v-show="imageForm"
-        > Image form </div>
+          v-model="recipe"
+          :id="id"
+        />
       </v-slide-x-reverse-transition>
     </v-row>
     <v-row class="d-flex justify-center">
@@ -74,13 +86,15 @@
 
 <script>
 import RecipeForm from '@/components/RecipeForm'
+import ImageManager from '@/components/ImageManager'
 import { v4 } from 'uuid'
 import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'RecipeFormView',
   components: {
-    RecipeForm
+    RecipeForm,
+    ImageManager
   },
   props: {
     loadingData: Boolean,
@@ -95,12 +109,14 @@ export default {
     },
     titleText: {
       type: String,
-      default: 'Create a new recipe here'
+      default: 'Create a new recipe'
     }
   },
   data () {
     return  {
-      recipe: {},
+      recipe: {
+        recipeImages: []
+      },
       id: this.recipeId ? this.recipeId : v4(),
       imageForm: false
     }
