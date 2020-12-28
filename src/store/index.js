@@ -20,7 +20,8 @@ const SET_RECIPES = 'SET_RECIPES'
 const SET_INGREDIENTS = 'SET_INGREDIENTS'
 const SET_SELECTED_INGREDIENTS = 'SET_SELECTED_INGREDIENTS'
 const UPDATE_FILTER = 'UPDATE_FILTER'
-const  ADD_FILE  = 'ADD_FILE'
+const ADD_FILE = 'ADD_FILE'
+const CLEAR_UPLOADED_FILES = 'CLEAR_UPLOADED_FILES'
 
 const mutations = {
   [SET_RECIPES] (state, recipes) {
@@ -54,6 +55,12 @@ const mutations = {
     state.files = {
       ...state.files,
       [recipeId]: [...state.files[recipeId], url]
+    }
+  },
+  [CLEAR_UPLOADED_FILES] (state, recipeId) {
+    state.files = {
+      ...state.files,
+      [recipeId]: []
     }
   }
 }
@@ -117,6 +124,9 @@ const actions = {
       }
     })
     dispatch('fetchRecipes')
+  },
+  clearUploadedFiles ({ commit }, recipeId) {
+    commit(CLEAR_UPLOADED_FILES, recipeId)
   }
 }
 

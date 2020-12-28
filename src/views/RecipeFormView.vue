@@ -144,7 +144,10 @@ export default {
       immediate: true,
       handler () {
         if (this.recipeId && Object.keys(this.recipes).length) {
-          this.recipe = this.recipes[this.recipeId]
+          this.recipe = {
+            ...this.recipe,
+            ...this.recipes[this.recipeId]
+          }
         }
       }
     }

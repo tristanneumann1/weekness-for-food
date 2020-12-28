@@ -19,17 +19,26 @@
       </v-col>
     </v-row>
     <v-row
-      v-for="image in value.recipeImages || []"
-      :key="image"
+      v-for="imageSrc in value.recipeImages || []"
       class="d-flex child-flex"
+      :key="imageSrc"
     >
       <v-img
-        :src="image"
+        :src="imageSrc"
         lazy-src="https://picsum.photos/10/10"
-        :max-width="widths[image]"
-        :max-height="heights[image]"
+        :max-width="widths[imageSrc] || 10"
+        :max-height="heights[imageSrc] || 10"
         class="grey lighten-2 ma-2"
       >
+        <v-btn
+          fab
+          small
+          color="error"
+          class="float-right"
+          @click="deleteImage(imageSrc)"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
         <template v-slot:placeholder>
           <v-row
             class="fill-height ma-0"
@@ -49,7 +58,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Vue from 'vue'
 
 export default {
   name: 'ImageManager',
@@ -64,7 +72,7 @@ export default {
   },
   computed: {
     ...mapGetters(['imagesByRecipe']),
-    imageUrls () {
+    uploadedImages () {
       return this.imagesByRecipe(this.id)
     },
     recipeImages () {
@@ -72,32 +80,44 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['uploadFile']),
+    ...mapActions(['uploadFile', 'clearUploadedFiles']),
     uploadImages () {
       this.uploadingImages = true
       return Promise.all(this.filesToUpload.map(image => this.uploadFile({ file: image, id: this.id }))).finally(() => {
         this.uploadingImages = false
-        this.filesToUpload = []
-        this.value.recipeImages = this.imageUrls
+        this.value.recipeImages = [
+          ...this.value.recipeImages,
+          ...this.uploadedImages
+        ]
+        this.clearFiles()
       })
     },
     getImageSize(imageSrc) {
       const img = new Image()
       img.onload = () => {
-        Vue.set(this.widths, imageSrc, img.width)
-        Vue.set(this.heights, imageSrc, img.height)
+        this.$set(this.widths, imageSrc, img.width)
+        this.$set(this.heights, imageSrc, img.height)
       }
       img.src = imageSrc
+    },
+    deleteImage(imageSrc) {
+      this.$delete(this.value.recipeImages, this.value.recipeImages.findIndex(recipeImageSrc => {
+        return imageSrc === recipeImageSrc
+      }))
+    },
+    clearFiles () {
+      this.filesToUpload = []
+      this.clearUploadedFiles(this.id)
     }
   },
   watch: {
     recipeImages: {
-      handler (imageUrls) {
-        imageUrls.forEach(imageUrl => {
-          if (this.widths[imageUrl]) {
+      handler (imageSrcs) {
+        imageSrcs.forEach(imageSrc => {
+          if (this.widths[imageSrc]) {
             return
           }
-          this.getImageSize(imageUrl)
+          this.getImageSize(imageSrc)
         })
       },
       deep: true,

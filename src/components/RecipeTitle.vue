@@ -24,7 +24,7 @@
                 </v-icon>
               </v-btn>
             </v-col>
-            <v-col class="pa-0 text-center">{{ name }}</v-col>
+            <v-col class="pa-0 text-center word-wrap">{{ name }}</v-col>
           </v-row>
         </v-container>
       </v-card-title>
@@ -67,5 +67,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .word-wrap {
+    word-break: break-word;
+  }
 </style>
