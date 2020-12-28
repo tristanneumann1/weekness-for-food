@@ -26,10 +26,10 @@ const mutations = {
   [SET_RECIPES] (state, recipes) {
     state.recipes = recipes
   },
-  [ADD_RECIPE] (state, recipe) {
+  [ADD_RECIPE] (state, { recipe, id }) {
     state.recipes = {
       ...state.recipes,
-      [recipe.id]: recipe
+      [id]: recipe
     }
   },
   [REMOVE_RECIPE] (state, recipeId) {
@@ -79,6 +79,7 @@ const actions = {
   createRecipe ({ commit }, { recipe, id }) {
     const client = new FirebaseClient()
     const formattedRecipe = {
+      id,
       name: recipe.name,
       url: recipe.url || '',
       category: recipe.category ? categories[recipe.category] : categories.OTHER,
@@ -87,7 +88,7 @@ const actions = {
       ingredients: recipe.ingredients
     }
     return client.set('recipes/' + id, formattedRecipe).then(() => {
-      commit(ADD_RECIPE, formattedRecipe)
+      commit(ADD_RECIPE, { recipe: formattedRecipe, id })
       router.push('/')
     })
   },
