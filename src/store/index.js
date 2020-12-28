@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import FirebaseClient from '@/store/firebaseClient'
 import router from '@/router'
-import * as categories from  '@/constants/categories'
+import Recipe from '@/store/Recipe'
 
 Vue.use(Vuex)
 
@@ -27,10 +27,10 @@ const mutations = {
   [SET_RECIPES] (state, recipes) {
     state.recipes = recipes
   },
-  [ADD_RECIPE] (state, { recipe, id }) {
+  [ADD_RECIPE] (state, recipe) {
     state.recipes = {
       ...state.recipes,
-      [id]: recipe
+      [recipe.id]: recipe
     }
   },
   [REMOVE_RECIPE] (state, recipeId) {
@@ -71,13 +71,11 @@ const actions = {
     const client = new FirebaseClient()
     return client.read('recipes', Object.values(state.filters)).then(recipes => {
       commit(SET_RECIPES, Object.keys(recipes).reduce((recipeMap, recipeId) => {
-        const ingredients = Object.values(recipes[recipeId].ingredients)
-        ingredients.forEach(ingredientsSet.add, ingredientsSet);
-        recipeMap[recipeId] = {
+        recipeMap[recipeId] = new Recipe({
           ...recipes[recipeId],
-          id: recipeId,
-          ingredients
-        }
+          id: recipeId
+        })
+        recipeMap[recipeId].ingredients.forEach(ingredientsSet.add, ingredientsSet);
         return recipeMap
       }, {}))
       commit(SET_INGREDIENTS, [...ingredientsSet])
@@ -85,17 +83,12 @@ const actions = {
   },
   createRecipe ({ commit }, { recipe, id }) {
     const client = new FirebaseClient()
-    const formattedRecipe = {
+    const formattedRecipe = new Recipe({
       id,
-      name: recipe.name,
-      url: recipe.url || '',
-      category: recipe.category ? categories[recipe.category] : categories.OTHER,
-      chefsNotes: recipe.chefsNotes || '',
-      recipeImages: recipe.recipeImages || [],
-      ingredients: recipe.ingredients
-    }
+      ...recipe
+    })
     return client.set('recipes/' + id, formattedRecipe).then(() => {
-      commit(ADD_RECIPE, { recipe: formattedRecipe, id })
+      commit(ADD_RECIPE, formattedRecipe)
       router.push('/')
     })
   },
