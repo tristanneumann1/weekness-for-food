@@ -1,10 +1,10 @@
 <template>
   <v-combobox
-    v-model="selectedIngredients"
+    :value="value"
     :items="ingredients"
     :loading="loading"
     :search-input.sync="searchInput"
-    label="What is in your fridge?"
+    label="List the ingredients in your fridge"
     clearable
     small-chips
     filled
@@ -19,10 +19,10 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'IngredientSearchBar',
   props: {
-    loading: Boolean
+    loading: Boolean,
+    value: Array
   },
   data: () => ({
-    selectedIngredients: [],
     searchInput: ''
   }),
   computed: {

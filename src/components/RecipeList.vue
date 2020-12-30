@@ -11,7 +11,7 @@
     <RecipeCard
       v-else
       class="recipe-card ma-3"
-      v-for="recipe in sortedRecipes"
+      v-for="recipe in recipes"
       v-bind="recipe"
       :key="recipe.id"
     />
@@ -20,7 +20,7 @@
 
 <script>
 import RecipeCard from '@/components/RecipeCard'
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'RecipeList',
@@ -31,24 +31,9 @@ export default {
     loading: Boolean
   },
   computed: {
-    ...mapState(['selectedIngredients']),
     ...mapGetters({
       recipes: 'recipesList'
-    }),
-    sortedRecipes () {
-      return this.recipes.map(recipe => {
-        recipe.storedIngredients = recipe.ingredients.filter(ingredient => {
-          return this.selectedIngredients.includes(ingredient)
-        })
-        recipe.missingIngredients = recipe.ingredients.filter(ingredient => {
-          return !this.selectedIngredients.includes(ingredient)
-        })
-        return recipe
-      }).sort((recipe1, recipe2) => {
-        return recipe2.storedIngredients.length - recipe1.storedIngredients.length ||
-          recipe1.missingIngredients.length - recipe2.missingIngredients.length
-      })
-    }
+    })
   }
 }
 </script>

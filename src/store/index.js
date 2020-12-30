@@ -11,7 +11,8 @@ const state = {
   files: {},
   filters: {},
   recipes: {},
-  ingredients: {}
+  ingredients: {},
+  searchTerm: ''
 }
 
 const ADD_RECIPE = 'ADD_RECIPE'
@@ -22,6 +23,7 @@ const SET_SELECTED_INGREDIENTS = 'SET_SELECTED_INGREDIENTS'
 const UPDATE_FILTER = 'UPDATE_FILTER'
 const ADD_FILE = 'ADD_FILE'
 const CLEAR_UPLOADED_FILES = 'CLEAR_UPLOADED_FILES'
+const UPDATE_SEARCH_TERMS = 'UPDATE_SEARCH_TERMS'
 
 const mutations = {
   [SET_RECIPES] (state, recipes) {
@@ -62,6 +64,9 @@ const mutations = {
       ...state.files,
       [recipeId]: []
     }
+  },
+  [UPDATE_SEARCH_TERMS] (state, searchTerm) {
+    this.state.searchTerm = searchTerm
   }
 }
 
@@ -120,12 +125,37 @@ const actions = {
   },
   clearUploadedFiles ({ commit }, recipeId) {
     commit(CLEAR_UPLOADED_FILES, recipeId)
+  },
+  updateSearchTerm ({ commit }, searchTerm) {
+    commit(UPDATE_SEARCH_TERMS, searchTerm)
   }
 }
 
 const getters = {
   recipesList (state) {
-    return Object.values(state.recipes)
+    let recipes = Object.values(state.recipes)
+    const selectedIngredients = state.selectedIngredients
+    const searchTerm = state.searchTerm.toLowerCase()
+
+    if (searchTerm) {
+      recipes = recipes.filter(recipe => {
+        return recipe.name.toLowerCase().includes(searchTerm) ||
+        recipe.chefsNotes?.toLowerCase().includes(searchTerm)
+      })
+    }
+
+    return recipes.map(recipe => {
+      recipe.storedIngredients = recipe.ingredients.filter(ingredient => {
+        return selectedIngredients.includes(ingredient)
+      })
+      recipe.missingIngredients = recipe.ingredients.filter(ingredient => {
+        return !selectedIngredients.includes(ingredient)
+      })
+      return recipe
+    }).sort((recipe1, recipe2) => {
+      return recipe2.storedIngredients.length - recipe1.storedIngredients.length ||
+        recipe1.missingIngredients.length - recipe2.missingIngredients.length
+    })
   },
   ingredientsList (state) {
     return Object.values(state.ingredients)
