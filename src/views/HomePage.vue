@@ -46,6 +46,7 @@
       <RecipeList
         class="loading-list"
         :loading="loadingData"
+        :searchByIngredient="searchByIngredient"
       />
     </v-row>
   </v-container>

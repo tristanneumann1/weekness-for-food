@@ -37,7 +37,7 @@
                 :id="id"
               />
             </v-row>
-            <v-row>
+            <v-row v-if="showIngredients">
               <v-col class="col-6">
                 <span class="text-decoration-underline font-weight-bold">You own</span>
                 <ul v-if="storedIngredients.length">
@@ -76,7 +76,8 @@ export default {
     url: String,
     category: String,
     missingIngredients: Array,
-    storedIngredients: Array
+    storedIngredients: Array,
+    showIngredients: Boolean
   },
   components: {
     RecipeTitle

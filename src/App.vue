@@ -28,7 +28,7 @@
                   class="title-link"
                   to="/"
                 >
-                  <h1>Weakness  for food</h1>
+                  <h1>Weekness for food</h1>
                 </router-link>
               </v-col>
               <v-col class="col-1 pa-0">

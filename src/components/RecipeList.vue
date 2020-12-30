@@ -14,6 +14,7 @@
       v-for="recipe in recipes"
       v-bind="recipe"
       :key="recipe.id"
+      :show-ingredients="searchByIngredient"
     />
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
     RecipeCard
   },
   props: {
-    loading: Boolean
+    loading: Boolean,
+    searchByIngredient: Boolean
   },
   computed: {
     ...mapGetters({
