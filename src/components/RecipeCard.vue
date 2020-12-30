@@ -1,52 +1,66 @@
 <template>
   <div>
-    <v-card>
-      <v-container class="py-0">
-        <v-row
-          class="d-flex justify-space-between"
-          :class="titleColor"
+    <v-hover
+      v-slot="{ hover }"
+    >
+      <router-link
+        :to="`/recipe/${id}`"
+        v-slot="{ href, route, navigate }"
+      >
+        <v-card
+          :href="href"
+          :elevation="hover ? 12 : 2"
+          class="recipe-card"
+          @click="navigate"
         >
-          <v-img
-            v-if="img"
-            height="250"
-            class="align-end"
-            :src="img"
-          >
-            <RecipeTitle
-              :name="nameCapitalized"
-              :url="url"
-              :id="id"
-            />
-          </v-img>
-          <RecipeTitle
-            v-else
-            :name="nameCapitalized"
-            :url="url"
-            :id="id"
-          />
-        </v-row>
-        <v-row>
-          <v-col class="col-6">
-            <span class="text-decoration-underline font-weight-bold">You own</span>
-            <ul v-if="storedIngredients.length">
-              <li
-                v-for="ingredient in storedIngredients"
-                :key="ingredient"
-              >{{ingredient}}</li>
-            </ul>
-          </v-col>
-          <v-col class="col-6 missing-ingredients">
-            <span class="text-decoration-underline font-weight-bold">You need</span>
-            <ul v-if="missingIngredients.length">
-              <li
-                v-for="ingredient in missingIngredients"
-                :key="ingredient"
-              >{{ingredient}}</li>
-            </ul>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
+          <v-container class="py-0">
+            <v-row
+              class="d-flex justify-space-between"
+              :class="titleColor"
+            >
+              <v-img
+                v-if="img"
+                height="250"
+                class="align-end"
+                :src="img"
+              >
+                <RecipeTitle
+                  :name="nameCapitalized"
+                  :url="url"
+                  :id="id"
+                />
+              </v-img>
+              <RecipeTitle
+                v-else
+                :name="nameCapitalized"
+                :url="url"
+                :id="id"
+              />
+            </v-row>
+            <v-row>
+              <v-col class="col-6">
+                <span class="text-decoration-underline font-weight-bold">You own</span>
+                <ul v-if="storedIngredients.length">
+                  <li
+                    v-for="ingredient in storedIngredients"
+                    :key="ingredient"
+                  >{{ingredient}}</li>
+                </ul>
+              </v-col>
+              <v-col class="col-6 missing-ingredients">
+                <span class="text-decoration-underline font-weight-bold">You need</span>
+                <ul v-if="missingIngredients.length">
+                  <li
+                    v-for="ingredient in missingIngredients"
+                    :key="ingredient"
+                  >{{ingredient}}</li>
+                </ul>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </router-link>
+    </v-hover>
   </div>
 </template>
 <script>
@@ -95,14 +109,11 @@ export default {
 };
 </script>
 <style scoped>
-.title-container {
-  background-color: lightblue;
-}
 .missing-ingredients {
   border-left: lightgray 1px solid;
   background-color: #e3e3e3;
 }
-.recipe-title {
-  word-break: break-word;
+.recipe-card {
+  transition: box-shadow 0.3s;
 }
 </style>

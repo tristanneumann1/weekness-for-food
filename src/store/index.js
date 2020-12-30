@@ -162,6 +162,9 @@ const getters = {
   },
   imagesByRecipe: (state) => (recipeId) => {
     return state.files[recipeId] ? state.files[recipeId] : []
+  },
+  recipeById: (state) => (recipeId) => {
+    return state.recipes[recipeId]
   }
 }
 
