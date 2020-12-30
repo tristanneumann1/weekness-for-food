@@ -20,7 +20,7 @@
     </v-row>
     <v-row
       v-for="imageSrc in value.recipeImages || []"
-      class="d-flex child-flex"
+      class="d-flex child-flex justify-center"
       :key="imageSrc"
     >
       <v-img
