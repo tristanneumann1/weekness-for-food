@@ -4,8 +4,8 @@
     class="recipe-form"
   >
     <v-container class="px-16">
-      <v-row no-gutters>
-        <v-col class="col-12 col-md-6">
+      <v-row>
+        <v-col class="pa-0 col-12 col-md-6">
           <v-text-field
             required
             outlined
@@ -14,7 +14,7 @@
             :rules="nameRules"
           ></v-text-field>
         </v-col>
-        <v-col class="col-6 col-md-4 pl-md-2">
+        <v-col class="pa-0 col-6 col-md-4 pl-md-2">
           <v-select
             outlined
             v-model="value.category"
@@ -22,7 +22,7 @@
             :items="categoryItems"
           />
         </v-col>
-        <v-col class="col-6 col-md-2 pl-2">
+        <v-col class="pa-0 col-6 col-md-2 pl-2">
           <v-text-field
             required
             outlined
@@ -34,21 +34,21 @@
           />
         </v-col>
       </v-row>
-      <v-row no-gutters>
+      <v-row>
         <v-text-field
           outlined
           v-model="value.url"
           label="One note link (optional)"
         ></v-text-field>
       </v-row>
-      <v-row no-gutters>
+      <v-row>
         <v-textarea
           outlined
           v-model="value.chefsNotes"
           label="Add any additional notes here"
         ></v-textarea>
       </v-row>
-      <v-row no-gutters>
+      <v-row>
         <v-combobox
           v-model="value.ingredients"
           :items="ingredients"
@@ -63,12 +63,15 @@
           multiple
         ></v-combobox>
       </v-row>
+      <v-row>
+        <IngredientSelector v-model="value.ingredientsV2"/>
+      </v-row>
     </v-container>
   </v-form>
 </template>
 
 <script>
-
+import IngredientSelector from '@/components/IngredientSelector'
 import { mapGetters } from 'vuex'
 import categories from '@/constants/categories'
 
@@ -78,10 +81,17 @@ function required (field) {
 export default {
   name: 'RecipeForm',
   props: ['value', 'loadingData'],
+  components: {
+    IngredientSelector
+  },
   data () {
     return {
       valid: false,
-      searchInput: ''
+      searchInput: '',
+      mockIngredients: [
+        {name: 'ing name', quantity: 500, unit: 'mL'},
+        {name: 'ing name 2', quantity: 600, unit: 'sticks'},
+        ]
     }
   },
   computed: {

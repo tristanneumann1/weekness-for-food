@@ -12,7 +12,8 @@ const state = {
   filters: {},
   recipes: {},
   ingredients: {},
-  searchTerm: ''
+  searchTerm: '',
+  shoppingCart: []
 }
 
 const ADD_RECIPE = 'ADD_RECIPE'
@@ -24,6 +25,9 @@ const UPDATE_FILTER = 'UPDATE_FILTER'
 const ADD_FILE = 'ADD_FILE'
 const CLEAR_UPLOADED_FILES = 'CLEAR_UPLOADED_FILES'
 const UPDATE_SEARCH_TERMS = 'UPDATE_SEARCH_TERMS'
+const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART'
+const CHANGE_CART_ITEM_SERVING_SIZE = 'CHANGE_CART_ITEM_SERVING_SIZE'
+const REMOVE_FROM_SHOPPING_CART = 'REMOVE_FROM_SHOPPING_CART'
 
 const mutations = {
   [SET_RECIPES] (state, recipes) {
@@ -66,7 +70,27 @@ const mutations = {
     }
   },
   [UPDATE_SEARCH_TERMS] (state, searchTerm) {
-    this.state.searchTerm = searchTerm
+    state.searchTerm = searchTerm
+  },
+  [ADD_TO_SHOPPING_CART] (state, { recipe, servingSize }) {
+    state.shoppingCart.push({
+      recipe,
+      servingSize
+    })
+  },
+  [REMOVE_FROM_SHOPPING_CART] (state, { recipeName }) {
+    const recipeIndex = state.shoppingCart.findIndex(cartItem => cartItem.recipe.name === recipeName)
+    if (recipeIndex === -1) {
+      return
+    }
+    state.shoppingCart.splice(recipeIndex, 1)
+  },
+  [CHANGE_CART_ITEM_SERVING_SIZE] (state, { recipeName, servingSize }) {
+    const recipe = state.shoppingCart.find(cartItem => cartItem.recipe.name === recipeName)
+    if (!recipe) {
+      return
+    }
+    Vue.set(recipe.servingSize, servingSize)
   }
 }
 
@@ -128,6 +152,15 @@ const actions = {
   },
   updateSearchTerm ({ commit }, searchTerm) {
     commit(UPDATE_SEARCH_TERMS, searchTerm)
+  },
+  addToShoppingCart ({ commit }, { recipe, servingSize }) {
+    commit(ADD_TO_SHOPPING_CART, { recipe, servingSize })
+  },
+  removeFromCart ({ commit }, { recipeName }) {
+    commit(REMOVE_FROM_SHOPPING_CART, { recipeName })
+  },
+  updateCartItemServingSize ({ commit }, { recipeName, servingSize }) {
+    commit(CHANGE_CART_ITEM_SERVING_SIZE, { recipeName, servingSize })
   }
 }
 
@@ -164,7 +197,10 @@ const getters = {
     return state.files[recipeId] ? state.files[recipeId] : []
   },
   recipeById: (state) => (recipeId) => {
-    return state.recipes[recipeId]
+    return state.recipes[recipeId] || {}
+  },
+  recipeInCart: (state) => (recipeName) => {
+    return !!state.shoppingCart.find(cartItem => cartItem.recipe.name === recipeName)
   }
 }
 

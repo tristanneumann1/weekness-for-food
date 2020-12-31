@@ -31,7 +31,7 @@
                   <h1>Weekness for food</h1>
                 </router-link>
               </v-col>
-              <v-col class="col-1 pa-0">
+              <v-col class="col-2 pa-0 d-flex flex-row justify-center align-center">
                 <v-app-bar-nav-icon>
                   <router-link
                     to="/recipe-form"
@@ -50,6 +50,30 @@
                       >
                         mdi-plus-thick
                       </v-icon>
+                    </v-btn>
+                  </router-link>
+                </v-app-bar-nav-icon>
+                <v-app-bar-nav-icon class="ml-3">
+                  <router-link
+                    to="/shopping-cart"
+                    v-slot="{ href, route, navigate }"
+                  >
+                    <v-btn
+                      v-if="!isShoppingCartRoute"
+                      icon
+                      outlined
+                      :href="href"
+                      @click="navigate"
+                    >
+                      <template>
+                        <v-icon
+                          dark
+                          large
+                        >
+                          mdi-cart
+                        </v-icon>
+                        <div class="cart-quantity">{{shoppingCart.length}}</div>
+                      </template>
                     </v-btn>
                   </router-link>
                 </v-app-bar-nav-icon>
@@ -89,7 +113,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -99,8 +123,12 @@ export default {
     }
   },
   computed: {
+    ...mapState(['shoppingCart']),
     isCreateRecipeRoute() {
       return this.$route.path === '/recipe-form'
+    },
+    isShoppingCartRoute () {
+      return this.$route.path === '/shopping-cart'
     },
     isHomeRoute() {
       return this.$route.path === '/'
@@ -147,5 +175,14 @@ export default {
 .nav-to-top {
   text-decoration: none;
   color: inherit;
+}
+
+.cart-quantity {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  background-color: red;
+  font-size: 1em;
 }
 </style>
