@@ -1,3 +1,4 @@
+import Ingredient from './Ingredient.js'
 import * as categories from  '@/constants/categories'
 
 export default class Recipe {
@@ -9,7 +10,9 @@ export default class Recipe {
       category = categories.OTHER,
       chefsNotes = '',
       recipeImages = [],
-      ingredients = []
+      ingredients = [],
+      ingredientsV2 = [],
+      servingSize = 16
     } = {}
   ) {
     Object.assign(this, {
@@ -19,7 +22,9 @@ export default class Recipe {
       category,
       chefsNotes,
       recipeImages,
-      ingredients: Object.values(ingredients)
+      ingredients: Object.values(ingredients),
+      ingredientsV2: ingredientsV2.map((ingredient) => new Ingredient(ingredient)),
+      servingSize
     })
   }
 }

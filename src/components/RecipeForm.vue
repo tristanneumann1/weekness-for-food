@@ -5,23 +5,32 @@
   >
     <v-container class="px-16">
       <v-row no-gutters>
-        <v-col class="col-12  col-md-6">
+        <v-col class="col-12 col-md-6">
           <v-text-field
             required
             outlined
-            class="mr-md-2"
             v-model="value.name"
             label="Recipe name"
             :rules="nameRules"
           ></v-text-field>
         </v-col>
-        <v-col class="col-12  col-md-6">
+        <v-col class="col-6 col-md-4 pl-md-2">
           <v-select
             outlined
             v-model="value.category"
-            class="ml-md-2"
             label="Category"
             :items="categoryItems"
+          />
+        </v-col>
+        <v-col class="col-6 col-md-2 pl-2">
+          <v-text-field
+            required
+            outlined
+            v-model="value.servingSize"
+            type="number"
+            label="Serves"
+            append-icon="mdi-account"
+            :rules="[max32]"
           />
         </v-col>
       </v-row>
@@ -81,6 +90,9 @@ export default {
     }),
     nameRules () {
       return [ required('Name') ]
+    },
+    max32 () {
+      return (number) => (+number <= 32 && +number > 0) || 'Max: 32'
     },
     categoryItems () {
       return categories
