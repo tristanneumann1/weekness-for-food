@@ -7,7 +7,7 @@ export default class Recipe {
       id,
       name,
       url = '',
-      category = categories.OTHER,
+      category = categories.MISCELLANEOUS,
       chefsNotes = '',
       recipeImages = [],
       ingredients = [],

@@ -88,20 +88,36 @@ export default {
     },
     titleColor () {
       switch (this.category) {
-        case categories.MEAT:
-          return 'red lighten-2'
+        case categories.PORK:
+          return 'red lighten-3'
+        case categories.BAKED_DESSERTS:
+          return 'brown lighten-1'
+        case categories.APPETIZERS:
+          return 'cyan lighten-4'
+        case categories.LAMB:
+          return 'red accent-1'
         case categories.FISH:
-          return 'blue accent-1'
-        case categories.VEGGIE:
-          return 'green lighten-2'
-        case categories.DESSERTS:
-          return 'pink lighten-3'
+          return 'blue lighten-4'
         case categories.SOUPS:
-          return 'brown lighten-3'
+          return 'deep-purple lighten-4'
+        case categories.BEEF:
+          return 'red accent-1'
         case categories.PASTA:
-          return 'orange accent-1'
-        case categories.OTHER:
+          return 'amber lighten-3'
+        case categories.MORE_DESSERTS:
+          return 'brown lighten-2'
+        case categories.SIDE_DISHES:
+          return 'amber accent-3'
+        case categories.MISCELLANEOUS:
           return 'blue-grey lighten-4'
+        case categories.VEAL:
+          return 'red lighten-3'
+        case categories.VEGGIE:
+          return 'green lighten-4'
+        case categories.MISCELLANEOUS_MEALS:
+          return 'blue-grey lighten-3'
+        case categories.CHICKEN_DUCK_RABBIT:
+          return 'red lighten-3'
         default:
           return 'black white--text'
       }

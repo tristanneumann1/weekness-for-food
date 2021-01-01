@@ -5,13 +5,13 @@
       <h2 v-else>What would you like to cook?</h2>
     </v-row>
     <v-row no-gutters>
-      <v-col class="col-1 col-md-1 d-flex justify-center">
+      <v-col class="col-2 col-md-1 d-flex justify-center">
         <v-switch
           inset
           @change="toggleSearch"
         />
       </v-col>
-      <v-col class="col-11 col-md-8">
+      <v-col class="col-10 col-md-8">
         <IngredientSearchBar
           v-if="searchByIngredient"
           v-model="selectedIngredients"
