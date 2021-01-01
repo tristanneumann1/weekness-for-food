@@ -3,7 +3,7 @@
     <v-row class="mb-3">
       <h2>Shopping Cart</h2>
     </v-row>
-    <v-row>
+    <v-row v-if="shoppingCart.length">
       <v-col class="bordered col-12 col-md-4">
         <v-container>
           <v-row>
@@ -56,6 +56,9 @@
           </v-row>
         </v-container>
       </v-col>
+    </v-row>
+    <v-row v-else>
+      <h3>Add recipes to your shopping cart to build up your shopping list</h3>
     </v-row>
   </v-container>
 </template>

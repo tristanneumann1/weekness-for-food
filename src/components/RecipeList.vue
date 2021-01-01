@@ -9,13 +9,16 @@
       />
     </template>
     <RecipeCard
-      v-else
+      v-else-if="recipes.length"
       class="recipe-card ma-3"
       v-for="recipe in recipes"
       v-bind="recipe"
       :key="recipe.id"
       :show-ingredients="searchByIngredient"
     />
+    <div v-else>
+      <h3>No recipes match your filters, please update your selection</h3>
+    </div>
   </div>
 </template>
 
