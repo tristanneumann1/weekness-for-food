@@ -13,8 +13,8 @@
         />
       </v-col>
       <v-col class="col-auto">
-        <v-btn color="accent" @click="uploadImages">
-          Upload
+        <v-btn color="accent" @click="saveUploadImages">
+          Upload & Save
         </v-btn>
       </v-col>
     </v-row>
@@ -90,14 +90,18 @@ export default {
   },
   methods: {
     ...mapActions(['uploadFile', 'clearUploadedFiles']),
-    uploadImages () {
+    saveUploadImages () {
       this.uploadingImages = true
-      return Promise.all(this.filesToUpload.map(image => this.uploadFile({ file: image, id: this.id }))).finally(() => {
+      return Promise.all(this.filesToUpload.map(image => this.uploadFile({ file: image, id: this.id }))).then(() => {
+
+      }).finally(() => {
         this.uploadingImages = false
-        this.value.recipeImages = [
+        this.$emit('update:recipeImages', [
           ...this.value.recipeImages,
           ...this.uploadedImages
-        ]
+        ], () => {
+          this.$emit('save')
+        })
         this.clearFiles()
       })
     },
