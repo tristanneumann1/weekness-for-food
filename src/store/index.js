@@ -13,7 +13,8 @@ const state = {
   recipes: {},
   ingredients: {},
   searchTerm: '',
-  shoppingCart: []
+  shoppingCart: [],
+  tempFilter: false
 }
 
 const ADD_RECIPE = 'ADD_RECIPE'
@@ -91,6 +92,9 @@ const mutations = {
       return
     }
     Vue.set(recipe.servingSize, servingSize)
+  },
+  TEMP_FILTER (state, toggle) {
+    state.tempFilter = toggle
   }
 }
 
@@ -188,6 +192,11 @@ const getters = {
     }).sort((recipe1, recipe2) => {
       return recipe2.storedIngredients.length - recipe1.storedIngredients.length ||
         recipe1.missingIngredients.length - recipe2.missingIngredients.length
+    }).filter(recipe => {
+      if (!state.tempFilter) {
+        return true
+      }
+      return recipe.servingSize === 16
     })
   },
   ingredientsList (state) {

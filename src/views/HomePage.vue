@@ -33,6 +33,14 @@
           @change="categoryFilter"
         />
       </v-col>
+      <v-col class="col-12">
+        <v-simple-checkbox
+          :ripple="false"
+          :value="tempFilter"
+          @input="toggleTempFilter"
+        />
+        Temporary serving size filter
+      </v-col>
     </v-row>
     <v-row
       no-gutters
@@ -57,7 +65,7 @@ import IngredientSearchBar from '@/components/IngredientSearchBar'
 import RecipeSearchBar from '@/components/RecipeSearchBar'
 import RecipeList from '@/components/RecipeList'
 import categories from '@/constants/categories'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'HomePage',
@@ -77,6 +85,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['tempFilter']),
     categoryItems () {
       return categories
     }
@@ -89,6 +98,9 @@ export default {
       this.searchTerm = ''
       this.selectedIngredients = []
       this.searchByIngredient = e
+    },
+    toggleTempFilter (e) {
+      this.$store.commit('TEMP_FILTER', e)
     }
   }
 }
