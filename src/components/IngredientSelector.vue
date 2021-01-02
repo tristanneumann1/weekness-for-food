@@ -67,7 +67,7 @@
 <script>
 import Ingredient from '@/store/Ingredient'
 import { mapGetters } from 'vuex'
-import draggable from 'vuedraggable';
+import draggable from 'vuedraggable'
 
 export default {
   name: 'IngredientSelector',

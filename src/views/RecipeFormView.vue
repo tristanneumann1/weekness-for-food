@@ -61,6 +61,7 @@
           v-show="imageForm"
           v-model="recipe"
           :id="id"
+          @update:recipeImages="updateImageList"
         />
       </v-slide-x-reverse-transition>
     </v-row>
@@ -137,6 +138,9 @@ export default {
     },
     toggleImageForm () {
       this.imageForm = !this.imageForm
+    },
+    updateImageList (recipeImages) {
+      this.$set(this.recipe, 'recipeImages', recipeImages)
     }
   },
   watch: {

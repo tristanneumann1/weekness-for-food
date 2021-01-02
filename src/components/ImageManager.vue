@@ -18,49 +18,58 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-row
-      v-for="imageSrc in value.recipeImages || []"
-      class="d-flex child-flex justify-center"
-      :key="imageSrc"
+    <draggable
+      :value="recipeImages"
+      @input="updateRecipeImages"
     >
-      <v-img
-        :src="imageSrc"
-        lazy-src="https://picsum.photos/10/10"
-        :max-width="widths[imageSrc] || 10"
-        :max-height="heights[imageSrc] || 10"
-        class="grey lighten-2 ma-2"
+      <v-row
+        v-for="imageSrc in value.recipeImages || []"
+        class="d-flex child-flex justify-center"
+        :key="imageSrc"
       >
-        <v-btn
-          fab
-          small
-          color="error"
-          class="float-right"
-          @click="deleteImage(imageSrc)"
+        <v-img
+          :src="imageSrc"
+          lazy-src="https://picsum.photos/10/10"
+          :max-width="widths[imageSrc] || 10"
+          :max-height="heights[imageSrc] || 10"
+          class="grey lighten-2 ma-2"
         >
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-        <template v-slot:placeholder>
-          <v-row
-            class="fill-height ma-0"
-            align="center"
-            justify="center"
+          <v-btn
+            fab
+            small
+            color="error"
+            class="float-right"
+            @click="deleteImage(imageSrc)"
           >
-            <v-progress-circular
-              indeterminate
-              color="grey lighten-5"
-            ></v-progress-circular>
-          </v-row>
-        </template>
-      </v-img>
-    </v-row>
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <template v-slot:placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
+            >
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
+      </v-row>
+    </draggable>
   </v-container>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import draggable from 'vuedraggable'
 
 export default {
   name: 'ImageManager',
+  components: {
+    draggable
+  },
   props: ['value', 'id'],
   data () {
     return {
@@ -108,6 +117,9 @@ export default {
     clearFiles () {
       this.filesToUpload = []
       this.clearUploadedFiles(this.id)
+    },
+    updateRecipeImages (recipeImages) {
+      this.$emit('update:recipeImages', recipeImages)
     }
   },
   watch: {
