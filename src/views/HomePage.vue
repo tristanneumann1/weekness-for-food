@@ -27,7 +27,7 @@
         <v-select
           outlined
           clearable
-          label="Filter by category"
+          label="Categories"
           class="ml-md-4"
           :items="categoryItems"
           @change="categoryFilter"

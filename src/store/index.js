@@ -6,6 +6,8 @@ import Recipe from '@/store/Recipe'
 
 Vue.use(Vuex)
 
+const localShoppingCart = localStorage.getItem('shoppingCart')
+
 const state = {
   selectedIngredients: [],
   files: {},
@@ -13,7 +15,7 @@ const state = {
   recipes: {},
   ingredients: {},
   searchTerm: '',
-  shoppingCart: [],
+  shoppingCart: localShoppingCart ? JSON.parse(localShoppingCart) : [],
   tempFilter: false
 }
 
@@ -29,6 +31,7 @@ const UPDATE_SEARCH_TERMS = 'UPDATE_SEARCH_TERMS'
 const ADD_TO_SHOPPING_CART = 'ADD_TO_SHOPPING_CART'
 const CHANGE_CART_ITEM_SERVING_SIZE = 'CHANGE_CART_ITEM_SERVING_SIZE'
 const REMOVE_FROM_SHOPPING_CART = 'REMOVE_FROM_SHOPPING_CART'
+const CLEAR_CART = 'CLEAR_CART'
 
 const mutations = {
   [SET_RECIPES] (state, recipes) {
@@ -91,7 +94,10 @@ const mutations = {
     if (!recipe) {
       return
     }
-    Vue.set(recipe.servingSize, servingSize)
+    Vue.set(recipe, 'servingSize', servingSize)
+  },
+  [CLEAR_CART] (state) {
+    state.shoppingCart = []
   },
   TEMP_FILTER (state, toggle) {
     state.tempFilter = toggle
@@ -127,11 +133,10 @@ const actions = {
   },
   deleteRecipe ({ commit }, recipeId) {
     const client = new FirebaseClient()
-    const deletePromise = client.delete('recipes/' + recipeId).then(() => {
+    return client.delete('recipes/' + recipeId).then(() => {
       commit(REMOVE_RECIPE, recipeId)
       router.push('/')
     })
-    return deletePromise
   },
   uploadFile ({ commit }, { file, id: recipeId }) {
     const client = new FirebaseClient()
@@ -165,6 +170,9 @@ const actions = {
   },
   updateCartItemServingSize ({ commit }, { recipeName, servingSize }) {
     commit(CHANGE_CART_ITEM_SERVING_SIZE, { recipeName, servingSize })
+  },
+  clearCart ({ commit }) {
+    commit(CLEAR_CART)
   }
 }
 
@@ -213,9 +221,17 @@ const getters = {
   }
 }
 
-export default new Vuex.Store({
+const store =  new Vuex.Store({
   state,
   mutations,
   actions,
   getters
 })
+
+store.subscribe((mutation, state) => {
+  if ([ADD_TO_SHOPPING_CART, CHANGE_CART_ITEM_SERVING_SIZE, REMOVE_FROM_SHOPPING_CART, CLEAR_CART].includes(mutation.type)) {
+    localStorage.setItem('shoppingCart', JSON.stringify(state.shoppingCart))
+  }
+})
+
+export default store

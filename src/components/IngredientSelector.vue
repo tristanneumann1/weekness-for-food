@@ -13,14 +13,18 @@
       <span>Add an ingredient to get started</span>
     </v-row>
     <v-row v-else>
-      <draggable v-model="ingredients" class="draggable-box">
+      <draggable
+        v-model="ingredients"
+        class="draggable-box"
+        handle=".handle"
+      >
         <v-container
           v-for="(ingredient, idx) in ingredients"
           :key="idx"
         >
           <v-row>
             <v-col class="md-6 d-flex flex-row pa-0 pr-1">
-              <v-icon>mdi-drag</v-icon>
+              <v-icon class="handle">mdi-drag</v-icon>
               <v-combobox
                 dense
                 hide-details

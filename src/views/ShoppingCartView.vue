@@ -20,7 +20,8 @@
               hide-details
               class="serving-size-input mr-1"
               type="number"
-              v-model="cartItem.servingSize"
+              :value="cartItem.servingSize"
+              @input="updateCartItem(cartItem, $event)"
             />
             <span>{{cartItem.recipe.name}}</span>
             <v-btn
@@ -55,6 +56,12 @@
             </v-col>
           </v-row>
         </v-container>
+      </v-col>
+      <v-col class="col-12 d-flex justify-center">
+        <v-btn
+          color="error"
+          @click="clearCart"
+        >Empty</v-btn>
       </v-col>
     </v-row>
     <v-row v-else>
@@ -103,9 +110,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['removeFromCart']),
+    ...mapActions(['removeFromCart', 'clearCart', 'updateCartItemServingSize']),
     deleteFromCart (recipeName) {
       this.removeFromCart({ recipeName })
+    },
+    updateCartItem (cartItem, servingSize) {
+      this.updateCartItemServingSize({ recipeName: cartItem.recipe.name, servingSize })
     }
   }
 }

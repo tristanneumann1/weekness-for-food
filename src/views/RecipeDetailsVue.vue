@@ -55,7 +55,7 @@
             color="primary"
             @click="remove"
           >
-            <v-icon>mdi-cart-minus</v-icon>
+            <v-icon>mdi-close</v-icon>
           </v-btn>
         </div>
       </v-col>
