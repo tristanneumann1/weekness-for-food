@@ -22,12 +22,16 @@
             <v-col class="md-6 d-flex flex-row pa-0 pr-1">
               <v-icon>mdi-drag</v-icon>
               <v-text-field
+                dense
+                hide-details
                 label="Name"
                 v-model="ingredient.name"
               />
             </v-col>
             <v-col class="col-3 pa-0 pr-1">
               <v-text-field
+                dense
+                hide-details
                 label="Quantity"
                 type="number"
                 v-model="ingredient.quantity"
@@ -35,11 +39,14 @@
             </v-col>
             <v-col class="col-3 d-flex flex-row align-center pa-0">
               <v-text-field
+                dense
+                hide-details
                 label="Unit"
                 v-model="ingredient.unit"
               />
               <v-btn
                 icon
+                small
                 @click="deleteIngredient(idx)"
               >
                 <v-icon>mdi-delete</v-icon>
