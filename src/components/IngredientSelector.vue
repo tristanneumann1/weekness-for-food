@@ -21,9 +21,10 @@
           <v-row>
             <v-col class="md-6 d-flex flex-row pa-0 pr-1">
               <v-icon>mdi-drag</v-icon>
-              <v-text-field
+              <v-combobox
                 dense
                 hide-details
+                :items="ingredientsList"
                 label="Name"
                 v-model="ingredient.name"
               />
@@ -61,7 +62,8 @@
 
 <script>
 import Ingredient from '@/store/Ingredient'
-import draggable from "vuedraggable";
+import { mapGetters } from 'vuex'
+import draggable from 'vuedraggable';
 
 export default {
   name: 'IngredientSelector',
@@ -75,6 +77,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['ingredientsList']),
     ingredients: {
       get () {
         return this.value
