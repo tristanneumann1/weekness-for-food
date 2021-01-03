@@ -4,13 +4,14 @@
       v-slot="{ hover }"
     >
       <v-card
+        shaped
         :elevation="hover ? 12 : 2"
         class="recipe-card"
+        :class="titleColor"
       >
         <v-container class="py-0">
           <v-row
             class="d-flex justify-space-between"
-            :class="titleColor"
           >
             <v-img
               v-if="img"
@@ -32,7 +33,7 @@
             />
           </v-row>
           <v-row v-if="showIngredients">
-            <v-col class="col-6">
+            <v-col class="col-6 white border-radius-bl">
               <span class="text-decoration-underline font-weight-bold">You own</span>
               <ul v-if="storedIngredients.length">
                 <li
@@ -41,7 +42,7 @@
                 >{{ingredient}}</li>
               </ul>
             </v-col>
-            <v-col class="col-6 missing-ingredients">
+            <v-col class="col-6 missing-ingredients border-radius-br">
               <span class="text-decoration-underline font-weight-bold">You need</span>
               <ul v-if="missingIngredients.length">
                 <li
@@ -119,6 +120,12 @@ export default {
 };
 </script>
 <style scoped>
+.border-radius-bl {
+  border-bottom-left-radius: 4px;
+}
+.border-radius-br {
+  border-bottom-right-radius: 24px;
+}
 .missing-ingredients {
   border-left: lightgray 1px solid;
   background-color: #e3e3e3;
