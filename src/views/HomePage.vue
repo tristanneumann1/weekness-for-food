@@ -1,8 +1,10 @@
 <template>
   <v-container>
     <v-row no-gutters class="pt-5">
-      <h2 v-if="searchByIngredient">What is in your fridge?</h2>
-      <h2 v-else>What would you like to cook?</h2>
+      <Title
+        :title="searchByIngredient ? 'What is in your fridge?' : 'What would you like to cook?'"
+        :back-arrow="false"
+      />
     </v-row>
     <v-row no-gutters>
       <v-col class="col-2 col-md-1 d-flex justify-center">
@@ -65,6 +67,7 @@ import IngredientSearchBar from '@/components/IngredientSearchBar'
 import RecipeSearchBar from '@/components/RecipeSearchBar'
 import RecipeList from '@/components/RecipeList'
 import categories from '@/constants/categories'
+import Title from '@/components/Title'
 import { mapActions, mapState } from 'vuex'
 
 export default {
@@ -75,7 +78,8 @@ export default {
   components: {
     RecipeSearchBar,
     IngredientSearchBar,
-    RecipeList
+    RecipeList,
+    Title
   },
   data () {
     return {

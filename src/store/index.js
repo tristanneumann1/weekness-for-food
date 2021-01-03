@@ -165,6 +165,10 @@ const actions = {
   addToShoppingCart ({ commit }, { recipe, servingSize }) {
     commit(ADD_TO_SHOPPING_CART, { recipe, servingSize })
   },
+  addToShoppingCartById ({ commit, getters }, recipeId) {
+    const recipe = getters.recipeById(recipeId)
+    commit(ADD_TO_SHOPPING_CART, { recipe, servingSize: recipe.servingSize })
+  },
   removeFromCart ({ commit }, { recipeName }) {
     commit(REMOVE_FROM_SHOPPING_CART, { recipeName })
   },
@@ -217,7 +221,7 @@ const getters = {
     return state.recipes[recipeId] || {}
   },
   recipeInCart: (state) => (recipeName) => {
-    return !!state.shoppingCart.find(cartItem => cartItem.recipe.name === recipeName)
+    return state.shoppingCart.find(cartItem => cartItem.recipe.name === recipeName)
   }
 }
 

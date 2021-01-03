@@ -1,28 +1,7 @@
 <template>
   <v-container>
     <v-row no-gutters class="d-flex justify-space-between">
-      <v-col class="d-flex align-center">
-        <router-link
-          to="/"
-          v-slot="{ href, route, navigate }"
-        >
-          <v-btn
-            fab
-            color="primary"
-            class="ma-2 mr-4"
-            :href="href"
-            @click="navigate"
-          >
-            <v-icon
-              dark
-              large
-            >
-              mdi-arrow-left-thick
-            </v-icon>
-          </v-btn>
-        </router-link>
-        <h2>{{ titleText }}</h2>
-      </v-col>
+      <Title :title="titleText"/>
       <v-col class="col-auto">
         <v-btn
           color="primary"
@@ -89,14 +68,17 @@
 <script>
 import RecipeForm from '@/components/RecipeForm'
 import ImageManager from '@/components/ImageManager'
+import Title from '@/components/Title'
 import { v4 } from 'uuid'
 import { mapActions, mapState } from 'vuex'
+import Recipe from '@/store/Recipe'
 
 export default {
   name: 'RecipeFormView',
   components: {
     RecipeForm,
-    ImageManager
+    ImageManager,
+    Title
   },
   props: {
     loadingData: Boolean,
@@ -115,11 +97,13 @@ export default {
     }
   },
   data () {
+    const id = this.recipeId ? this.recipeId : v4()
     return  {
-      recipe: {
-        recipeImages: []
-      },
-      id: this.recipeId ? this.recipeId : v4(),
+      recipe: new Recipe({
+        id,
+        name: ''
+      }),
+      id,
       imageForm: false
     }
   },

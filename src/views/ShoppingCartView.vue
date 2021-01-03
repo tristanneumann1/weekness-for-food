@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="mb-3">
-      <h2>Shopping Cart</h2>
+      <Title title="Shopping Cart"/>
     </v-row>
     <v-row v-if="shoppingCart.length">
       <v-col class="bordered col-12 col-md-4">
@@ -10,26 +10,34 @@
             <v-icon>mdi-account</v-icon>
           </v-row>
           <v-row
-            class="d-flex flex-row align-center my-1"
+            class="d-flex justify-space-between my-1"
             v-for="cartItem in shoppingCart"
             :key="cartItem.recipe.name"
           >
-            <v-text-field
-              outlined
-              dense
-              hide-details
-              class="serving-size-input mr-1"
-              type="number"
-              :value="cartItem.servingSize"
-              @input="updateCartItem(cartItem, $event)"
-            />
-            <span>{{cartItem.recipe.name}}</span>
-            <v-btn
-              icon
-              @click="deleteFromCart(cartItem.recipe.name)"
-            >
-              <v-icon>mdi-delete</v-icon>
-            </v-btn>
+            <v-col class="d-flex flex-row align-center">
+              <v-text-field
+                outlined
+                dense
+                hide-details
+                class="serving-size-input mr-1"
+                type="number"
+                :value="cartItem.servingSize"
+                @input="updateCartItem(cartItem, $event)"
+              />
+              <router-link
+                :to="`/recipe/${cartItem.recipe.id}`"
+              >
+                {{cartItem.recipe.name}}
+              </router-link>
+            </v-col>
+            <v-col class="col-auto">
+              <v-btn
+                icon
+                @click="deleteFromCart(cartItem.recipe.name)"
+              >
+                <v-icon>mdi-delete</v-icon>
+              </v-btn>
+            </v-col>
           </v-row>
         </v-container>
       </v-col>
@@ -71,10 +79,14 @@
 </template>
 
 <script>
+import Title from '@/components/Title'
 import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'ShoppingCartView',
+  components: {
+    Title
+  },
   computed: {
     ...mapState(['shoppingCart']),
     ingredients() {
@@ -123,6 +135,14 @@ export default {
 
 <style scoped lang="scss">
   @import '../styles/variables.scss';
+  a {
+    color: #0089c7;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      color: #00abe9;
+    }
+  }
   .bordered {
     border: 1px solid $border-color;
   }

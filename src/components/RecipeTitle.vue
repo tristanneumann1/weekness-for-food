@@ -23,8 +23,46 @@
                   mdi-open-in-new
                 </v-icon>
               </v-btn>
+              <v-btn
+                v-if="!inCart"
+                icon
+                x-small
+                fab
+                elevation="3"
+                class="mr-2 grey lighten-3"
+                color="primary"
+                @click="addToCart"
+              >
+                <v-icon dark>
+                  mdi-cart-plus
+                </v-icon>
+              </v-btn>
+              <v-btn
+                v-else
+                x-small
+                fab
+                dark
+                elevation="3"
+                class="mr-2"
+                color="error"
+                @click="remove"
+              >
+                <v-icon dark>
+                  mdi-cart-remove
+                </v-icon>
+              </v-btn>
             </v-col>
-            <v-col class="pa-0 text-center word-wrap">{{ name }}</v-col>
+
+            <router-link
+              :to="`/recipe/${id}`"
+              v-slot="{ href, route, navigate }"
+            >
+              <v-col
+                class="pa-0 text-center word-wrap"
+                :href="href"
+                @click="navigate"
+              >{{ name }}</v-col>
+            </router-link>
           </v-row>
         </v-container>
       </v-card-title>
@@ -56,12 +94,29 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'RecipeTitle',
   props:  {
     url: String,
     name: String,
     id:  String
+  },
+  computed: {
+    ...mapGetters(['recipeInCart']),
+    inCart () {
+      return this.recipeInCart(this.name)
+    }
+  },
+  methods: {
+    ...mapActions(['addToShoppingCartById', 'removeFromCart']),
+    addToCart () {
+      this.addToShoppingCartById(this.id)
+    },
+    remove () {
+      this.removeFromCart({ recipeName: this.name })
+    }
   }
 }
 </script>

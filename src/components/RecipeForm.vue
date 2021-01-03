@@ -91,7 +91,7 @@ export default {
       mockIngredients: [
         {name: 'ing name', quantity: 500, unit: 'mL'},
         {name: 'ing name 2', quantity: 600, unit: 'sticks'},
-        ]
+      ]
     }
   },
   computed: {

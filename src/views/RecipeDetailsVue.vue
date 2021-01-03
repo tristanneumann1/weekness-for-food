@@ -1,28 +1,7 @@
 <template>
   <v-container>
     <v-row class="top-bar d-flex justify-space-between align-center">
-      <v-col class="d-flex align-center">
-        <router-link
-          to="/"
-          v-slot="{ href, route, navigate }"
-        >
-          <v-btn
-            fab
-            color="primary"
-            class="ma-2 mr-4"
-            :href="href"
-            @click="navigate"
-          >
-            <v-icon
-              dark
-              large
-            >
-              mdi-arrow-left-thick
-            </v-icon>
-          </v-btn>
-        </router-link>
-        <h2>{{recipe.name}}</h2>
-      </v-col>
+      <Title :title="recipe.name"/>
       <v-col class="col-auto">
         Add to shopping cart:
         <div class="d-flex flex-row align-center justify-space-between">
@@ -55,15 +34,17 @@
             color="primary"
             @click="remove"
           >
-            <v-icon>mdi-close</v-icon>
+            <v-icon>mdi-cart-arrow-up</v-icon>
           </v-btn>
         </div>
       </v-col>
     </v-row>
     <v-row>
       <v-col class="col-3 left-bar">
-        <v-row>
-          <h3>Serves:</h3>
+        <v-row >
+          <h3>Ingredients for</h3>
+        </v-row>
+        <v-row class="mb-3">
           <b v-if="+recipe.servingSize < 7">
             <v-icon
               v-for="account in +recipe.servingSize"
@@ -74,9 +55,6 @@
             {{+recipe.servingSize}}
             <v-icon>mdi-account</v-icon>
           </b>
-        </v-row>
-        <v-row>
-          <h3>Ingredients:</h3>
         </v-row>
         <v-row>
           <ul>
@@ -127,10 +105,14 @@
 </template>
 
 <script>
+import Title from '@/components/Title'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'RecipeDetailsVue',
+  components: {
+    Title
+  },
   data () {
     return {
       widths: {},
@@ -168,6 +150,11 @@ export default {
     },
     remove () {
       this.removeFromCart({ recipeName: this.recipe.name })
+    }
+  },
+  created () {
+    if (this.inCart) {
+      this.servingSize = this.inCart.servingSize
     }
   },
   watch: {
