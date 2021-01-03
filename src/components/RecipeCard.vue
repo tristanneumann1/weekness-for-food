@@ -32,26 +32,6 @@
               :id="id"
             />
           </v-row>
-          <v-row v-if="showIngredients">
-            <v-col class="col-6 white border-radius-bl">
-              <span class="text-decoration-underline font-weight-bold">You own</span>
-              <ul v-if="storedIngredients.length">
-                <li
-                  v-for="ingredient in storedIngredients"
-                  :key="ingredient"
-                >{{ingredient}}</li>
-              </ul>
-            </v-col>
-            <v-col class="col-6 missing-ingredients border-radius-br">
-              <span class="text-decoration-underline font-weight-bold">You need</span>
-              <ul v-if="missingIngredients.length">
-                <li
-                  v-for="ingredient in missingIngredients"
-                  :key="ingredient"
-                >{{ingredient}}</li>
-              </ul>
-            </v-col>
-          </v-row>
         </v-container>
       </v-card>
     </v-hover>
@@ -68,10 +48,7 @@ export default {
     name: String,
     img: String,
     url: String,
-    category: String,
-    missingIngredients: Array,
-    storedIngredients: Array,
-    showIngredients: Boolean
+    category: String
   },
   components: {
     RecipeTitle
@@ -120,16 +97,6 @@ export default {
 };
 </script>
 <style scoped>
-.border-radius-bl {
-  border-bottom-left-radius: 4px;
-}
-.border-radius-br {
-  border-bottom-right-radius: 24px;
-}
-.missing-ingredients {
-  border-left: lightgray 1px solid;
-  background-color: #e3e3e3;
-}
 .recipe-card {
   transition: box-shadow 0.3s;
 }

@@ -14,7 +14,6 @@
       v-for="recipe in recipes"
       v-bind="recipe"
       :key="recipe.id"
-      :show-ingredients="searchByIngredient"
     />
     <div v-else>
       <h3>No recipes match your filters, please update your selection</h3>
@@ -32,8 +31,7 @@ export default {
     RecipeCard
   },
   props: {
-    loading: Boolean,
-    searchByIngredient: Boolean
+    loading: Boolean
   },
   computed: {
     ...mapGetters({
