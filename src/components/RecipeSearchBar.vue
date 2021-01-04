@@ -1,6 +1,5 @@
 <template>
   <v-text-field
-    hide-details
     single-line
     append-icon="mdi-magnify"
     label="Search"
@@ -8,7 +7,7 @@
     @input="$emit('input', $event)"
     @click:append="search"
     @keyup.enter="search"
-  ></v-text-field>
+  />
 </template>
 
 <script>

@@ -105,7 +105,7 @@ export default {
       return (number) => (+number <= 32 && +number > 0) || 'Max: 32'
     },
     categoryItems () {
-      return categories
+      return Object.values(categories)
     }
   }
 }

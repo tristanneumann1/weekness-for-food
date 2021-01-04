@@ -2,6 +2,13 @@
   <v-container>
     <v-row class="mb-3">
       <Title title="Shopping Cart"/>
+      <v-col class="col-auto">
+        <v-btn
+          color="error"
+          :disabled="!shoppingCart.length"
+          @click="clearCart"
+        >Empty</v-btn>
+      </v-col>
     </v-row>
     <v-row v-if="shoppingCart.length">
       <v-col class="bordered col-12 col-md-4">
@@ -64,12 +71,6 @@
             </v-col>
           </v-row>
         </v-container>
-      </v-col>
-      <v-col class="col-12 d-flex justify-center">
-        <v-btn
-          color="error"
-          @click="clearCart"
-        >Empty</v-btn>
       </v-col>
     </v-row>
     <v-row v-else>

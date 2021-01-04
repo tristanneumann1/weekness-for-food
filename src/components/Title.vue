@@ -6,7 +6,7 @@
       v-slot="{ href, route, navigate }"
     >
       <v-btn
-        fab
+        icon
         color="primary"
         class="ma-2 mr-4"
         :href="href"
@@ -16,11 +16,13 @@
           dark
           large
         >
-          mdi-arrow-left-thick
+          mdi-arrow-left
         </v-icon>
       </v-btn>
     </router-link>
-    <h2>{{title}}</h2>
+    <h2
+      class="justify-center d-flex title-text"
+    >{{title}}</h2>
   </v-col>
 </template>
 
@@ -41,5 +43,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .title-text {
+    width: 100%;
+  }
 </style>

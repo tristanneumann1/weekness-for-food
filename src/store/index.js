@@ -14,8 +14,7 @@ const state = {
   recipes: {},
   ingredients: {},
   searchTerm: '',
-  shoppingCart: localShoppingCart ? JSON.parse(localShoppingCart) : [],
-  tempFilter: false
+  shoppingCart: localShoppingCart ? JSON.parse(localShoppingCart) : []
 }
 
 const ADD_RECIPE = 'ADD_RECIPE'
@@ -93,9 +92,6 @@ const mutations = {
   },
   [CLEAR_CART] (state) {
     state.shoppingCart = []
-  },
-  TEMP_FILTER (state, toggle) {
-    state.tempFilter = toggle
   }
 }
 
@@ -104,6 +100,11 @@ const actions = {
     const ingredientsSet = new Set()
     const client = new FirebaseClient()
     return client.read('recipes', Object.values(state.filters)).then(recipes => {
+      if (!recipes) {
+        commit(SET_RECIPES, [])
+        commit(SET_INGREDIENTS, [])
+        return
+      }
       commit(SET_RECIPES, Object.keys(recipes).reduce((recipeMap, recipeId) => {
         recipeMap[recipeId] = new Recipe({
           ...recipes[recipeId],
@@ -146,7 +147,7 @@ const actions = {
         value: category
       }
     })
-    dispatch('fetchRecipes')
+    return dispatch('fetchRecipes')
   },
   clearUploadedFiles ({ commit }, recipeId) {
     commit(CLEAR_UPLOADED_FILES, recipeId)

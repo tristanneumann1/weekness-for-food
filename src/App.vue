@@ -23,7 +23,8 @@
         >
           <v-container class="fill-height">
             <v-row class="d-flex justify-lg-space-between align-self-end">
-              <v-col>
+              <v-col class="d-flex flex-row">
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
                 <router-link
                   class="title-link"
                   to="/"
@@ -32,27 +33,6 @@
                 </router-link>
               </v-col>
               <v-col class="col-2 pa-0 d-flex flex-row justify-center align-center">
-                <v-app-bar-nav-icon>
-                  <router-link
-                    to="/recipe-form"
-                    v-slot="{ href, route, navigate }"
-                  >
-                    <v-btn
-                      v-if="!isCreateRecipeRoute"
-                      icon
-                      outlined
-                      :href="href"
-                      @click="navigate"
-                    >
-                      <v-icon
-                        dark
-                        large
-                      >
-                        mdi-plus-thick
-                      </v-icon>
-                    </v-btn>
-                  </router-link>
-                </v-app-bar-nav-icon>
                 <v-app-bar-nav-icon class="ml-3">
                   <router-link
                     to="/shopping-cart"
@@ -86,9 +66,63 @@
         <div
           id="main"
           ref="main"
-          class="overflow-y-auto"
+          class="overflow-y-auto pb-10"
           :class="$vuetify.breakpoint.smAndDown ? 'sm' : ''"
         >
+          <v-navigation-drawer
+            absolute
+            v-model="drawer"
+          >
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title class="title">
+                  Menu
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider />
+            <v-list
+              dense
+              nav
+            >
+
+              <router-link to="/shopping-cart">
+                <v-list-item link>
+                  <v-list-item-icon>
+                    <v-icon>mdi-cart</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title>Shopping Cart</v-list-item-title>
+                </v-list-item>
+              </router-link>
+              <v-list-item
+                link
+                @click="clearCart"
+              >
+                <v-list-item-icon>
+                  <v-icon>mdi-cart-remove</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>Empty Cart</v-list-item-title>
+              </v-list-item>
+
+              <router-link to="/recipe-form">
+                <v-list-item link>
+                  <v-list-item-icon>
+                    <v-icon>mdi-plus-thick</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title>Add a recipe</v-list-item-title>
+                </v-list-item>
+              </router-link>
+
+              <router-link to="/categories">
+                <v-list-item link>
+                  <v-list-item-icon>
+                    <v-icon>mdi-format-list-bulleted</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title>Categories</v-list-item-title>
+                </v-list-item>
+              </router-link>
+            </v-list>
+          </v-navigation-drawer>
           <router-view :loadingData="loadingData" />
         </div>
       </v-main>
@@ -119,14 +153,12 @@ export default {
   name: 'App',
   data () {
     return {
-      loadingData: false
+      loadingData: false,
+      drawer: false
     }
   },
   computed: {
     ...mapState(['shoppingCart']),
-    isCreateRecipeRoute() {
-      return this.$route.path === '/recipe-form'
-    },
     isShoppingCartRoute () {
       return this.$route.path === '/shopping-cart'
     },
@@ -136,7 +168,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchRecipes'
+      'fetchRecipes',
+      'clearCart'
     ]),
     scrollToTop () {
       this.$refs.main.scrollTop = 0
@@ -150,6 +183,14 @@ export default {
   }
 };
 </script>
+
+<style>
+#main a {
+  text-decoration: none;
+  color: inherit;
+}
+</style>
+
 <style scoped lang="scss">
 @import '~vuetify/src/styles/settings/_variables';
 #main {

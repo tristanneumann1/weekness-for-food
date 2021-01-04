@@ -2,7 +2,7 @@
   <v-container>
     <v-row no-gutters class="pt-5">
       <Title
-        title="What would you like to cook?"
+        title="What would you like to eat?"
         :back-arrow="false"
       />
     </v-row>
@@ -19,17 +19,10 @@
           clearable
           label="Categories"
           class="ml-md-4"
+          :value="filters.category ? filters.category.value : ''"
           :items="categoryItems"
           @change="categoryFilter"
         />
-      </v-col>
-      <v-col class="col-12">
-        <v-simple-checkbox
-          :ripple="false"
-          :value="tempFilter"
-          @input="toggleTempFilter"
-        />
-        Temporary serving size filter
       </v-col>
     </v-row>
     <v-row
@@ -38,7 +31,7 @@
     >
     </v-row>
     <v-row no-gutters>
-      <h2>You should cook one of these tonight:</h2>
+      <h2>How about:</h2>
     </v-row>
     <v-row no-gutters>
       <RecipeList
@@ -72,16 +65,13 @@ export default {
     }
   },
   computed: {
-    ...mapState(['tempFilter']),
+    ...mapState(['filters']),
     categoryItems () {
-      return categories
+      return Object.values(categories)
     }
   },
   methods: {
-    ...mapActions(['categoryFilter', 'updateSearchTerm']),
-    toggleTempFilter (e) {
-      this.$store.commit('TEMP_FILTER', e)
-    }
+    ...mapActions(['categoryFilter', 'updateSearchTerm'])
   }
 }
 </script>
