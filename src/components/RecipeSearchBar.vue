@@ -3,24 +3,33 @@
     single-line
     append-icon="mdi-magnify"
     label="Search"
-    :value="value"
-    @input="$emit('input', $event)"
+    v-model="localSearchTerm"
     @click:append="search"
     @keyup.enter="search"
   />
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'RecipeSearchBar',
-  props: ['value'],
+  data () {
+    return {
+      localSearchTerm: ''
+    }
+  },
+  computed: {
+    ...mapState(['searchTerm'])
+  },
   methods: {
     ...mapActions(['updateSearchTerm']),
     search () {
-      this.updateSearchTerm(this.value)
+      this.updateSearchTerm(this.localSearchTerm)
     }
+  },
+  mounted () {
+    this.localSearchTerm = this.searchTerm
   }
 }
 </script>

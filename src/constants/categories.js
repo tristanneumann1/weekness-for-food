@@ -26,24 +26,24 @@ export default {
     text: 'Appetizers and snacks',
     color: 'cyan lighten-4'
   },
+  [CHICKEN_DUCK_RABBIT]: {
+    value: CHICKEN_DUCK_RABBIT,
+    text: 'Chicken, duck, rabbit',
+    color: 'red lighten-3'
+  },
   [BEEF]: {
     value: BEEF,
     text: 'Beef',
-    color: 'red accent-1'
+    color: 'red lighten-3'
   },
   [LAMB]: {
     value: LAMB,
     text: 'Lamb',
-    color: 'red accent-1'
+    color: 'red lighten-3'
   },
   [VEAL]: {
     value: VEAL,
     text: 'Veal',
-    color: 'red lighten-3'
-  },
-  [CHICKEN_DUCK_RABBIT]: {
-    value: CHICKEN_DUCK_RABBIT,
-    text: 'Chicken, duck, rabbit',
     color: 'red lighten-3'
   },
   [PORK]: {
@@ -64,7 +64,7 @@ export default {
   [PIZZA]: {
     value: PIZZA,
     text: 'Pizza',
-    color: 'amber lighten-2'
+    color: 'amber lighten-3'
   },
   [SOUPS]: {
     value: SOUPS,
@@ -79,12 +79,12 @@ export default {
   [SIDE_DISHES]: {
     value: SIDE_DISHES,
     text: 'Side dishes',
-    color: 'green lighten-5'
+    color: 'green lighten-4'
   },
   [MISCELLANEOUS_MEALS]: {
     value: MISCELLANEOUS_MEALS,
     text: 'Miscellaneous Meals',
-    color: 'blue-grey lighten-3'
+    color: 'blue-grey lighten-4'
   },
   [MISCELLANEOUS]: {
     value: MISCELLANEOUS,
@@ -94,7 +94,7 @@ export default {
   [BAKED_DESSERTS]: {
     value: BAKED_DESSERTS,
     text: 'Baked desserts',
-    color: 'brown lighten-1'
+    color: 'brown lighten-2'
   },
   [MORE_DESSERTS]: {
     value: MORE_DESSERTS,

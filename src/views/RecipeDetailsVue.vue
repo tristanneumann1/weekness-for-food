@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="top-bar d-flex justify-space-between align-center">
       <Title :title="recipe.name"/>
-      <v-col class="col-auto">
+      <v-col class="col-12 col-md-auto">
         Add to shopping cart:
         <div class="d-flex flex-row align-center justify-space-between">
           <v-text-field
@@ -40,31 +40,33 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col class="col-3 left-bar">
-        <v-row >
-          <h3>Ingredients for</h3>
-        </v-row>
-        <v-row class="mb-3">
-          <b v-if="+recipe.servingSize < 7">
-            <v-icon
-              v-for="account in +recipe.servingSize"
-              :key="account"
-            >mdi-account</v-icon>
-          </b>
-          <b class="ml-2" v-else>
-            {{+recipe.servingSize}}
-            <v-icon>mdi-account</v-icon>
-          </b>
-        </v-row>
-        <v-row>
-          <ul>
-            <li v-for="(ingredient, idx) in ingredients" :key="idx">
-              {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
-            </li>
-          </ul>
-        </v-row>
+      <v-col class="col-12 col-md-3 left-bar d-flex">
+        <v-container>
+          <v-row>
+            <h3>Ingredients for</h3>
+          </v-row>
+          <v-row class="mb-3">
+            <b v-if="+recipe.servingSize < 7">
+              <v-icon
+                v-for="account in +recipe.servingSize"
+                :key="account"
+              >mdi-account</v-icon>
+            </b>
+            <b class="ml-2" v-else>
+              {{+recipe.servingSize}}
+              <v-icon>mdi-account</v-icon>
+            </b>
+          </v-row>
+          <v-row>
+            <ul>
+              <li v-for="(ingredient, idx) in ingredients" :key="idx">
+                {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+              </li>
+            </ul>
+          </v-row>
+        </v-container>
       </v-col>
-      <v-col class="col-9">
+      <v-col class="col-12 col-md-9">
         <v-container>
           <v-row>
             <v-col>
@@ -185,6 +187,7 @@ export default {
 
 <style scoped lang="scss">
   @import '../styles/variables.scss';
+  @import '~vuetify/src/styles/settings/_variables';
   .top-bar {
     border-bottom: $border-color solid 1px;
   }
@@ -192,6 +195,10 @@ export default {
     max-width: 6em;
   }
   .left-bar {
-    border-right: $border-color solid 1px;
+    border-bottom: $border-color solid 1px;
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      border-right: $border-color solid 1px;
+      border-bottom: none;
+    }
   }
 </style>

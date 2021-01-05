@@ -9,7 +9,6 @@
     <v-row no-gutters>
       <v-col class="col-12 col-md-9">
         <RecipeSearchBar
-          v-model="searchTerm"
           :loading="loadingData"
         />
       </v-col>
@@ -59,11 +58,6 @@ export default {
     RecipeList,
     Title
   },
-  data () {
-    return {
-      searchTerm: ''
-    }
-  },
   computed: {
     ...mapState(['filters']),
     categoryItems () {
@@ -71,7 +65,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['categoryFilter', 'updateSearchTerm'])
+    ...mapActions(['categoryFilter'])
   }
 }
 </script>

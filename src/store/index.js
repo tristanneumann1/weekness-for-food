@@ -153,7 +153,7 @@ const actions = {
     commit(CLEAR_UPLOADED_FILES, recipeId)
   },
   updateSearchTerm ({ commit }, searchTerm) {
-    commit(UPDATE_SEARCH_TERMS, searchTerm)
+    commit(UPDATE_SEARCH_TERMS, searchTerm.trim())
   },
   addToShoppingCart ({ commit }, { recipe, servingSize }) {
     commit(ADD_TO_SHOPPING_CART, { recipe, servingSize })
