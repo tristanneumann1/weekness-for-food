@@ -6,7 +6,8 @@ const state = {
   recipes: {},
   ingredients: {},
   searchTerm: '',
-  shoppingCart: localShoppingCart ? JSON.parse(localShoppingCart) : []
+  shoppingCart: localShoppingCart ? JSON.parse(localShoppingCart) : [],
+  user: null
 }
 
 export default state

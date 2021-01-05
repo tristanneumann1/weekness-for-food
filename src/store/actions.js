@@ -78,6 +78,9 @@ const actions = {
   },
   clearCart ({ commit }) {
     commit(types.CLEAR_CART)
+  },
+  signIn ({ commit }, userInfo) {
+    commit(types.SET_USER, userInfo)
   }
 }
 

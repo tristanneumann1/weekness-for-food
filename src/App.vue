@@ -79,6 +79,15 @@
           dense
           nav
         >
+          <v-list-item>
+            <div id="firebaseui-auth-container"/>
+            <div v-if="user">
+              <span>
+                Welcome
+                {{user.name}}
+              </span>
+            </div>
+          </v-list-item>
           <router-link to="/">
             <v-list-item link>
               <v-list-item-icon>
@@ -122,6 +131,13 @@
               <v-list-item-title>Categories</v-list-item-title>
             </v-list-item>
           </router-link>
+          <v-list-item v-if="user">
+            <v-btn
+              text
+              color="error"
+              @click="signOut"
+            >Sign-out</v-btn>
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main>
@@ -156,6 +172,9 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import firebase from 'firebase/app';
+import * as firebaseui from 'firebaseui'
+import 'firebaseui/dist/firebaseui.css'
 
 export default {
   name: 'App',
@@ -166,7 +185,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['shoppingCart']),
+    ...mapState(['shoppingCart', 'user']),
     isShoppingCartRoute () {
       return this.$route.path === '/shopping-cart'
     },
@@ -176,11 +195,42 @@ export default {
   },
   methods: {
     ...mapActions([
+      'signIn',
       'fetchRecipes',
       'clearCart'
     ]),
     scrollToTop () {
       this.$refs.main.scrollTop = 0
+    },
+    setUpSignIn () {
+      const successfulSignIn = (successResponse) => {
+        this.signIn(successResponse.additionalUserInfo?.profile)
+        return false
+      }
+
+      // FirebaseUI config.
+      const uiConfig = {
+        signInFlow: 'popup',
+        signInOptions: [
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          // firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+          // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+        ],
+        callbacks: {
+          signInSuccessWithAuthResult: successfulSignIn
+        }
+      };
+      // // The start method will wait until the DOM is loaded.
+      this.ui.start('#firebaseui-auth-container', uiConfig);
+    },
+    signOut () {
+      firebase.auth().signOut()
+      this.signIn(null)
+      this.setUpSignIn()
     }
   },
   created () {
@@ -188,6 +238,10 @@ export default {
     this.fetchRecipes().finally(() => {
       this.loadingData = false
     })
+    //
+    // // Initialize the FirebaseUI Widget using Firebase.
+    this.ui = new firebaseui.auth.AuthUI(firebase.auth());
+    this.setUpSignIn()
   }
 };
 </script>

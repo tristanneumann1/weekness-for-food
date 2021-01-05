@@ -63,6 +63,9 @@ const mutations = {
   },
   [types.CLEAR_CART] (state) {
     state.shoppingCart = []
+  },
+  [types.SET_USER] (state, userInfo) {
+    state.user = userInfo
   }
 }
 
