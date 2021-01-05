@@ -14,30 +14,34 @@
       <v-col class="bordered col-12 col-md-4">
         <v-container>
           <v-row>
-            <v-icon>mdi-account</v-icon>
+            <v-col class="col-3 d-flex justify-center">
+              <v-icon>mdi-account</v-icon>
+            </v-col>
           </v-row>
           <v-row
-            class="d-flex justify-space-between my-1"
+            class="my-1"
             v-for="cartItem in shoppingCart"
             :key="cartItem.recipe.name"
           >
-            <v-col class="d-flex flex-row align-center">
+            <v-col class="col-3">
               <v-text-field
                 outlined
                 dense
                 hide-details
-                class="serving-size-input mr-1"
+                class="mr-1"
                 type="number"
                 :value="cartItem.servingSize"
                 @input="updateCartItem(cartItem, $event)"
               />
+            </v-col>
+            <v-col class="col-7 d-flex align-center px-0">
               <router-link
                 :to="`/recipe/${cartItem.recipe.id}`"
               >
                 {{cartItem.recipe.name}}
               </router-link>
             </v-col>
-            <v-col class="col-auto">
+            <v-col class="col-2">
               <v-btn
                 icon
                 @click="deleteFromCart(cartItem.recipe.name)"
@@ -146,9 +150,6 @@ export default {
   }
   .bordered {
     border: 1px solid $border-color;
-  }
-  .serving-size-input {
-    max-width: 4em;
   }
   .ingredient-column {
     border-left: $border-color 1px solid;

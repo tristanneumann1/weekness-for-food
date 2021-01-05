@@ -26,7 +26,7 @@
               <v-col class="d-flex flex-row">
                 <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
                 <router-link
-                  class="title-link"
+                  class="title-link d-flex align-center"
                   to="/"
                 >
                   <h1>Weekness for food</h1>
