@@ -1,5 +1,5 @@
 import Ingredient from './Ingredient.js'
-import * as categories from  '@/constants/categories'
+import * as categories from '@/constants/categories'
 
 export default class Recipe {
   constructor (

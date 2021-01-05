@@ -62,6 +62,68 @@
           </v-container>
         </template>
       </v-app-bar>
+      <v-navigation-drawer
+        absolute
+        temporary
+        v-model="drawer"
+      >
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Menu
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider />
+        <v-list
+          dense
+          nav
+        >
+          <router-link to="/">
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon>mdi-home</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item>
+          </router-link>
+          <router-link to="/shopping-cart">
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon>mdi-cart</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Shopping Cart</v-list-item-title>
+            </v-list-item>
+          </router-link>
+          <v-list-item
+            link
+            @click="clearCart"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-cart-remove</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Empty Cart</v-list-item-title>
+          </v-list-item>
+
+          <router-link to="/recipe-form">
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon>mdi-plus-thick</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Add a recipe</v-list-item-title>
+            </v-list-item>
+          </router-link>
+
+          <router-link to="/categories">
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon>mdi-format-list-bulleted</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Categories</v-list-item-title>
+            </v-list-item>
+          </router-link>
+        </v-list>
+      </v-navigation-drawer>
       <v-main>
         <div
           id="main"
@@ -69,60 +131,6 @@
           class="overflow-y-auto pb-10"
           :class="$vuetify.breakpoint.smAndDown ? 'sm' : ''"
         >
-          <v-navigation-drawer
-            absolute
-            v-model="drawer"
-          >
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title class="title">
-                  Menu
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider />
-            <v-list
-              dense
-              nav
-            >
-
-              <router-link to="/shopping-cart">
-                <v-list-item link>
-                  <v-list-item-icon>
-                    <v-icon>mdi-cart</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-title>Shopping Cart</v-list-item-title>
-                </v-list-item>
-              </router-link>
-              <v-list-item
-                link
-                @click="clearCart"
-              >
-                <v-list-item-icon>
-                  <v-icon>mdi-cart-remove</v-icon>
-                </v-list-item-icon>
-                <v-list-item-title>Empty Cart</v-list-item-title>
-              </v-list-item>
-
-              <router-link to="/recipe-form">
-                <v-list-item link>
-                  <v-list-item-icon>
-                    <v-icon>mdi-plus-thick</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-title>Add a recipe</v-list-item-title>
-                </v-list-item>
-              </router-link>
-
-              <router-link to="/categories">
-                <v-list-item link>
-                  <v-list-item-icon>
-                    <v-icon>mdi-format-list-bulleted</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-title>Categories</v-list-item-title>
-                </v-list-item>
-              </router-link>
-            </v-list>
-          </v-navigation-drawer>
           <router-view :loadingData="loadingData" />
         </div>
       </v-main>
@@ -185,7 +193,7 @@ export default {
 </script>
 
 <style>
-#main a {
+#app a {
   text-decoration: none;
   color: inherit;
 }
@@ -202,12 +210,8 @@ export default {
   }
 }
 
-.title-link {
-  color: white;
-  text-decoration: none;
-  h1 {
-    font-size: 1em;
-  }
+.title-link h1{
+  font-size: 1em;
 }
 
 .app-bar--content {

@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import Ingredient from '@/store/Ingredient'
+import Ingredient from '@/entities/Ingredient'
 import { mapGetters } from 'vuex'
 import draggable from 'vuedraggable'
 

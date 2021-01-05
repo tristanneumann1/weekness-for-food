@@ -1,5 +1,29 @@
 <template>
   <v-container>
+    <v-dialog
+      max-width="500px"
+      v-model="dialog"
+    >
+      <v-card tile>
+        <v-card-title>Are you sure you want to delete this recipe?</v-card-title>
+        <v-card-text class="d-flex justify-center">
+          <v-btn
+            text
+            class="mr-3"
+            @click="toggleModal"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            class="ml-3"
+            color="error"
+            @click="onDelete"
+          >
+            Delete
+          </v-btn>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <v-row no-gutters class="d-flex justify-space-between">
       <Title :title="titleText"/>
       <v-col class="col-auto">
@@ -57,7 +81,7 @@
         color="error"
         class="ma-2"
         v-if="deleteButton"
-        @click="onDelete"
+        @click="toggleModal"
       >
         Delete
       </v-btn>
@@ -71,7 +95,7 @@ import ImageManager from '@/components/ImageManager'
 import Title from '@/components/Title'
 import { v4 } from 'uuid'
 import { mapActions, mapState } from 'vuex'
-import Recipe from '@/store/Recipe'
+import Recipe from '@/entities/Recipe'
 
 export default {
   name: 'RecipeFormView',
@@ -104,7 +128,8 @@ export default {
         name: ''
       }),
       id,
-      imageForm: false
+      imageForm: false,
+      dialog: false
     }
   },
   computed: {
@@ -117,6 +142,9 @@ export default {
         recipe: this.recipe,
         id: this.id
       })
+    },
+    toggleModal () {
+      this.dialog = !this.dialog
     },
     onDelete () {
       this.deleteRecipe(this.id)

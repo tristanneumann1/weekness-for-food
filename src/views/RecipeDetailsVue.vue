@@ -26,15 +26,14 @@
             <v-icon>mdi-cart-plus</v-icon>
           </v-btn>
           <v-btn
-            icon
             fab
-            outlined
+            dark
             v-else
             class="ml-3"
-            color="primary"
+            color="error"
             @click="remove"
           >
-            <v-icon>mdi-cart-arrow-up</v-icon>
+            <v-icon dark>mdi-cart-remove</v-icon>
           </v-btn>
         </div>
       </v-col>

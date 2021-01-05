@@ -1,12 +1,36 @@
 <template>
   <v-container>
+    <v-dialog
+      max-width="500px"
+      v-model="dialog"
+    >
+      <v-card tile>
+        <v-card-title>Are you sure you want to clear your cart?</v-card-title>
+        <v-card-text class="d-flex justify-center">
+          <v-btn
+            text
+            class="mr-3"
+            @click="toggleModal"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            class="ml-3"
+            color="error"
+            @click="onCartClear"
+          >
+            Empty
+          </v-btn>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <v-row class="mb-3">
       <Title title="Shopping Cart"/>
       <v-col class="col-auto">
         <v-btn
           color="error"
           :disabled="!shoppingCart.length"
-          @click="clearCart"
+          @click="toggleModal"
         >Empty</v-btn>
       </v-col>
     </v-row>
@@ -92,6 +116,11 @@ export default {
   components: {
     Title
   },
+  data () {
+    return {
+      dialog: false
+    }
+  },
   computed: {
     ...mapState(['shoppingCart']),
     ingredients() {
@@ -133,6 +162,12 @@ export default {
     },
     updateCartItem (cartItem, servingSize) {
       this.updateCartItemServingSize({ recipeName: cartItem.recipe.name, servingSize })
+    },
+    toggleModal () {
+      this.dialog = !this.dialog
+    },
+    onCartClear () {
+      this.clearCart().then(this.toggleModal)
     }
   }
 }
