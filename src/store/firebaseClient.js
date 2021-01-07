@@ -26,25 +26,17 @@ export default class FirebaseClient {
   set (ref, value) {
     const locationRef = this.db.ref(ref)
     return new Promise((resolve, reject) => {
-      locationRef.set(value).then(err => {
-        if (err) {
-          reject(err)
-          return
-        }
+      locationRef.set(value).then(() => {
         resolve('OK')
-      })
+      }).catch(reject)
     })
   }
   delete (ref) {
     const locationRef = this.db.ref(ref)
     return new Promise((resolve, reject) => {
-      locationRef.remove().then(err => {
-        if (err) {
-          reject(err)
-          return
-        }
+      locationRef.remove().then(() => {
         resolve('OK')
-      })
+      }).catch(reject)
     })
   }
   uploadFile (file) {

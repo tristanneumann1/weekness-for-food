@@ -1,5 +1,6 @@
 import * as types from '@/store/mutation-types'
 import Vue from 'vue'
+import ShoppingCartItem from '@/entities/ShoppingCartItem'
 
 const mutations = {
   [types.SET_RECIPES] (state, recipes) {
@@ -42,30 +43,47 @@ const mutations = {
     state.searchTerm = searchTerm
   },
   [types.ADD_TO_SHOPPING_CART] (state, { recipe, servingSize }) {
-    state.shoppingCart.push({
+    state.shoppingCart.push(new ShoppingCartItem({
       recipe,
       servingSize
-    })
+    }))
   },
-  [types.REMOVE_FROM_SHOPPING_CART] (state, { recipeName }) {
-    const recipeIndex = state.shoppingCart.findIndex(cartItem => cartItem.recipe.name === recipeName)
+  [types.REMOVE_FROM_SHOPPING_CART] (state, { recipeId }) {
+    const recipeIndex = state.shoppingCart.findIndex(cartItem => cartItem.itemId === recipeId)
     if (recipeIndex === -1) {
       return
     }
     state.shoppingCart.splice(recipeIndex, 1)
   },
-  [types.CHANGE_CART_ITEM_SERVING_SIZE] (state, { recipeName, servingSize }) {
-    const recipe = state.shoppingCart.find(cartItem => cartItem.recipe.name === recipeName)
+  [types.CHANGE_CART_ITEM_SERVING_SIZE] (state, { recipeId, servingSize }) {
+    const recipe = state.shoppingCart.find(cartItem => cartItem.itemId === recipeId)
     if (!recipe) {
       return
     }
     Vue.set(recipe, 'servingSize', servingSize)
+  },
+  [types.TOGGLE_CART_INGREDIENT] (state, { recipeId, ingredientName, toggle }) {
+    const shoppingCartItem = state.shoppingCart.find(cartItem => cartItem.itemId === recipeId)
+    if (!shoppingCartItem) {
+      return
+    }
+    const ingredient = shoppingCartItem.ingredients.find(ingredient => ingredient.name === ingredientName)
+    if (!ingredient) {
+      return
+    }
+    Vue.set(ingredient, 'toggled', toggle)
   },
   [types.CLEAR_CART] (state) {
     state.shoppingCart = []
   },
   [types.SET_USER] (state, userInfo) {
     state.user = userInfo
+  },
+  [types.SNACK_BAR] (state, { type = 'primary', delay = 5000, message, icon }) {
+    state.snackBar = { type, message, icon }
+    setTimeout(() => {
+      state.snackBar = null
+    }, delay)
   }
 }
 

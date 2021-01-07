@@ -16,7 +16,7 @@ const store =  new Vuex.Store({
 })
 
 store.subscribe((mutation, state) => {
-  if ([types.ADD_TO_SHOPPING_CART, types.CHANGE_CART_ITEM_SERVING_SIZE, types.REMOVE_FROM_SHOPPING_CART, types.CLEAR_CART].includes(mutation.type)) {
+  if ([types.ADD_TO_SHOPPING_CART, types.CHANGE_CART_ITEM_SERVING_SIZE, types.REMOVE_FROM_SHOPPING_CART, types.CLEAR_CART, types.TOGGLE_CART_INGREDIENT].includes(mutation.type)) {
     localStorage.setItem('shoppingCart', JSON.stringify(state.shoppingCart))
   }
 })

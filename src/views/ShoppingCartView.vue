@@ -45,7 +45,7 @@
           <v-row
             class="my-1"
             v-for="cartItem in shoppingCart"
-            :key="cartItem.recipe.name"
+            :key="cartItem.recipeName"
           >
             <v-col class="col-3">
               <v-text-field
@@ -60,15 +60,15 @@
             </v-col>
             <v-col class="col-7 d-flex align-center px-0">
               <router-link
-                :to="`/recipe/${cartItem.recipe.id}`"
+                :to="`/recipe/${cartItem.itemId}`"
               >
-                {{cartItem.recipe.name}}
+                {{cartItem.recipeName}}
               </router-link>
             </v-col>
             <v-col class="col-2">
               <v-btn
                 icon
-                @click="deleteFromCart(cartItem.recipe.name)"
+                @click="deleteFromCart(cartItem.itemId)"
               >
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
@@ -82,16 +82,30 @@
             v-for="ingredient in ingredients"
             :key="ingredient.name"
           >
-            <v-col class="col-8 py-3">
-              {{ingredient.name}}
+            <v-col class="col-1 py-3">
+              <v-simple-checkbox
+                dense
+                hide-details
+                class="mt-0 pt-0"
+                v-for="(quantity, idx) in ingredient.quantities"
+                color="primary"
+                :value="quantity.toggled"
+                :ripple="false"
+                :key="idx"
+                @input="toggleIngredient($event, quantity.recipeId, ingredient.name)"
+              />
             </v-col>
-            <v-col class="col-2 py-3 ingredient-column">
+            <v-col class="col-7 py-3">
+              {{ingredient.name[0].toUpperCase() + ingredient.name.slice(1)}}
+            </v-col>
+            <v-col class="col-2 py-3 ingredient-column d-flex align-center flex-column">
               <div
                 v-for="(quantity, idx) in ingredient.quantities"
                 :key="idx"
+                :class="quantity.toggled ? 'struck' : ''"
               >{{Math.round(quantity.quantity * 100) / 100}}</div>
             </v-col>
-            <v-col class="col-2 py-3 ingredient-column">
+            <v-col class="col-2 py-3 ingredient-column d-flex align-center flex-column">
               <div
                 v-for="(quantity, idx) in ingredient.quantities"
                 :key="idx"
@@ -128,14 +142,16 @@ export default {
         return []
       }
       const ingredientsMap = this.shoppingCart.reduce((ingredientMap, shoppingCartItem) => {
-        shoppingCartItem.recipe.ingredientsV2.forEach(ingredient => {
+        shoppingCartItem.ingredients.forEach(ingredient => {
           if (!ingredientMap[ingredient.name]) {
             ingredientMap[ingredient.name] = []
           }
           ingredientMap[ingredient.name].push({
+            recipeId: shoppingCartItem.itemId,
             name: ingredient.name,
             unit: ingredient.unit,
-            quantity: shoppingCartItem.servingSize * ingredient.quantity / shoppingCartItem.recipe.servingSize
+            quantity: shoppingCartItem.servingSize * ingredient.quantity / shoppingCartItem.recipeServingSize,
+            toggled: ingredient.toggled
           })
         })
         return ingredientMap
@@ -145,7 +161,9 @@ export default {
           return {
             quantities: ingredient.map(ingredientEntry => ({
               quantity: ingredientEntry.quantity,
-              unit: ingredientEntry.unit
+              unit: ingredientEntry.unit,
+              toggled: ingredientEntry.toggled,
+              recipeId: ingredientEntry.recipeId
             })),
             name: ingredient[0].name
           }
@@ -156,15 +174,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['removeFromCart', 'clearCart', 'updateCartItemServingSize']),
-    deleteFromCart (recipeName) {
-      this.removeFromCart({ recipeName })
+    ...mapActions(['removeFromCart', 'clearCart', 'updateCartItemServingSize', 'toggleCartIngredient']),
+    deleteFromCart (recipeId) {
+      this.removeFromCart({ recipeId })
     },
     updateCartItem (cartItem, servingSize) {
-      this.updateCartItemServingSize({ recipeName: cartItem.recipe.name, servingSize })
+      this.updateCartItemServingSize({ recipeId: cartItem.itemId, servingSize })
     },
     toggleModal () {
       this.dialog = !this.dialog
+    },
+    toggleIngredient (e, recipeId, ingredientName) {
+      this.toggleCartIngredient({ recipeId, ingredientName, toggle: e })
     },
     onCartClear () {
       this.clearCart().then(this.toggleModal)
@@ -188,5 +209,8 @@ export default {
   }
   .ingredient-column {
     border-left: $border-color 1px solid;
+  }
+  .struck {
+    text-decoration: line-through;
   }
 </style>

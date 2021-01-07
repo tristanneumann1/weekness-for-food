@@ -133,7 +133,7 @@ export default {
       return this.recipe?.recipeImages || []
     },
     inCart () {
-      return this.recipeInCart(this.recipe.name)
+      return this.recipeInCart({ recipeId: this.recipe.id })
     }
   },
   methods: {
@@ -150,7 +150,7 @@ export default {
       this.addToShoppingCart({ recipe: this.recipe, servingSize: +this.servingSize })
     },
     remove () {
-      this.removeFromCart({ recipeName: this.recipe.name })
+      this.removeFromCart({ recipeId: this.recipe.id })
     }
   },
   created () {

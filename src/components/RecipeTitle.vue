@@ -68,7 +68,7 @@
       </v-card-title>
     </v-col>
     <v-col class="col-auto pa-0">
-      <v-card-actions>
+      <v-card-actions v-if="userLoggedIn">
         <router-link
           :to="`/recipe-form/${id}`"
           v-slot="{ href, route, navigate }"
@@ -104,9 +104,9 @@ export default {
     id:  String
   },
   computed: {
-    ...mapGetters(['recipeInCart']),
+    ...mapGetters(['recipeInCart', 'userLoggedIn']),
     inCart () {
-      return this.recipeInCart(this.name)
+      return this.recipeInCart({ recipeId: this.id })
     }
   },
   methods: {
@@ -115,7 +115,7 @@ export default {
       this.addToShoppingCartById(this.id)
     },
     remove () {
-      this.removeFromCart({ recipeName: this.name })
+      this.removeFromCart({ recipeId: this.id })
     }
   }
 }

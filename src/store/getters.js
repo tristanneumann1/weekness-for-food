@@ -26,8 +26,14 @@ const getters = {
   recipeById: (state) => (recipeId) => {
     return state.recipes[recipeId] || {}
   },
-  recipeInCart: (state) => (recipeName) => {
+  recipeInCart: (state) => ({ recipeName, recipeId }) => {
+    if (recipeId) {
+      return state.shoppingCart.find(cartItem => cartItem.itemId === recipeId)
+    }
     return state.shoppingCart.find(cartItem => cartItem.recipe.name === recipeName)
+  },
+  userLoggedIn: (state) => {
+    return !!state.user
   }
 }
 

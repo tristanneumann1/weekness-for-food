@@ -33,6 +33,12 @@ const actions = {
     return client.set('recipes/' + id, formattedRecipe).then(() => {
       commit(types.ADD_RECIPE, formattedRecipe)
       router.push('/')
+    }).catch((e) => {
+      if (e.code === 'PERMISSION_DENIED') {
+        commit(types.SNACK_BAR, { type: 'error', message: 'You do not seem to have the proper permissions', icon: 'mdi-alert' })
+        return
+      }
+      commit(types.SNACK_BAR, { type: 'error', message: 'An error occurred, please try again', icon: 'mdi-alert' })
     })
   },
   deleteRecipe ({ commit }, recipeId) {
@@ -40,12 +46,24 @@ const actions = {
     return client.delete('recipes/' + recipeId).then(() => {
       commit(types.REMOVE_RECIPE, recipeId)
       router.push('/')
+    }).catch((e) => {
+      if (e.code === 'PERMISSION_DENIED') {
+        commit(types.SNACK_BAR, { type: 'error', message: 'You do not seem to have the proper permissions', icon: 'mdi-alert' })
+        return
+      }
+      commit(types.SNACK_BAR, { type: 'error', message: 'An error occurred, please try again', icon: 'mdi-alert' })
     })
   },
   uploadFile ({ commit }, { file, id: recipeId }) {
     const client = new FirebaseClient()
     return client.uploadFile(file).then(({ url }) =>  {
       commit(types.ADD_FILE, { url, recipeId })
+    }).catch((e) => {
+      if (e.code === 'PERMISSION_DENIED') {
+        commit(types.SNACK_BAR, { type: 'error', message: 'You do not seem to have the proper permissions', icon: 'mdi-alert' })
+        return
+      }
+      commit(types.SNACK_BAR, { type: 'error', message: 'An error occurred, please try again', icon: 'mdi-alert' })
     })
   },
   categoryFilter ({ commit, dispatch }, category) {
@@ -70,17 +88,20 @@ const actions = {
     const recipe = getters.recipeById(recipeId)
     commit(types.ADD_TO_SHOPPING_CART, { recipe, servingSize: recipe.servingSize })
   },
-  removeFromCart ({ commit }, { recipeName }) {
-    commit(types.REMOVE_FROM_SHOPPING_CART, { recipeName })
+  removeFromCart ({ commit }, { recipeId }) {
+    commit(types.REMOVE_FROM_SHOPPING_CART, { recipeId })
   },
-  updateCartItemServingSize ({ commit }, { recipeName, servingSize }) {
-    commit(types.CHANGE_CART_ITEM_SERVING_SIZE, { recipeName, servingSize })
+  updateCartItemServingSize ({ commit }, { recipeId, servingSize }) {
+    commit(types.CHANGE_CART_ITEM_SERVING_SIZE, { recipeId, servingSize })
   },
   clearCart ({ commit }) {
     commit(types.CLEAR_CART)
   },
   signIn ({ commit }, userInfo) {
     commit(types.SET_USER, userInfo)
+  },
+  toggleCartIngredient ({ commit }, { recipeId, ingredientName, toggle }) {
+    commit(types.TOGGLE_CART_INGREDIENT, { recipeId, ingredientName, toggle })
   }
 }
 
