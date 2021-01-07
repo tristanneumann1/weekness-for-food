@@ -79,6 +79,7 @@
       <v-col class="col-12 col-md-8">
         <v-container>
           <v-row
+            class="ingredient-row"
             v-for="ingredient in ingredients"
             :key="ingredient.name"
           >
@@ -212,5 +213,8 @@ export default {
   }
   .struck {
     text-decoration: line-through;
+  }
+  .ingredient-row:nth-child(even) {
+    background-color: #eeeeee;
   }
 </style>
