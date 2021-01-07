@@ -28,6 +28,13 @@ export default {
       this.updateSearchTerm(this.localSearchTerm)
     }
   },
+  watch : {
+    searchTerm (newTerm) {
+      if (this.localSearchTerm !== newTerm) {
+        this.localSearchTerm = newTerm
+      }
+    }
+  },
   mounted () {
     this.localSearchTerm = this.searchTerm
   }

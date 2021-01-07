@@ -79,8 +79,14 @@
           dense
           nav
         >
-          <router-link to="/">
-            <v-list-item link>
+          <router-link
+            to="/"
+            v-slot="{ href, route, navigate }"
+          >
+            <v-list-item link
+             :href="href"
+             @click="goHome(navigate)"
+            >
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
@@ -205,10 +211,18 @@ export default {
     ...mapActions([
       'signIn',
       'fetchRecipes',
-      'clearCart'
+      'clearCart',
+      'updateSearchTerm',
+      'categoryFilter'
     ]),
     scrollToTop () {
       this.$refs.main.scrollTop = 0
+    },
+    goHome (navigate) {
+      Promise.all([
+        this.updateSearchTerm(''),
+        this.categoryFilter(null)
+      ]).then(navigate)
     },
     setUpSignIn () {
       const successfulSignIn = (successResponse) => {
@@ -254,6 +268,16 @@ export default {
 #app a {
   text-decoration: none;
   color: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 </style>
 
