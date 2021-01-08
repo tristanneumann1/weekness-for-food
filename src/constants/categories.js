@@ -19,12 +19,12 @@ export const CHICKEN_DUCK_RABBIT = 'CHICKEN_DUCK_RABBIT'
 export default {
   [APPETIZERS]: {
     value: APPETIZERS,
-    text: 'Appetizers and snacks',
+    text: 'Appetizers and Snacks',
     color: 'cyan lighten-4'
   },
   [CHICKEN_DUCK_RABBIT]: {
     value: CHICKEN_DUCK_RABBIT,
-    text: 'Chicken, duck, rabbit',
+    text: 'Chicken, Duck, Rabbit',
     color: 'red lighten-3'
   },
   [BEEF]: {
@@ -74,7 +74,7 @@ export default {
   },
   [SIDE_DISHES]: {
     value: SIDE_DISHES,
-    text: 'Side dishes',
+    text: 'Side Dishes',
     color: 'green lighten-4'
   },
   [MISCELLANEOUS_MEALS]: {
@@ -84,17 +84,17 @@ export default {
   },
   [MISCELLANEOUS]: {
     value: MISCELLANEOUS,
-    text: 'Miscellaneous miscellaneous',
+    text: 'Miscellaneous Miscellaneous',
     color: 'blue-grey lighten-4'
   },
   [BAKED_DESSERTS]: {
     value: BAKED_DESSERTS,
-    text: 'Baked desserts',
+    text: 'Baked Desserts',
     color: 'brown lighten-2'
   },
   [MORE_DESSERTS]: {
     value: MORE_DESSERTS,
-    text: 'More desserts',
+    text: 'More Desserts',
     color: 'brown lighten-2'
   }
 }
