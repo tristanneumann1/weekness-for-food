@@ -2,7 +2,6 @@ export const PASTA = 'PASTA'
 export const FISH = 'FISH'
 export const SOUPS = 'SOUPS'
 export const VEGGIE = 'VEGGIE'
-
 export const PIZZA = 'PIZZA'
 export const PORK = 'PORK'
 export const BAKED_DESSERTS = 'BAKED_DESSERTS'

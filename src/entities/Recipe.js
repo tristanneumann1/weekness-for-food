@@ -10,7 +10,7 @@ export default class Recipe {
       chefsNotes = '',
       recipeImages = [],
       ingredientsV2 = [],
-      servingSize = 16
+      servingSize = 0
     } = {}
   ) {
     Object.assign(this, {
