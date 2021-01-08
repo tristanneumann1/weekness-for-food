@@ -1,9 +1,11 @@
 <template>
   <v-text-field
     single-line
+    clearable
     append-icon="mdi-magnify"
     label="Search"
     v-model="localSearchTerm"
+    @click:clear="clear"
     @click:append="search"
     @keyup.enter="search"
   />
@@ -26,6 +28,9 @@ export default {
     ...mapActions(['updateSearchTerm']),
     search () {
       this.updateSearchTerm(this.localSearchTerm)
+    },
+    clear() {
+      this.updateSearchTerm('')
     }
   },
   watch : {
