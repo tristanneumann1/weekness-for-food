@@ -15,9 +15,6 @@ const mutations = {
   [types.REMOVE_RECIPE] (state, recipeId) {
     Vue.delete(state.recipes, recipeId)
   },
-  [types.SET_INGREDIENTS] (state, ingredients) {
-    state.ingredients = ingredients
-  },
   [types.UPDATE_FILTER] (state, newFilter) {
     state.filters = {
       ...state.filters,

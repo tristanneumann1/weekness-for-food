@@ -136,7 +136,7 @@
             <div v-if="user">
               <span>
                 Welcome
-                {{user.name}}
+                {{user.displayName}}
               </span>
             </div>
           </v-list-item>
@@ -225,8 +225,11 @@ export default {
       ]).then(navigate)
     },
     setUpSignIn () {
+      if (!this.ui) {
+        this.ui = new firebaseui.auth.AuthUI(firebase.auth());
+      }
       const successfulSignIn = (successResponse) => {
-        this.signIn(successResponse.additionalUserInfo?.profile)
+        this.signIn(successResponse.user)
         return false
       }
 
@@ -254,12 +257,14 @@ export default {
     this.fetchRecipes().finally(() => {
       this.loadingData = false
     })
-    //
-    // // Initialize the FirebaseUI Widget using Firebase.
-    if (!this.ui) {
-      this.ui = new firebaseui.auth.AuthUI(firebase.auth());
-    }
-    this.setUpSignIn()
+    // Initialize the FirebaseUI Widget using Firebase.
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.signIn(user)
+      } else {
+        this.setUpSignIn()
+      }
+    });
   }
 };
 </script>

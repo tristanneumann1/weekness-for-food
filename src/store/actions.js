@@ -5,12 +5,10 @@ import router from '@/router'
 
 const actions = {
   fetchRecipes ({ commit, state }) {
-    const ingredientsSet = new Set()
     const client = new FirebaseClient()
     return client.read('recipes', Object.values(state.filters)).then(recipes => {
       if (!recipes) {
         commit(types.SET_RECIPES, [])
-        commit(types.SET_INGREDIENTS, [])
         return
       }
       commit(types.SET_RECIPES, Object.keys(recipes).reduce((recipeMap, recipeId) => {
@@ -18,10 +16,8 @@ const actions = {
           ...recipes[recipeId],
           id: recipeId
         })
-        recipeMap[recipeId].ingredients.forEach(ingredientsSet.add, ingredientsSet);
         return recipeMap
       }, {}))
-      commit(types.SET_INGREDIENTS, [...ingredientsSet])
     })
   },
   createRecipe ({ commit }, { recipe, id }) {

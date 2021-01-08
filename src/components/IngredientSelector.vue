@@ -28,7 +28,6 @@
               <v-combobox
                 dense
                 hide-details
-                :items="ingredientsList"
                 label="Name"
                 v-model="ingredient.name"
               />
@@ -66,7 +65,6 @@
 
 <script>
 import Ingredient from '@/entities/Ingredient'
-import { mapGetters } from 'vuex'
 import draggable from 'vuedraggable'
 
 export default {
@@ -81,7 +79,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['ingredientsList']),
     ingredients: {
       get () {
         return this.value

@@ -21,14 +21,12 @@
             >
               <RecipeTitle
                 :name="nameCapitalized"
-                :url="url"
                 :id="id"
               />
             </v-img>
             <RecipeTitle
               v-else
               :name="nameCapitalized"
-              :url="url"
               :id="id"
             />
           </v-row>
@@ -47,7 +45,6 @@ export default {
     id: String,
     name: String,
     img: String,
-    url: String,
     category: String
   },
   components: {

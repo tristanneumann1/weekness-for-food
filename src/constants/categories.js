@@ -1,7 +1,3 @@
-export const MEAT = 'MEAT'
-export const DESSERTS = 'DESSERTS'
-export const OTHER = 'OTHER'
-
 export const PASTA = 'PASTA'
 export const FISH = 'FISH'
 export const SOUPS = 'SOUPS'
@@ -100,20 +96,5 @@ export default {
     value: MORE_DESSERTS,
     text: 'More desserts',
     color: 'brown lighten-2'
-  },
-  [DESSERTS]: {
-    value: DESSERTS,
-    text: 'Desserts',
-    color: 'black white--text'
-  },
-  [MEAT]: {
-    value: MEAT,
-    text: 'Meat',
-    color: 'black white--text'
-  },
-  [OTHER]: {
-    value: OTHER,
-    text: 'Other',
-    color: 'black white--text'
   }
 }

@@ -1,7 +1,6 @@
 export const ADD_RECIPE = 'ADD_RECIPE'
 export const REMOVE_RECIPE = 'REMOVE_RECIPE'
 export const SET_RECIPES = 'SET_RECIPES'
-export const SET_INGREDIENTS = 'SET_INGREDIENTS'
 export const UPDATE_FILTER = 'UPDATE_FILTER'
 export const ADD_FILE = 'ADD_FILE'
 export const CLEAR_UPLOADED_FILES = 'CLEAR_UPLOADED_FILES'

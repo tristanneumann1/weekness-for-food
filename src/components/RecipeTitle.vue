@@ -9,21 +9,6 @@
           <v-row>
             <v-col class="col-auto pa-0">
               <v-btn
-                v-if="url"
-                icon
-                x-small
-                fab
-                elevation="3"
-                class="mr-2 grey lighten-3"
-                color="primary"
-                target="_blank"
-                :href="url"
-              >
-                <v-icon dark>
-                  mdi-open-in-new
-                </v-icon>
-              </v-btn>
-              <v-btn
                 v-if="!inCart"
                 icon
                 x-small
@@ -99,7 +84,6 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'RecipeTitle',
   props:  {
-    url: String,
     name: String,
     id:  String
   },

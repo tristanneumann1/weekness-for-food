@@ -6,11 +6,9 @@ export default class Recipe {
     {
       id,
       name,
-      url = '',
       category = categories.MISCELLANEOUS,
       chefsNotes = '',
       recipeImages = [],
-      ingredients = [],
       ingredientsV2 = [],
       servingSize = 16
     } = {}
@@ -18,11 +16,9 @@ export default class Recipe {
     Object.assign(this, {
       id,
       name,
-      url,
       category,
       chefsNotes,
       recipeImages,
-      ingredients: Object.values(ingredients),
       ingredientsV2: ingredientsV2.map((ingredient) => new Ingredient(ingredient)),
       servingSize
     })

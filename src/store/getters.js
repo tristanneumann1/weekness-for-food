@@ -17,9 +17,6 @@ const getters = {
       return recipe1.name > recipe2.name ? 1 : -1
     })
   },
-  ingredientsList (state) {
-    return Object.values(state.ingredients)
-  },
   imagesByRecipe: (state) => (recipeId) => {
     return state.files[recipeId] ? state.files[recipeId] : []
   },
