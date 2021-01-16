@@ -81,8 +81,8 @@
               contain
               :src="imageSrc"
               lazy-src="https://picsum.photos/10/10"
-              :max-width="widths[imageSrc] || 10"
-              :max-height="heights[imageSrc] || 10"
+              :max-width="widths[imageSrc] || 600"
+              :max-height="heights[imageSrc] || 600"
               class="grey lighten-2 ma-2"
             >
               <template v-slot:placeholder>

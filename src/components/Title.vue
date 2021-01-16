@@ -32,7 +32,7 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      default: ''
     },
     backArrow: {
       type: Boolean,
