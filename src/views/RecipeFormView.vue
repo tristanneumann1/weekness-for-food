@@ -70,7 +70,10 @@
       </v-slide-x-reverse-transition>
     </v-row>
     <v-row class="d-flex justify-center">
-      <v-col class="col-12 px-md-16 d-flex flex-row justify-space-between">
+      <v-col
+        :class="deleteButton ? 'justify-space-between' : 'justify-center'"
+        class="col-12 px-md-16 d-flex flex-row"
+      >
         <v-btn
           color="error"
           class="ma-2"
