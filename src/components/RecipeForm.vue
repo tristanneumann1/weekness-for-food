@@ -36,6 +36,7 @@
       <v-row>
         <v-textarea
           outlined
+          auto-grow
           v-model="value.chefsNotes"
           label="Add any additional notes here"
         ></v-textarea>

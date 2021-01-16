@@ -101,16 +101,18 @@
               <v-list-item-title>Shopping Cart</v-list-item-title>
             </v-list-item>
           </router-link>
-          <v-list-item
-            link
-            @click="clearCart"
+          <v-list-group
+            no-action
+            prepend-icon="mdi-cart-remove"
+            color="error"
           >
-            <v-list-item-icon>
-              <v-icon>mdi-cart-remove</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Empty Cart</v-list-item-title>
-          </v-list-item>
-
+            <template v-slot:activator>
+              <v-list-item-title>Empty Cart</v-list-item-title>
+            </template>
+            <v-list-item link>
+              <v-list-item-title @click="clearCart">Are you sure?</v-list-item-title>
+            </v-list-item>
+          </v-list-group>
           <router-link
             v-if="user"
             to="/recipe-form"

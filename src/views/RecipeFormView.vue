@@ -70,21 +70,34 @@
       </v-slide-x-reverse-transition>
     </v-row>
     <v-row class="d-flex justify-center">
-      <v-btn
-        class="ma-2"
-        color="primary"
-        @click="submitForm"
-      >
-        {{ buttonText }}
-      </v-btn>
-      <v-btn
-        color="error"
-        class="ma-2"
-        v-if="deleteButton"
-        @click="toggleModal"
-      >
-        Delete
-      </v-btn>
+      <v-col class="col-12 px-md-16 d-flex flex-row justify-space-between">
+        <v-btn
+          color="error"
+          class="ma-2"
+          v-if="deleteButton"
+          @click="toggleModal"
+        >
+          Delete
+        </v-btn>
+        <div>
+          <router-link to="/">
+            <v-btn
+              text
+              color="error"
+              class="ma-2"
+            >
+              Cancel
+            </v-btn>
+          </router-link>
+          <v-btn
+            class="ma-2"
+            color="primary"
+            @click="submitForm"
+          >
+            {{ buttonText }}
+          </v-btn>
+        </div>
+      </v-col>
     </v-row>
   </v-container>
 </template>
