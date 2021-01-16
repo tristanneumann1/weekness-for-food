@@ -164,7 +164,7 @@
       <v-footer
         fixed
         padless
-        class="d-flex justify-end"
+        class="d-flex justify-end footer"
         color="transparent"
       >
         <snackbar />
@@ -277,6 +277,10 @@ export default {
   color: inherit;
 }
 
+#app.theme--light {
+  background-color: #f0f0f0;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -318,5 +322,11 @@ input[type=number] {
   border-radius: 100%;
   background-color: red;
   font-size: 1em;
+}
+.footer {
+  pointer-events: none;
+  * {
+    pointer-events: all;
+  }
 }
 </style>

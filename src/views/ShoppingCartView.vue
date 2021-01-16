@@ -97,7 +97,7 @@
               />
             </v-col>
             <v-col class="col-7 py-3">
-              {{ingredient.name[0].toUpperCase() + ingredient.name.slice(1)}}
+              {{ingredient.name ? ingredient.name[0].toUpperCase() + ingredient.name.slice(1) : ''}}
             </v-col>
             <v-col class="col-2 py-3 ingredient-column d-flex align-center flex-column">
               <div
@@ -215,6 +215,6 @@ export default {
     text-decoration: line-through;
   }
   .ingredient-row:nth-child(even) {
-    background-color: #eeeeee;
+    background-color: #dddddd;
   }
 </style>

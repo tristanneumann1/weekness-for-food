@@ -2,11 +2,11 @@
   <v-text-field
     single-line
     clearable
-    append-icon="mdi-magnify"
+    prepend-icon="mdi-magnify"
     label="Search"
     v-model="localSearchTerm"
     @click:clear="clear"
-    @click:append="search"
+    @click:prepend="search"
     @keyup.enter="search"
   />
 </template>

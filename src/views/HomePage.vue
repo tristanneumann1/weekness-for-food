@@ -6,7 +6,7 @@
         :back-arrow="false"
       />
     </v-row>
-    <v-row no-gutters>
+    <v-row no-gutters class="d-flex flex-row flex-md-row-reverse">
       <v-col class="col-12 col-md-9">
         <RecipeSearchBar
           :loading="loadingData"
@@ -17,7 +17,7 @@
           outlined
           clearable
           label="Categories"
-          class="ml-md-4"
+          class="mr-md-4"
           :value="filters.category ? filters.category.value : ''"
           :items="categoryItems"
           @change="categoryFilter"
