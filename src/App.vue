@@ -93,6 +93,28 @@
               <v-list-item-title>Home</v-list-item-title>
             </v-list-item>
           </router-link>
+          <router-link to="/categories">
+            <v-list-item link>
+              <v-list-item-icon>
+                <v-icon>mdi-format-list-bulleted</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Categories</v-list-item-title>
+            </v-list-item>
+          </router-link>
+          <component
+            :is="user ? 'router-link' : 'span'"
+            to="/recipe-form"
+          >
+            <v-list-item
+              link
+              :disabled="!user"
+            >
+              <v-list-item-icon>
+                <v-icon :disabled="!user">mdi-plus-thick</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Add a recipe</v-list-item-title>
+            </v-list-item>
+          </component>
           <router-link to="/shopping-cart">
             <v-list-item link>
               <v-list-item-icon>
@@ -103,36 +125,16 @@
           </router-link>
           <v-list-group
             no-action
-            prepend-icon="mdi-cart-remove"
             color="error"
           >
             <template v-slot:activator>
-              <v-list-item-title>Empty Cart</v-list-item-title>
+              <v-list-item-subtitle>Empty Cart</v-list-item-subtitle>
             </template>
             <v-list-item link>
               <v-list-item-title @click="clearCart">Are you sure?</v-list-item-title>
             </v-list-item>
           </v-list-group>
-          <router-link
-            v-if="user"
-            to="/recipe-form"
-          >
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-plus-thick</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Add a recipe</v-list-item-title>
-            </v-list-item>
-          </router-link>
-
-          <router-link to="/categories">
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-format-list-bulleted</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Categories</v-list-item-title>
-            </v-list-item>
-          </router-link>
+          <v-divider />
           <v-list-item>
             <div id="firebaseui-auth-container"/>
             <div v-if="user">
