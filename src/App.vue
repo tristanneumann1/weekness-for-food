@@ -131,7 +131,7 @@
               <v-list-item-subtitle>Empty Cart</v-list-item-subtitle>
             </template>
             <v-list-item link>
-              <v-list-item-title @click="clearCart">Are you sure?</v-list-item-title>
+              <v-list-item-title @click="clearCart">Confirm empty cart</v-list-item-title>
             </v-list-item>
           </v-list-group>
           <v-divider />
