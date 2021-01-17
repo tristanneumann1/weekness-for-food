@@ -69,7 +69,7 @@
         <v-container>
           <v-row>
             <v-col>
-              <p>{{recipe.chefsNotes}}</p>
+              <p class="text-paragraph">{{recipe.chefsNotes}}</p>
             </v-col>
           </v-row>
           <v-row
@@ -199,5 +199,8 @@ export default {
       border-right: $border-color solid 1px;
       border-bottom: none;
     }
+  }
+  .text-paragraph {
+    white-space: pre-line;
   }
 </style>

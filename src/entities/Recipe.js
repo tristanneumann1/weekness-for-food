@@ -19,7 +19,9 @@ export default class Recipe {
       category,
       chefsNotes,
       recipeImages,
-      ingredientsV2: ingredientsV2.map((ingredient) => new Ingredient(ingredient)),
+      ingredientsV2: ingredientsV2.map((ingredient) => new Ingredient(ingredient)).filter(ingredient => {
+        return ingredient.name.length > 0
+      }),
       servingSize
     })
   }
