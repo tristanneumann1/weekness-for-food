@@ -25,7 +25,7 @@
           <v-row>
             <v-col class="md-6 d-flex flex-row pa-0 pr-1">
               <v-icon class="handle">mdi-drag</v-icon>
-              <v-combobox
+              <v-text-field
                 dense
                 hide-details
                 label="Name"
