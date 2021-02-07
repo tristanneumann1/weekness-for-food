@@ -8,7 +8,7 @@
         shrink-on-scroll
         color="rgba(25,32,72,.7)"
         min-height="80"
-        src="https://picsum.photos/1920/1080?random"
+        src="https://firebasestorage.googleapis.com/v0/b/weakness-for-food.appspot.com/o/2880px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg?alt=media"
         scroll-target="#main"
         :height="$vuetify.breakpoint.smAndDown ? 200 : 400"
       >
