@@ -1,3 +1,5 @@
+import { shuffle } from '@/utils/helpers'
+
 const getters = {
   recipesList (state) {
     let recipes = Object.values(state.recipes)
@@ -13,9 +15,7 @@ const getters = {
       })
     }
 
-    return recipes.sort((recipe1, recipe2) => {
-      return recipe1.name > recipe2.name ? 1 : -1
-    })
+    return shuffle(recipes)
   },
   imagesByRecipe: (state) => (recipeId) => {
     return state.files[recipeId] ? state.files[recipeId] : []
